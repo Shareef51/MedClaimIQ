@@ -1,0 +1,67 @@
+{
+  "capability": "reauthorized_recovery_outcome_validation_enterprise_recovery_recertification_sustainability_reclosure_governance",
+  "traceability": "human reauthorization -> reauthorized recovery execution -> evidence -> independent outcome validation -> human residual-risk reassessment -> executive recovery recertification -> sustainability reclosure",
+  "authority": "AI/agents/RAG/MCP/workers recommendation-analysis-monitoring only; human-only risk acceptance, certification, commitment closure, recertification and reclosure",
+  "artifacts": [
+    {
+      "path": "backend/app/domain/regulatory_examination_reauthorized_recovery_outcome_validation.py",
+      "sha256": "590bb4734ee0fa4534fc454f178017189410340d35671eb7cd40c30071ba1abe",
+      "size_bytes": 2423
+    },
+    {
+      "path": "backend/app/evaluation/regulatory_examination_reauthorized_recovery_outcome_validation.py",
+      "sha256": "f30bc0c1733fbf01f6cbd6751f67f1e6266ef8edb33484a49cb490cba88632b5",
+      "size_bytes": 7951
+    },
+    {
+      "path": "backend/app/schemas/regulatory_examination_reauthorized_recovery_outcome_validation.py",
+      "sha256": "23aca6825e63049fda46644c864c21ba90142b8c8154878c3bd8992b3c312d78",
+      "size_bytes": 2742
+    },
+    {
+      "path": "backend/app/services/regulatory_examination_reauthorized_recovery_outcome_validation.py",
+      "sha256": "ad8128cfab305b4fd18e5ecd46dcbfcfb5a43c840a734d77b717904a2a3786a6",
+      "size_bytes": 4491
+    },
+    {
+      "path": "backend/app/api/v1/regulatory_examination_reauthorized_recovery_outcome_validation.py",
+      "sha256": "a7598c48ec28b51bef142cce0886c099984ed19715fc3c7188afc5c46585750b",
+      "size_bytes": 4555
+    },
+    {
+      "path": "backend/app/workers/regulatory_examination_reauthorized_recovery_outcome_validation.py",
+      "sha256": "cc47cfe18d1aef8c881b143475173bc746f937c67a0f85163c67265c3d1c62af",
+      "size_bytes": 1683
+    },
+    {
+      "path": "backend/tests/test_regulatory_examination_reauthorized_recovery_outcome_validation.py",
+      "sha256": "ca94716b28e1277758542476afb5b80eae7bd0361b13e635d2afeaaaea9bad07",
+      "size_bytes": 4094
+    },
+    {
+      "path": "backend/alembic/versions/0084_reg_exam_reauthorized_recovery_outcome_validation.py",
+      "sha256": "c77e7b105c9d91209ab305b2009be17c923134dcf3d1bcc6685a5fe27f4f4ee4",
+      "size_bytes": 2305
+    },
+    {
+      "path": "config/policies/regulatory-examination-reauthorized-recovery-outcome-validation.yaml",
+      "sha256": "fa865cbe218948fd9bd2b39314191bf21dce77baf5f46e8bc46c099764b620ca",
+      "size_bytes": 890
+    },
+    {
+      "path": "sample-data/regulatory/reauthorized_recovery_outcome_validation_scenarios.json",
+      "sha256": "60138668f425bb97a3d841f05cf1905d95b8697ac8cba6ec2904e7ece78b45c2",
+      "size_bytes": 508
+    },
+    {
+      "path": "docs/regulatory-examination-reauthorized-recovery-outcome-validation.md",
+      "sha256": "36a3dbc005f290e2304ee9ba0fcb769aecb0606cc518e7befa8dab684f970364",
+      "size_bytes": 1107
+    },
+    {
+      "path": "scripts/verify_regulatory_examination_reauthorized_recovery_outcome_validation.py",
+      "sha256": "a5962f79f35d60070d67c4e46bdc63b6cf534ec24895e28d12b6e87502bd2ed1",
+      "size_bytes": 1636
+    }
+  ]
+}

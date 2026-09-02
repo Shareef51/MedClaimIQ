@@ -1,0 +1,44 @@
+{
+  "data_classification": "synthetic_only",
+  "tenant_id": "tenant-demo-payer",
+  "claim_id": "claim-demo-001",
+  "patient_subject_id": "patient-demo-001",
+  "documents": [
+    {
+      "domain": "policy",
+      "source_type": "policy_document",
+      "source_id": "policy-demo-001",
+      "source_version": "3",
+      "authority_rank": 95,
+      "evidence_confidence": 0.98,
+      "acl_tags": ["claim_authorized"],
+      "segments": [
+        {"segment_id": "policy-page-7", "unit_type": "text", "page_number": 7, "text": "Synthetic policy example: outpatient specialist services require active coverage on the service date and may require prior authorization when specified by the plan schedule."}
+      ]
+    },
+    {
+      "domain": "invoice",
+      "source_type": "medical_invoice",
+      "source_id": "evidence-invoice-demo-001",
+      "source_version": "1",
+      "authority_rank": 70,
+      "evidence_confidence": 0.91,
+      "acl_tags": ["claim_authorized"],
+      "segments": [
+        {"segment_id": "invoice-table-1", "unit_type": "table", "page_number": 1, "text": "Synthetic invoice line: CPT 99213, service date 2026-08-10, billed amount USD 150.00."}
+      ]
+    },
+    {
+      "domain": "hospital",
+      "source_type": "fhir_explanation_of_benefit",
+      "source_id": "ExplanationOfBenefit/eob-demo-001",
+      "source_version": "1",
+      "authority_rank": 90,
+      "evidence_confidence": 0.96,
+      "acl_tags": ["claim_authorized"],
+      "segments": [
+        {"segment_id": "fhir-eob-item-1", "unit_type": "structured", "text": "Synthetic hospital EOB item: CPT 99213, service date 2026-08-10, submitted amount USD 150.00."}
+      ]
+    }
+  ]
+}

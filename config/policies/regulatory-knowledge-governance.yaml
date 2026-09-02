@@ -1,0 +1,25 @@
+version: 1
+mode: recommendation_and_retrieval_only
+human_authority:
+  authoritative_knowledge_approval: required
+  regulatory_interpretation_validation: required
+  examination_answer_validation: required
+prohibited_ai_actions:
+  - publish_authoritative_regulatory_interpretation
+  - approve_policy_or_control_change
+  - certify_control_effectiveness
+  - close_regulatory_finding
+  - accept_residual_risk
+  - modify_accounting_records
+  - authorize_or_move_money
+knowledge:
+  classes: [authoritative, approved_internal, advisory, historical, superseded]
+  immutable_releases: true
+  temporal_filtering: required
+  citation_required_for_material_claims: true
+  conflict_detection: enabled
+  stale_knowledge_detection: enabled
+security:
+  tenant_isolation: required
+  privileged_material_access_logging: required
+  cross_tenant_graph_traversal: denied

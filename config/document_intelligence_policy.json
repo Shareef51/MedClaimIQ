@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "pipeline_version": "document-intelligence-v1",
+  "parser_timeout_seconds": 120,
+  "max_attempts": 3,
+  "retry_base_delay_seconds": 15,
+  "retry_max_delay_seconds": 300,
+  "minimum_unit_confidence_for_auto_normalization": 0.55,
+  "low_confidence_behavior": "retain_and_flag",
+  "require_source_citation": true,
+  "derived_evidence_relationship": "derived_from",
+  "parser_runtime": {
+    "api_process": false,
+    "isolated_subprocess_local": true,
+    "production_container": "recommended",
+    "network": "deny",
+    "filesystem": "read-only except scratch",
+    "run_as_root": false
+  }
+}

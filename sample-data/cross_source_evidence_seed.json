@@ -1,0 +1,16 @@
+{
+  "claim_id": "claim-synthetic-001",
+  "query": "Does CPT 99213 match the hospital EOB and the policy active on the service date?",
+  "expected_sources": [
+    {"retriever": "sql", "source_type": "structured_claim_db", "source_id": "claim-synthetic-001"},
+    {"retriever": "fhir", "source_type": "fhir", "source_id": "ExplanationOfBenefit/eob-synthetic-001", "source_version": "1"},
+    {"retriever": "graph", "source_type": "evidence_graph", "relationship": "has_line"},
+    {"retriever": "vector", "source_type": "policy", "citation": {"page_number": 8}}
+  ],
+  "expected_behavior": {
+    "arbitrary_sql": false,
+    "bounded_graph": true,
+    "preserve_contradictions": true,
+    "human_final_decision_required": true
+  }
+}

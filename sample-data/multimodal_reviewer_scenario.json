@@ -1,0 +1,10 @@
+{
+  "scenario": "synthetic_invoice_fhir_conflict",
+  "claim_id": "claim-demo-multimodal-review",
+  "evidence": [
+    {"modality": "table", "citation": {"page_number": 2, "bbox": [84, 212, 510, 278]}, "value": "150.00"},
+    {"modality": "fhir", "citation": {"fhir_resource_type": "ExplanationOfBenefit", "fhir_logical_id": "eob-demo", "fhir_version_id": "3"}, "value": "125.00"},
+    {"modality": "video", "citation": {"start_ms": 92000, "frame_index": 47, "frame_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}}
+  ],
+  "expected": {"cross_modal_inconsistency": true, "human_checkpoint_reason": "multimodal_conflict", "final_decision_human_only": true}
+}

@@ -1,0 +1,56 @@
+{{- range $name, $worker := .Values.workers }}
+{{- if $worker.enabled }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medclaimiq-{{ $name }}
+  labels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: {{ $name | quote }}}
+spec:
+  replicas: {{ $worker.replicas }}
+  strategy: {type: RollingUpdate, rollingUpdate: {maxUnavailable: 0, maxSurge: 1}}
+  selector:
+    matchLabels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: {{ $name | quote }}}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: medclaimiq
+        app.kubernetes.io/component: {{ $name | quote }}
+        {{- with $.Values.global.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      serviceAccountName: {{ include "medclaimiq.serviceAccountName" $ }}
+      automountServiceAccountToken: false
+      securityContext: {{ toYaml $.Values.global.podSecurityContext | nindent 8 }}
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector: {matchLabels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: {{ $name | quote }}}}
+      containers:
+        - name: {{ $name }}
+          image: {{ include "medclaimiq.image" $.Values.images.api | quote }}
+          command: {{ toJson $worker.command }}
+          securityContext: {{ toYaml $.Values.global.containerSecurityContext | nindent 12 }}
+          envFrom: [{configMapRef: {name: medclaimiq-runtime}}]
+          env:
+            - name: DATABASE_URL
+              valueFrom: {secretKeyRef: {name: medclaimiq-runtime-secrets, key: {{ $.Values.managedServices.databaseUrlSecretKey }}}}
+            - name: REDIS_URL
+              valueFrom: {secretKeyRef: {name: medclaimiq-runtime-secrets, key: {{ $.Values.managedServices.redisUrlSecretKey }}}}
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              valueFrom: {secretKeyRef: {name: medclaimiq-runtime-secrets, key: {{ $.Values.managedServices.kafkaBootstrapSecretKey }}}}
+            - name: COMMUNICATION_DESTINATION_ENCRYPTION_SECRET
+              valueFrom: {secretKeyRef: {name: medclaimiq-runtime-secrets, key: {{ $.Values.managedServices.communicationDestinationSecretKey }}}}
+            - name: COMMUNICATION_PROVIDER_WEBHOOK_SECRET
+              valueFrom: {secretKeyRef: {name: medclaimiq-runtime-secrets, key: {{ $.Values.managedServices.communicationWebhookSecretKey }}}}
+            - name: COMMUNICATION_WORKER_TOKEN
+              valueFrom: {secretKeyRef: {name: medclaimiq-runtime-secrets, key: {{ $.Values.managedServices.communicationWorkerTokenSecretKey }}}}
+            - name: FINANCIAL_SETTLEMENT_WEBHOOK_SECRET
+              valueFrom: {secretKeyRef: {name: medclaimiq-runtime-secrets, key: {{ $.Values.managedServices.financialSettlementWebhookSecretKey }}}}
+          volumeMounts: [{name: tmp, mountPath: /tmp}]
+          resources: {{ toYaml $.Values.workerResources | nindent 12 }}
+      volumes: [{name: tmp, emptyDir: {sizeLimit: 128Mi}}]
+{{- end }}
+{{- end }}

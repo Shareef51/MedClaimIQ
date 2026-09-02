@@ -1,0 +1,37 @@
+policy_id: regulatory-examination-reauthorized-enterprise-remediation-execution
+version: 1
+mode: monitoring_recommendation_only
+release99_provenance:
+  enterprise_remediation_reauthorization_version_required: true
+  human_reauthorization_confirmation_required: true
+  authorized_decision_required: authorize
+human_authority:
+  remediation_execution_intake_required: true
+  root_cause_treatment_owner_confirmation_required: true
+  control_retransformation_approval_required: true
+  residual_systemic_risk_acceptance_required: true
+  recovery_effectiveness_certification_required: true
+  regulatory_commitment_closure_required: true
+  recovery_program_reclosure_required: true
+independent_assurance:
+  recovery_effectiveness_assurance_required: true
+  segregation_of_duties_required: true
+  roles: [internal_auditor, chief_audit_executive, independent_assurance, independent_validator]
+executive_supervisory_oversight:
+  required: true
+immutability:
+  execution_versions: true
+  checkpoint_versions: true
+  assurance_versions: true
+prohibited_automation:
+  - remediation_execution_approval
+  - control_retransformation_approval
+  - residual_systemic_risk_acceptance
+  - recovery_effectiveness_certification
+  - regulatory_commitment_closure
+  - recovery_program_reclosure
+  - regulator_intent_representation
+  - accounting_record_mutation
+  - payment_authorization
+  - funds_collection
+  - funds_movement

@@ -1,0 +1,11 @@
+{
+  "policy_version":"1.0.0",
+  "recommendation_only_ai":true,
+  "post_reclosure_surveillance_enabled":true,
+  "multi_cycle_recurrence_thresholds":{"moderate":35,"high":60,"critical":80},
+  "mandatory_repeated_failure_reviews":["executive","internal_audit"],
+  "human_investigation_required":true,
+  "automatic_program_reopening_allowed":false,
+  "automatic_program_reclosure_allowed":false,
+  "forbidden_ai_actions":["reopen_program","reclose_program","accept_residual_systemic_risk","certify_effectiveness","represent_regulator_intent","alter_accounting_records","authorize_payments","collect_funds","move_money"]
+}

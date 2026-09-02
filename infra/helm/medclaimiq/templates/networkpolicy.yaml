@@ -1,0 +1,57 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: {name: default-deny}
+spec:
+  podSelector: {}
+  policyTypes: [Ingress, Egress]
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: {name: allow-ingress-controller}
+spec:
+  podSelector:
+    matchExpressions:
+      - {key: app.kubernetes.io/component, operator: In, values: [api, frontend]}
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - namespaceSelector: {matchLabels: {kubernetes.io/metadata.name: {{ .Values.networkPolicy.ingressControllerNamespace | quote }}}}
+          podSelector: {matchLabels: {{ toJson .Values.networkPolicy.ingressControllerPodLabels }}}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: {name: allow-frontend-to-api}
+spec:
+  podSelector: {matchLabels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: api}}
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - podSelector: {matchLabels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: frontend}}
+      ports: [{protocol: TCP, port: 8000}]
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: {name: allow-required-egress}
+spec:
+  podSelector: {}
+  policyTypes: [Egress]
+  egress:
+    - to:
+        - namespaceSelector: {matchLabels: {kubernetes.io/metadata.name: kube-system}}
+      ports: [{protocol: UDP, port: 53}, {protocol: TCP, port: 53}]
+    - to:
+        - ipBlock: {cidr: 0.0.0.0/0, except: [169.254.169.254/32]}
+      ports: [{protocol: TCP, port: 443}]
+    {{- range $cidr := .Values.networkPolicy.managedServiceCidrs }}
+    - to:
+        - ipBlock: {cidr: {{ $cidr | quote }}}
+      ports:
+        {{- range $port := $.Values.networkPolicy.managedServicePorts }}
+        - {protocol: TCP, port: {{ $port }}}
+        {{- end }}
+    {{- end }}
+    - to:
+        - podSelector: {matchLabels: {app.kubernetes.io/name: medclaimiq}}
+      ports: [{protocol: TCP, port: 8000}, {protocol: TCP, port: 3000}]
+{{- end }}

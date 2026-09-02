@@ -1,0 +1,36 @@
+{
+  "release": 103,
+  "name": "Reopened Reauthorized Enterprise Remediation Investigation",
+  "synthetic_only": true,
+  "scenarios": [
+    {
+      "scenario_id": "p103-persistent-treatment-failure",
+      "recovery_program_id": "erp-synth-103-a",
+      "release102_enterprise_recovery_reopening_version_id": "synthetic-p102-reopen-a",
+      "release102_human_enterprise_reopening_verified": true,
+      "persistent_root_causes": ["rc-access-governance", "rc-evidence-freshness"],
+      "failed_treatments": ["treatment-access-redesign", "treatment-evidence-refresh"],
+      "affected_entities": ["entity-us", "entity-eu", "entity-apac"],
+      "expected_governance": "human root-cause confirmation, independent challenge and executive reauthorization required"
+    },
+    {
+      "scenario_id": "p103-emergent-systemic-cause",
+      "recovery_program_id": "erp-synth-103-b",
+      "release102_enterprise_recovery_reopening_version_id": "synthetic-p102-reopen-b",
+      "release102_human_enterprise_reopening_verified": true,
+      "emergent_root_causes": ["rc-new-third-party-control-gap"],
+      "regulatory_commitment_breach": true,
+      "systemic_risk_rebound": true,
+      "expected_governance": "AI proposal only; human classification and reauthorization required"
+    },
+    {
+      "scenario_id": "p103-sod-denial",
+      "recovery_program_id": "erp-synth-103-c",
+      "release102_enterprise_recovery_reopening_version_id": "synthetic-p102-reopen-c",
+      "release102_human_enterprise_reopening_verified": true,
+      "investigation_owner_actor_id": "auditor-a",
+      "independent_challenger_actor_id": "auditor-a",
+      "expected_result": "deny independent challenge because segregation of duties is violated"
+    }
+  ]
+}

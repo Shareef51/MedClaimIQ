@@ -1,0 +1,20 @@
+policy: regulatory-examination-reclosed-recovery-sustainability
+mode: recommendation-monitoring-only
+thresholds:
+  moderate_decay_score: 25
+  high_decay_score: 50
+  critical_decay_score: 75
+  repeated_failure_cycles: 2
+  systemic_cross_entity_count: 3
+authority:
+  automated_program_reopening: false
+  automated_program_reclosure: false
+  automated_residual_risk_acceptance: false
+  automated_recovery_certification: false
+  mandatory_human_investigation_for_repeated_failure: true
+  mandatory_executive_internal_audit_challenge: true
+prohibited:
+  - accounting_record_mutation
+  - payment_authorization
+  - fund_collection
+  - fund_movement

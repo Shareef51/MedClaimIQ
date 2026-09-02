@@ -1,0 +1,7 @@
+[
+  {"scenario":"complete_request","expected":"100 readiness only after approved evidence and citations"},
+  {"scenario":"privileged_evidence","expected":"legal privileged evidence is segregated and not silently cited"},
+  {"scenario":"conflicting_versions","expected":"conflict is surfaced and requires human resolution"},
+  {"scenario":"late_request","expected":"worker flags SLA risk but cannot approve or submit"},
+  {"scenario":"ai_draft","expected":"draft requires explicit human response approval"}
+]

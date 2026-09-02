@@ -1,0 +1,501 @@
+{
+  "run_id": "eval-91b25177-5b98-4a2d-bfd1-ca7ebfe37461",
+  "dataset_version": "medclaimiq-agent-evals-2026.08-v1",
+  "candidate_version": "sample-release",
+  "baseline_version": "agent-baseline-1",
+  "cases": [
+    {
+      "case_id": "intake-scope",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1300.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "hospital-conflict",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1320.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "invoice-amount-mismatch",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1340.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "missing-eligibility",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1360.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "policy-supported",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1380.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "coding-mismatch",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1400.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "duplicate-signal",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1420.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "fraud-signal-not-accusation",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1440.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "denial-risk-missing-auth",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1460.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "fusion-preserves-conflict",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1480.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "critic-unsupported-finding",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1500.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "decision-support-advisory",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1520.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    },
+    {
+      "case_id": "human-review-routing",
+      "suite": "agents",
+      "passed": true,
+      "metrics": [
+        {
+          "metric": "agent_structured_output_accuracy",
+          "value": 1.0,
+          "threshold": 0.95,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        },
+        {
+          "metric": "agent_evidence_key_accuracy",
+          "value": 1.0,
+          "threshold": 0.98,
+          "higher_is_better": true,
+          "suite": "agents",
+          "numerator": null,
+          "denominator": null,
+          "details": {}
+        }
+      ],
+      "reasons": [],
+      "latency_ms": 1540.0,
+      "input_tokens": 1600,
+      "output_tokens": 220,
+      "estimated_cost_usd": 0.00496
+    }
+  ],
+  "metrics": [
+    {
+      "metric": "agent_evidence_key_accuracy",
+      "value": 1.0,
+      "threshold": 0.98,
+      "higher_is_better": true,
+      "suite": "aggregate",
+      "numerator": null,
+      "denominator": null,
+      "details": {
+        "baseline_value": 1.0,
+        "delta": 0.0
+      }
+    },
+    {
+      "metric": "agent_structured_output_accuracy",
+      "value": 1.0,
+      "threshold": 0.95,
+      "higher_is_better": true,
+      "suite": "aggregate",
+      "numerator": null,
+      "denominator": null,
+      "details": {
+        "baseline_value": 1.0,
+        "delta": 0.0
+      }
+    },
+    {
+      "metric": "latency_p50_ms",
+      "value": 1420.0,
+      "threshold": 2500,
+      "higher_is_better": false,
+      "suite": "performance",
+      "numerator": null,
+      "denominator": null,
+      "details": {}
+    },
+    {
+      "metric": "latency_p95_ms",
+      "value": 1540.0,
+      "threshold": 8000,
+      "higher_is_better": false,
+      "suite": "performance",
+      "numerator": null,
+      "denominator": null,
+      "details": {
+        "baseline_value": 2500.0,
+        "delta": -960.0
+      }
+    },
+    {
+      "metric": "mean_cost_usd",
+      "value": 0.00496,
+      "threshold": 0.08,
+      "higher_is_better": false,
+      "suite": "performance",
+      "numerator": null,
+      "denominator": null,
+      "details": {
+        "baseline_value": 0.01,
+        "delta": -0.00504
+      }
+    },
+    {
+      "metric": "case_pass_rate",
+      "value": 1.0,
+      "threshold": 0.95,
+      "higher_is_better": true,
+      "suite": "aggregate",
+      "numerator": null,
+      "denominator": null,
+      "details": {}
+    }
+  ],
+  "decision": "pass",
+  "regression_reasons": [],
+  "config_sha256": "0ab04968c8199e0d82957594d4541c8bf00591f2e4c2a8197c4ba0182b21d6f7"
+}

@@ -1,0 +1,12 @@
+{
+  "synthetic": true,
+  "claim_id": "claim-review-demo-001",
+  "queue": {"priority_band": "critical", "reasons": ["human_review", "overdue_sla", "material_contradiction"]},
+  "ai_recommendation": "support_approval",
+  "human_review": {
+    "decision": "deny",
+    "reason_codes": ["evidence_contradicts", "human_judgment"],
+    "override_reason": "Synthetic reviewer determined the authoritative hospital evidence conflicts with the advisory AI recommendation."
+  },
+  "note": "Synthetic/de-identified demonstration data only."
+}

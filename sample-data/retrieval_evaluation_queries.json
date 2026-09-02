@@ -1,0 +1,21 @@
+[
+  {
+    "query_id": "rq-policy-prior-auth",
+    "query": "Does CPT 99213 require prior authorization under the policy active on 2026-08-10?",
+    "expected_domains": ["policy", "coding"],
+    "expected_exact_terms": ["99213"],
+    "expected_behavior": "hybrid retrieval with temporal filtering and citation-preserving evidence"
+  },
+  {
+    "query_id": "rq-invoice-hospital",
+    "query": "Compare the invoice charge with the hospital EOB for the same service",
+    "expected_domains": ["invoice", "hospital"],
+    "expected_behavior": "cross-domain dense+sparse retrieval followed by RRF and evidence-aware reranking"
+  },
+  {
+    "query_id": "rq-no-evidence",
+    "query": "Show evidence for an unsupported procedure that is not present in this claim",
+    "expected_domains": ["claim", "evidence"],
+    "expected_behavior": "return explicit no_evidence when confidence is insufficient; do not invent support"
+  }
+]

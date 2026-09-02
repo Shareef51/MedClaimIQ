@@ -1,0 +1,6 @@
+[
+  {"scenario":"repeated_operating_failure","control_id":"CTRL-AML-102","exceptions":4,"entities":["US","UK","EU"],"expected":"enterprise_issue_candidate"},
+  {"scenario":"design_gap_cross_entity","control_id":"CTRL-DATA-204","exceptions":3,"entities":["US","EU","APAC"],"expected":"candidate_material_weakness_requires_human_escalation"},
+  {"scenario":"compensating_control","control_id":"CTRL-OPS-330","exceptions":2,"entities":["US"],"expected":"track_compensating_control_and_remediation"},
+  {"scenario":"failed_retest","control_id":"CTRL-FIN-410","exceptions":5,"entities":["US","UK"],"expected":"closure_blocked"}
+]

@@ -1,0 +1,18 @@
+{
+  "release":109,
+  "drills":[
+    {"surface":"API/claims","tool":"k6","asset":"performance/k6/api_claims.js","modes":["load","stress","soak"]},
+    {"surface":"RAG/agents/MCP","tool":"k6","asset":"performance/k6/rag_agents_mcp.js","modes":["load","stress"]},
+    {"surface":"SSE","tool":"k6","asset":"performance/k6/sse_scale.js","modes":["connection-scale","reconnect"]},
+    {"surface":"stateful reviewer/provider journeys","tool":"Locust","asset":"performance/locust/locustfile.py","modes":["concurrency","soak"]},
+    {"surface":"Kafka","tool":"Python stress harness","asset":"performance/kafka/backlog_stress.py","modes":["backlog","consumer-recovery"]},
+    {"surface":"PostgreSQL","tool":"Chaos Mesh","asset":"chaos/chaos-mesh/postgres-network-partition.yaml","modes":["network-partition"]},
+    {"surface":"Redis","tool":"Chaos Mesh","asset":"chaos/chaos-mesh/redis-network-loss.yaml","modes":["packet-loss"]},
+    {"surface":"Kafka","tool":"Chaos Mesh","asset":"chaos/chaos-mesh/kafka-network-partition.yaml","modes":["network-partition"]},
+    {"surface":"Vector store","tool":"Chaos Mesh","asset":"chaos/chaos-mesh/qdrant-network-delay.yaml","modes":["latency"]},
+    {"surface":"API pods","tool":"Chaos Mesh","asset":"chaos/chaos-mesh/api-pod-kill.yaml","modes":["pod-loss"]},
+    {"surface":"backup/restore","tool":"governed DR runbook","asset":"infra/dr/backup-restore-matrix.json","modes":["restore","checksum","PITR"]},
+    {"surface":"regional DR","tool":"governed DR runbook","asset":"infra/dr/dr-objectives.json","modes":["failover","failback","RPO","RTO"]}
+  ],
+  "execution_policy":"Live chaos, DR and destructive experiments require authorized non-production or specifically approved production targets and human approval."
+}

@@ -1,0 +1,29 @@
+{
+  "release": 107,
+  "name": "production-end-to-end-system-integration-cross-domain-regression-release-candidate-hardening",
+  "migration": "0102_release_candidate_hardening",
+  "required_gates": [
+    "cross_domain_golden_journeys",
+    "api_contract_regression",
+    "tenant_isolation",
+    "durable_workflow_recovery",
+    "event_sse_integrity",
+    "failure_injection_resilience",
+    "migration_chain_integrity",
+    "security_readiness",
+    "ai_evaluation_quality",
+    "release_engineering_controls"
+  ],
+  "human_authority": {
+    "release_candidate_declaration": true,
+    "production_promotion": true
+  },
+  "automated_production_promotion": false,
+  "evidence_bundle": [
+    "artifacts/release/cross_domain_coverage_matrix.json",
+    "sample-data/release-candidate/golden_journeys.json",
+    "sample-data/release-candidate/failure_injection_matrix.json",
+    "schemas/release/release-candidate-readiness.schema.json",
+    "artifacts/release/production_readiness_report.json"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "policy_version": "1.0.0",
+  "template_key": "medical_claim_decision_notice",
+  "template_version": "2.0.0",
+  "regulatory_notice_delivery_hours": 24,
+  "regulatory_notices_bypass_marketing_opt_out": true,
+  "required_default_channel": "portal",
+  "supported_channels": ["portal", "email", "sms"],
+  "supported_locales": ["en", "es", "ar"],
+  "localized_templates": {
+    "en": {
+      "subject": "Medical claim decision notice — {claim_id}",
+      "body": "{decision_summary} Reasons: {reasons} Appeal rights: {appeal_rights} {human_authority_statement}"
+    },
+    "es": {
+      "subject": "Aviso de decisión de reclamación médica — {claim_id}",
+      "body": "Resultado revisado por una persona autorizada: {decision}. Motivos: {reasons} Derechos de apelación: {appeal_rights} {human_authority_statement}"
+    },
+    "ar": {
+      "subject": "إشعار قرار المطالبة الطبية — {claim_id}",
+      "body": "نتيجة تمت مراجعتها بواسطة مراجع بشري مخول: {decision}. الأسباب: {reasons} حقوق الاستئناف: {appeal_rights} {human_authority_statement}"
+    }
+  },
+  "accessibility": {
+    "wcag_target": "2.2-AA",
+    "plain_text_alternative_required": true,
+    "semantic_html_required": true,
+    "pdf_text_layer_required": true,
+    "language_metadata_required": true
+  },
+  "retention": {
+    "default_days": 2555,
+    "automatic_destructive_purge": false,
+    "legal_hold_blocks_disposition": true
+  },
+  "human_authority": {
+    "workers_can_adjudicate": false,
+    "providers_can_adjudicate": false,
+    "ai_can_issue_or_overturn": false,
+    "financial_execution": false
+  }
+}

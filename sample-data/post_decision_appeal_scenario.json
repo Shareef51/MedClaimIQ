@@ -1,0 +1,31 @@
+{
+  "scenario_id": "synthetic-appeal-001",
+  "synthetic_only": true,
+  "original_human_decision": {
+    "decision": "approve",
+    "reason_codes": ["evidence_supports"],
+    "evidence_snapshot": ["ev-original"]
+  },
+  "notice": {
+    "audience": "patient",
+    "template_key": "medical_claim_decision_notice",
+    "release_requires_human": true
+  },
+  "appeal": {
+    "grounds": ["new_evidence", "factual_error"],
+    "supplemental_evidence": ["ev-appeal"],
+    "independent_reviewer_required": true,
+    "example_resolution": {
+      "outcome": "overturn",
+      "controlling_decision": "deny",
+      "human_only": true
+    }
+  },
+  "safety": {
+    "llm_can_issue_or_overturn": false,
+    "langgraph_can_issue_or_overturn": false,
+    "rag_can_issue_or_overturn": false,
+    "mcp_can_issue_or_overturn": false,
+    "automated_financial_execution": false
+  }
+}

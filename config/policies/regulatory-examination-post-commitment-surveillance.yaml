@@ -1,0 +1,22 @@
+version: 1
+mode: supervisory_monitoring_only
+surveillance:
+  warning_health_score: 80
+  critical_health_score: 60
+  decay_points_for_review: 15
+  cross_entity_minimum: 2
+reopening:
+  human_decision_required: true
+  authorized_roles:
+    - regulatory_affairs
+    - compliance_reviewer
+    - internal_auditor
+    - executive_certifier
+  independent_reassessment_required: true
+authority:
+  ai_can_reopen_commitment: false
+  worker_can_reopen_commitment: false
+  ai_can_close_regulatory_commitment: false
+  worker_can_certify_effectiveness: false
+  accounting_mutation_allowed: false
+  payment_authority_allowed: false

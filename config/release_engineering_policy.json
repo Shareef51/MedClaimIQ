@@ -1,0 +1,90 @@
+{
+  "policy_version": "release-policy-v1",
+  "gitops": {
+    "controller": "argocd",
+    "argocd_minor": "3.5",
+    "argo_rollouts_version": "1.9.1",
+    "desired_state_branch": "main",
+    "direct_kubectl_from_release_ci": false,
+    "auto_sync_staging": true,
+    "auto_sync_production": false
+  },
+  "images": {
+    "immutable_digest_required": true,
+    "cosign_signature_required": true,
+    "provenance_required": true,
+    "sbom_required": true
+  },
+  "promotion": {
+    "source_environment": "staging",
+    "target_environment": "production",
+    "staging_soak_minutes": 30,
+    "production_soak_minutes": 30,
+    "production_human_approval_required": true,
+    "prevent_self_approval_recommended": true,
+    "single_active_production_deployment": true
+  },
+  "gates": {
+    "required": [
+      "unit-integration-tests",
+      "ai-quality",
+      "security-readiness",
+      "infrastructure-quality",
+      "performance-resilience",
+      "ai-configuration-governance",
+      "knowledge-governance",
+      "advanced-rag-quality",
+      "multimodal-rag-quality",
+      "multimodal-agent-quality",
+      "multimodal-reviewer-quality",
+      "governed-human-closure-quality",
+      "post-decision-appeals-quality",
+      "communication-delivery-quality",
+      "appeal-reconsideration-quality",
+      "appeal-resolution-quality",
+      "migration-compatibility",
+      "image-signature",
+      "sbom",
+      "provenance"
+    ],
+    "critical_failures_allowed": 0,
+    "promotion_required": [
+      "staging-smoke",
+      "staging-soak",
+      "production-approval"
+    ]
+  },
+  "migrations": {
+    "strategy": "expand-contract",
+    "destructive_upgrade_operations_blocked": true,
+    "blocked_upgrade_calls": [
+      "drop_table",
+      "drop_column",
+      "drop_constraint"
+    ],
+    "manual_exception_requires_production_approval": true,
+    "deployed_baseline_example": "0021_security_privacy_devsecops"
+  },
+  "progressive_delivery": {
+    "default_strategy": "canary",
+    "canary_weights": [
+      10,
+      25,
+      50,
+      100
+    ],
+    "rollback_on_analysis_failure": true,
+    "abort_scale_down_delay_seconds": 30
+  },
+  "rollback": {
+    "prefer_git_revert": true,
+    "database_contract_migration_not_automatic": true,
+    "rollback_on_smoke_failure": true,
+    "rollback_on_slo_breach": true
+  },
+  "audit": {
+    "deployment_history_immutable": true,
+    "release_manifest_sha256_required": true,
+    "store_gate_results": true
+  }
+}

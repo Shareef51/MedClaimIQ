@@ -1,0 +1,5 @@
+[
+ {"scenario":"material_weakness_candidate","deficiency_key":"CTRL-REVREC:operating","recurrence_count":4,"cross_control_impacts":["CTRL-GL-02","CTRL-REPORT-09"],"expected":"independent_human_classification"},
+ {"scenario":"expired_compensating_control","deficiency_key":"CTRL-AML-17:design","expected":"executive_escalation"},
+ {"scenario":"overdue_corrective_action","deficiency_key":"CTRL-DATA-88:sustainability","expected":"sla_escalation"}
+]

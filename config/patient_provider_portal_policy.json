@@ -1,0 +1,8 @@
+{
+  "allowed_roles": ["patient", "provider", "hospital_admin"],
+  "claim_relationships": {"patient": "patient_subject_id", "provider": "provider_organization_id", "hospital_admin": "provider_organization_id"},
+  "visible": ["claim_status", "requested_documents", "own_submissions", "safe_verification_status", "deadlines", "safe_timeline"],
+  "hidden": ["fraud_signals", "denial_risk", "agent_reasoning", "critic_internals", "reviewer_notes", "graph_contradictions", "mcp_internals"],
+  "upload": {"quarantine_first": true, "signed": true, "security_acceptance_required": true},
+  "realtime": {"allowlisted_events_only": true, "raw_evidence": false}
+}

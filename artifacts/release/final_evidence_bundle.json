@@ -1,0 +1,9 @@
+{
+  "release": 110,
+  "files": {
+    "artifacts/release/final_release_manifest.json": "d538881728a39ec76ab19a2ad66cad270a6a62bbd3e9ced2095b6bc69f4ab7b7",
+    "artifacts/release/final_production_readiness_report.json": "1d3cf8edd591a89a1b0ce7dc2f9f5c488b45e9acd4f0d940e226b1e1912d3d3f",
+    "artifacts/release/final_audit_evidence_index.json": "4586b535c4423a2210adb54cea14574e6ae605584323399cecdb61f58b4a320f"
+  },
+  "bundle_hash": "55c03339eef289cb358679981df95d6b2f3a343bff61554593d8354c00838bcd"
+}

@@ -1,0 +1,22 @@
+policy_version: "1.0"
+mode: governed_live_examination_response
+human_authority:
+  response_approval_required: true
+  submission_authorization_required: true
+  autonomous_regulator_transmission: false
+  regulator_impersonation: false
+ai_permissions:
+  examiner_question_triage: recommendation_only
+  evidence_retrieval: allowed_with_tenant_and_classification_filters
+  contradiction_detection: recommendation_only
+  response_drafting: draft_only
+  amendment_recommendation: recommendation_only
+  submission_approval: forbidden
+  regulator_transmission: forbidden
+controls:
+  evidence_version_refresh_required: true
+  immutable_response_revisions: true
+  legal_compliance_review_routes: true
+  submission_receipt_reconciliation: true
+  follow_up_lineage_required: true
+  sse_sla_escalation: true

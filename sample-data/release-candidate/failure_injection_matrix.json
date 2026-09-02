@@ -1,0 +1,82 @@
+{
+  "release": 107,
+  "failure_injection_cases": [
+    {
+      "case_id": "fi-postgres",
+      "dependency": "postgres",
+      "fault": "connection interruption during checkpoint write",
+      "expected": [
+        "bounded_retry",
+        "transaction rollback",
+        "audit event",
+        "resume from durable checkpoint"
+      ]
+    },
+    {
+      "case_id": "fi-redis",
+      "dependency": "redis",
+      "fault": "cache/session outage",
+      "expected": [
+        "fail closed for auth/session where required",
+        "cache bypass where safe",
+        "audit event"
+      ]
+    },
+    {
+      "case_id": "fi-vector",
+      "dependency": "vector_store",
+      "fault": "retrieval backend timeout",
+      "expected": [
+        "bounded retry",
+        "no ungrounded answer",
+        "human escalation for high-risk decision"
+      ]
+    },
+    {
+      "case_id": "fi-object",
+      "dependency": "object_storage",
+      "fault": "evidence object unavailable",
+      "expected": [
+        "evidence missing state",
+        "no silent continuation",
+        "human escalation"
+      ]
+    },
+    {
+      "case_id": "fi-llm",
+      "dependency": "llm_provider",
+      "fault": "timeout/rate limit",
+      "expected": [
+        "bounded fallback policy",
+        "no silent model substitution",
+        "human escalation"
+      ]
+    },
+    {
+      "case_id": "fi-mcp",
+      "dependency": "mcp_dependency",
+      "fault": "external tool unavailable",
+      "expected": [
+        "circuit breaker",
+        "read-only or fail-closed boundary",
+        "audit event"
+      ]
+    },
+    {
+      "case_id": "fi-events",
+      "dependency": "event_backbone",
+      "fault": "consumer restart and duplicate delivery",
+      "expected": [
+        "outbox replay",
+        "idempotent consumer",
+        "no duplicate business effect"
+      ]
+    }
+  ],
+  "automated_authority": {
+    "final_claim_decision": false,
+    "regulatory_decision": false,
+    "release_candidate_declaration": false,
+    "production_promotion": false
+  }
+}

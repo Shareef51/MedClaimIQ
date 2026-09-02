@@ -1,0 +1,17 @@
+{
+  "policy_version": "1.0.0",
+  "purpose": "Govern post-closure surveillance and human-controlled reopening of enterprise regulatory intervention programs.",
+  "systemic_risk_rebound_threshold": 15,
+  "control_effectiveness_decay_threshold_percent": 20,
+  "new_examination_match_threshold": 0.65,
+  "require_independent_reassessment": true,
+  "require_executive_review": true,
+  "require_internal_audit_review": true,
+  "human_only_program_reopening": true,
+  "automated_program_reopening": false,
+  "automated_effectiveness_certification": false,
+  "automated_residual_risk_acceptance": false,
+  "regulator_intent_inference_allowed": false,
+  "accounting_mutation_allowed": false,
+  "payment_authority_allowed": false
+}

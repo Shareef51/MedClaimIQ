@@ -1,0 +1,5 @@
+resource_group_name  = "rg-medclaimiq-terraform-state"
+storage_account_name = "stmedclaimiqtfstate"
+container_name       = "tfstate"
+key                  = "production/azure/terraform.tfstate"
+use_azuread_auth     = true

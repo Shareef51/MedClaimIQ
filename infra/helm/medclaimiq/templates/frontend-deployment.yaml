@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medclaimiq-frontend
+  labels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: frontend}
+spec:
+  replicas: {{ .Values.frontend.replicas }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: {maxUnavailable: {{ .Values.rollout.maxUnavailable }}, maxSurge: {{ .Values.rollout.maxSurge }}}
+  selector:
+    matchLabels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: frontend}
+  template:
+    metadata:
+      annotations:
+        medclaimiq.io/release-id: {{ .Values.release.id | quote }}
+        medclaimiq.io/git-sha: {{ .Values.release.gitSha | quote }}
+      labels:
+        app.kubernetes.io/name: medclaimiq
+        app.kubernetes.io/component: frontend
+        {{- with .Values.global.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      serviceAccountName: {{ include "medclaimiq.serviceAccountName" . }}
+      automountServiceAccountToken: false
+      securityContext: {{ toYaml .Values.global.podSecurityContext | nindent 8 }}
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.kubernetes.io/zone
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector: {matchLabels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: frontend}}
+      containers:
+        - name: frontend
+          image: {{ include "medclaimiq.image" .Values.images.frontend | quote }}
+          securityContext: {{ toYaml .Values.global.containerSecurityContext | nindent 12 }}
+          ports: [{name: http, containerPort: {{ .Values.frontend.port }}}]
+          envFrom:
+            - {configMapRef: {name: medclaimiq-frontend-runtime}}
+            - {secretRef: {name: medclaimiq-frontend-secrets}}
+          volumeMounts: [{name: tmp, mountPath: /tmp}]
+          resources: {{ toYaml .Values.frontend.resources | nindent 12 }}
+          readinessProbe: {httpGet: {path: /login, port: http}, initialDelaySeconds: 5, periodSeconds: 10}
+          livenessProbe: {httpGet: {path: /login, port: http}, initialDelaySeconds: 20, periodSeconds: 20}
+      volumes: [{name: tmp, emptyDir: {sizeLimit: 128Mi}}]

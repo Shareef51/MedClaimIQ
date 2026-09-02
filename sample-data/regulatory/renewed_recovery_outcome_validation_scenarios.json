@@ -1,0 +1,68 @@
+{
+  "scenarios": [
+    {
+      "name": "sustainable_cross_entity_recovery",
+      "intervention_program_id": "irp-85-001",
+      "baseline_systemic_risk_score": 82,
+      "current_systemic_risk_score": 34,
+      "minimum_required_reduction_percent": 25,
+      "entities": [
+        {
+          "entity_id": "US",
+          "status": "complete",
+          "evidence_refs": [
+            "ev-us"
+          ]
+        },
+        {
+          "entity_id": "EU",
+          "status": "complete",
+          "evidence_refs": [
+            "ev-eu"
+          ]
+        }
+      ],
+      "observed_window_days": 45,
+      "minimum_window_days": 30,
+      "observations": [
+        {
+          "status": "stable",
+          "control_health_score": 94
+        },
+        {
+          "status": "stable",
+          "control_health_score": 91
+        }
+      ]
+    },
+    {
+      "name": "reclosure_blocked_by_sustainability_breach",
+      "intervention_program_id": "irp-85-002",
+      "baseline_systemic_risk_score": 78,
+      "current_systemic_risk_score": 62,
+      "entities": [
+        {
+          "entity_id": "US",
+          "status": "complete",
+          "evidence_refs": [
+            "ev-us"
+          ]
+        },
+        {
+          "entity_id": "APAC",
+          "status": "blocked",
+          "evidence_refs": []
+        }
+      ],
+      "observed_window_days": 14,
+      "minimum_window_days": 30,
+      "observations": [
+        {
+          "status": "degraded",
+          "breach": true,
+          "control_health_score": 63
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "release": 108,
+  "purpose": "Engineering control evidence mapping; not legal certification.",
+  "frameworks": ["HIPAA Security Rule technical safeguards", "NIST SP 800-66 Rev.2", "OWASP ASVS 5.0", "OWASP LLM Top 10", "SLSA", "CycloneDX"],
+  "controls": [
+    {"control": "tenant_isolation", "evidence": ["cross-tenant penetration matrix", "authorization negative tests"]},
+    {"control": "access_control", "evidence": ["OIDC/JWT/RBAC/IDOR abuse suite"]},
+    {"control": "prompt_injection_resistance", "evidence": ["direct/indirect/document/retrieval/tool-output attack suite"]},
+    {"control": "rag_data_security", "evidence": ["poisoning, metadata bypass, citation swap, exfiltration tests"]},
+    {"control": "tool_and_agent_least_privilege", "evidence": ["MCP abuse and agent privilege-boundary tests"]},
+    {"control": "phi_pii_minimum_necessary", "evidence": ["logs, metrics, traces, model I/O, export, error leakage tests"]},
+    {"control": "secret_management", "evidence": ["Gitleaks and offline credential-pattern scan"]},
+    {"control": "software_supply_chain", "evidence": ["dependency audit, SBOM, signed image/provenance, Trivy"]},
+    {"control": "infrastructure_security", "evidence": ["IaC scan, network policy, externalized secrets, non-root container checks"]},
+    {"control": "api_robustness", "evidence": ["malformed and adversarial request fuzz suite"]},
+    {"control": "audit_integrity", "evidence": ["mutation/deletion/insertion/reorder/signature tamper tests"]},
+    {"control": "multimodal_adversarial_resilience", "evidence": ["OCR/PDF/image/audio/video/metadata adversarial suite"]},
+    {"control": "exception_governance", "evidence": ["non-waivable critical/high categories, bounded expiring medium/low waivers"]},
+    {"control": "release_security_certification", "evidence": ["Release 107 human candidate reference, immutable red-team run, deterministic gates, human certification"]}
+  ]
+}

@@ -1,0 +1,1 @@
+{"dataset":"recovery-settlement-financial-closeout","cases":["multi_installment","partial_balance","reference_mismatch","recoupment_offset","independent_closeout"],"requires_human_financial_closeout":true,"automation_authority":"none"}

@@ -1,0 +1,18 @@
+{
+  "release": 110,
+  "evidence_domains": [
+    "release_candidate",
+    "security_certification",
+    "operational_readiness",
+    "release_manifest",
+    "change_window",
+    "database_preflight",
+    "canary",
+    "smoke_synthetic",
+    "ai_rag_agents_mcp",
+    "observability",
+    "rollback",
+    "hypercare"
+  ],
+  "immutable": true
+}

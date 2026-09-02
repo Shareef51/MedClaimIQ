@@ -1,0 +1,45 @@
+version: 1
+name: regulatory-examination-reauthorized-enterprise-remediation-outcome-validation
+mode: recommendation_monitoring_only
+release100_provenance:
+  enterprise_remediation_execution_reference_required: true
+  independent_recovery_effectiveness_assurance_reference_required: true
+human_authority:
+  residual_systemic_risk_acceptance: required
+  recovery_effectiveness_certification: required
+  recovery_recertification: required
+  regulatory_commitment_closure: required
+  sustainability_reclosure: required
+independent_assurance:
+  required: true
+  segregation_of_duties: required
+  roles:
+    - internal_auditor
+    - chief_audit_executive
+    - independent_assurance
+    - independent_validator
+sustainability:
+  minimum_window_days: 180
+  minimum_control_health_score: 90
+  systemic_risk_reduction_percent: 40
+reclosure:
+  deterministic_readiness_required: true
+  human_residual_risk_acceptance_required: true
+  executive_recertification_required: true
+  separate_human_reclosure_decision_required: true
+immutability:
+  outcome_versions: true
+  residual_risk_decisions: true
+  recertification_versions: true
+  reclosure_versions: true
+prohibited:
+  - automatic_residual_risk_acceptance
+  - automatic_recovery_certification
+  - automatic_regulatory_commitment_closure
+  - automatic_recertification
+  - automatic_program_reclosure
+  - regulator_intent_representation
+  - accounting_record_mutation
+  - payment_authorization
+  - fund_collection
+  - fund_movement

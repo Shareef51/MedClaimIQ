@@ -1,0 +1,25 @@
+policy_name: regulatory-examination-commitment-effectiveness
+version: 1
+mode: production
+human_authority:
+  closure_certification: authorized_human_only
+  reopen_decision: authorized_human_only
+  regulatory_obligation_closure: prohibited_for_ai
+  regulator_intent_representation: prohibited_for_ai
+closure_gates:
+  require_all_milestones_complete: true
+  require_hash_validated_evidence: true
+  require_independent_effectiveness_retest: true
+  require_dependencies_resolved: true
+  require_regulator_follow_up_reconciled: true
+  require_cross_entity_implementation: true
+  automated_closure: false
+sustainability:
+  minimum_monitoring_days: 30
+  recurrence_detection: recommendation_only
+  health_score_warning_threshold: 80
+  reopen_requires_human_decision: true
+safety:
+  accounting_mutation: false
+  payment_authority: false
+  autonomous_regulator_communication: false

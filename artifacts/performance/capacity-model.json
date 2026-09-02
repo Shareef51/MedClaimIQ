@@ -1,0 +1,22 @@
+{
+  "schema_version": "capacity-model-v1",
+  "generated_at": "2026-08-21T04:05:20.339120+00:00",
+  "model_version": "capacity-v1",
+  "inputs": {
+    "api_replicas": 3,
+    "worker_replicas": 3,
+    "headroom_fraction": 0.3,
+    "assumed_api_rps_per_replica": 50.0
+  },
+  "capacity": {
+    "sustained_api_rps": 105.0,
+    "sse_connections": 1575,
+    "worker_events_per_second": 210.0,
+    "estimated_reviewer_users_at_0.2_rps_each": 525
+  },
+  "notes": [
+    "capacity values are planning estimates derived from checked-in benchmark assumptions",
+    "production sizing requires environment-specific load tests and observed saturation curves"
+  ],
+  "assumptions_sha256": "211429cb835ba13efe4c5e2f6051a0d9277965e2d6f84b1140004b1d8bd6d954"
+}

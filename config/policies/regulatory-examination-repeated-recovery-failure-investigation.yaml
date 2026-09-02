@@ -1,0 +1,16 @@
+policy: regulatory-examination-repeated-recovery-failure-investigation
+mode: recommendation-and-monitoring-only
+human_authority:
+  remediation_reauthorization: required
+  independent_internal_audit_challenge: required
+  residual_systemic_risk_acceptance: required
+prohibited_automation:
+  - remediation_authorization
+  - recovery_effectiveness_certification
+  - regulatory_commitment_closure
+  - accounting_mutation
+  - payment_authorization
+thresholds:
+  repeated_failed_cycles: 2
+  systemic_cross_entity_count: 2
+  high_root_cause_reassessment_score: 60

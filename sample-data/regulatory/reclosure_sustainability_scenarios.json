@@ -1,0 +1,4 @@
+[
+  {"scenario":"third_occurrence_cross_entity","commitment_id":"C-72-001","baseline_control_health":96,"current_control_health":51,"days_since_reclosure":320,"stale_evidence_count":2,"failed_observation_count":1,"cross_entity_count":3,"history":[{"event_type":"recurrence"},{"event_type":"control_failure"},{"event_type":"reclosure_failure"}],"regulator_follow_up_overdue":true},
+  {"scenario":"stable_reclosure","commitment_id":"C-72-002","baseline_control_health":94,"current_control_health":92,"days_since_reclosure":120,"stale_evidence_count":0,"failed_observation_count":0,"cross_entity_count":1,"history":[]}
+]

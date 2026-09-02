@@ -1,0 +1,33 @@
+{
+  "policy_id": "medclaimiq.evidence-ingestion.v1",
+  "default_effect": "deny",
+  "storage": {
+    "initial_prefix": "quarantine/",
+    "accepted_prefix": "accepted/",
+    "bucket_versioning_required_for_production": true,
+    "public_bucket_access": false,
+    "signed_upload_method": "POST",
+    "signed_upload_exact_content_length": true
+  },
+  "validation": {
+    "server_sha256_required": true,
+    "magic_byte_detection_required": true,
+    "declared_detected_mime_must_match": true,
+    "raw_client_filename_persisted": false,
+    "max_file_bytes": 524288000
+  },
+  "malware": {
+    "required": true,
+    "scanner": "clamav",
+    "fail_closed": true,
+    "infected_objects_promoted": false
+  },
+  "processing": {
+    "parsing_before_acceptance": false,
+    "ocr_before_acceptance": false,
+    "rag_indexing_before_acceptance": false,
+    "agent_access_before_acceptance": false,
+    "transactional_outbox": true,
+    "partition_key": "claim_id"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "artifact": "regulatory-examination-reopened-reauthorized-recovery-investigation",
+  "release": 91,
+  "traceability": "human enterprise reopening -> reopened recovery investigation -> evidence reconstruction -> repeated-failure root-cause reconstruction -> independent challenge -> renewed recovery strategy -> human supervisory recovery reauthorization",
+  "authority": {
+    "ai_reauthorization": false,
+    "worker_reauthorization": false,
+    "human_executive_reauthorization_required": true,
+    "independent_internal_audit_challenge_required": true
+  },
+  "migration": "0086_reg_exam_reopened_reauthorized_recovery_investigation",
+  "predecessor": "0085_reg_exam_reclosed_reauthorized_recovery_surveillance"
+}

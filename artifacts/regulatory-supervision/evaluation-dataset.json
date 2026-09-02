@@ -1,0 +1,7 @@
+[
+  {"id":"accepted-tieout","expected":"certifiable","requires_human_certification":true},
+  {"id":"missing-ack","expected":"blocked","requires_human_certification":true},
+  {"id":"rejected-no-amendment","expected":"blocked","requires_human_certification":true},
+  {"id":"effective-amendment","expected":"certifiable","requires_human_certification":true},
+  {"id":"maker-self-certification","expected":"blocked","requires_human_certification":true}
+]

@@ -1,0 +1,15 @@
+{
+  "policy_version": "appeal-reconsideration-v1",
+  "original_decision_immutable": true,
+  "require_independent_human_reviewer": true,
+  "recommendation_agent_adjudication_authority": "none",
+  "allowed_reingestion_modalities": ["document", "image", "audio", "video", "fhir"],
+  "require_file_validation": true,
+  "block_malware_verdicts": ["infected", "malicious", "suspicious", "error", "missing_scan"],
+  "require_version_bound_chunks": true,
+  "require_citation_lineage": true,
+  "require_locked_appeal_snapshot": true,
+  "material_changed_fact_fields": ["amount", "date", "provider", "code", "units", "status"],
+  "second_level_queue": "appeal_second_level",
+  "human_resolution_actions": ["affirm", "modify", "overturn", "request_information"]
+}

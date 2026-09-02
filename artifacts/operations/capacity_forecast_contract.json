@@ -1,0 +1,9 @@
+{
+  "release":109,
+  "forecast_horizon_days":90,
+  "minimum_headroom_fraction":0.30,
+  "maximum_saturation_fraction":0.80,
+  "dimensions":["api_rps","concurrent_users","sse_connections","worker_events_per_second","rag_queries_per_second","agent_workflows_per_second","database_connections","kafka_lag","vector_query_latency","llm_tokens_per_minute","llm_cost_per_case"],
+  "autoscaling_validation":["scale_out_trigger","scale_out_latency","stabilization","scale_in_safety","max_replica_ceiling","queue_backpressure"],
+  "note":"Forecast contract; populate with measured deployment telemetry before human operational certification."
+}

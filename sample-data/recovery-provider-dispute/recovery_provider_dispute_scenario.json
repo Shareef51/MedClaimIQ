@@ -1,0 +1,19 @@
+{
+  "scenario": "partial_recoupment_with_material_provider_dispute",
+  "identified_leakage": 250.0,
+  "currency": "USD",
+  "release43_referral": "accounting_recoupment_request",
+  "verified_recoveries": [100.0, 50.0],
+  "provider_dispute": {
+    "disputed_amount": 100.0,
+    "reason_code": "amount_disputed",
+    "material": true,
+    "required_resolver": "independent_finance_approver"
+  },
+  "expected": {
+    "recovery_status": "partial_recovery",
+    "open_dispute_blocks_close": true,
+    "ai_can_resolve_dispute": false,
+    "worker_can_collect_funds": false
+  }
+}

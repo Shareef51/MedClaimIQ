@@ -1,0 +1,38 @@
+{{- if .Values.api.autoscaling.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata: {name: medclaimiq-api}
+spec:
+  scaleTargetRef:
+    {{ if eq .Values.release.strategy "rolling" }}
+    apiVersion: apps/v1
+    kind: Deployment
+    {{ else }}
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    {{ end }}
+    name: medclaimiq-api
+  minReplicas: {{ .Values.api.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.api.autoscaling.maxReplicas }}
+  behavior:
+    scaleUp: {stabilizationWindowSeconds: 0, policies: [{type: Percent, value: 100, periodSeconds: 60}]}
+    scaleDown: {stabilizationWindowSeconds: 300, policies: [{type: Percent, value: 25, periodSeconds: 60}]}
+  metrics:
+    - type: Resource
+      resource: {name: cpu, target: {type: Utilization, averageUtilization: {{ .Values.api.autoscaling.cpuUtilization }}}}
+    - type: Resource
+      resource: {name: memory, target: {type: Utilization, averageUtilization: {{ .Values.api.autoscaling.memoryUtilization }}}}
+---
+{{- end }}
+{{- if .Values.frontend.autoscaling.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata: {name: medclaimiq-frontend}
+spec:
+  scaleTargetRef: {apiVersion: apps/v1, kind: Deployment, name: medclaimiq-frontend}
+  minReplicas: {{ .Values.frontend.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.frontend.autoscaling.maxReplicas }}
+  metrics:
+    - type: Resource
+      resource: {name: cpu, target: {type: Utilization, averageUtilization: {{ .Values.frontend.autoscaling.cpuUtilization }}}}
+{{- end }}

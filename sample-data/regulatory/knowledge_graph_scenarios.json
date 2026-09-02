@@ -1,0 +1,14 @@
+{
+  "tenant_id": "tenant-synthetic-001",
+  "nodes": [
+    {"canonical_key":"OBL-AML-001","node_type":"obligation","title":"Synthetic monitoring obligation","knowledge_class":"authoritative","effective_at":"2026-01-01T00:00:00Z","evidence_refs":["REG-EVID-001"]},
+    {"canonical_key":"LESSON-063-001","node_type":"lesson","title":"Approved lineage lesson","knowledge_class":"approved_internal","effective_at":"2026-07-01T00:00:00Z","evidence_refs":["LESSON-EVID-001"]},
+    {"canonical_key":"CTRL-DQ-004","node_type":"control","title":"Data lineage completeness control","knowledge_class":"approved_internal","effective_at":"2026-07-15T00:00:00Z","evidence_refs":["CTRL-EVID-004"]}
+  ],
+  "edges": [
+    {"source_key":"OBL-AML-001","target_key":"CTRL-DQ-004","edge_type":"REQUIRES","evidence_refs":["REG-EVID-001"]},
+    {"source_key":"LESSON-063-001","target_key":"CTRL-DQ-004","edge_type":"REMEDIATED_BY","evidence_refs":["LESSON-EVID-001"]}
+  ],
+  "examination_questions": ["Show authoritative evidence for the data-lineage control and all related historical findings."],
+  "synthetic_only": true
+}

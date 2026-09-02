@@ -1,0 +1,6 @@
+[
+  {"scenario":"renewed_remediation_success","intervention_program_id":"IP-77-001","required_entity_ids":["US","EU","APAC"],"completed_entity_ids":["US","EU","APAC"],"independent_revalidation":"pass","residual_risk_human_decision":"accept","expected_reclosure_readiness":100},
+  {"scenario":"cross_entity_gap","intervention_program_id":"IP-77-002","required_entity_ids":["US","EU","APAC"],"completed_entity_ids":["US","EU"],"expected_blocker":"cross_entity_remediation_complete"},
+  {"scenario":"second_systemic_recurrence","intervention_program_id":"IP-77-003","history":[{"event_type":"systemic_recurrence","confirmed":true},{"event_type":"program_reopen","confirmed":true}],"expected_executive_escalation":true,"expected_internal_audit_escalation":true},
+  {"scenario":"ai_reclosure_attempt","intervention_program_id":"IP-77-004","actor_role":"ai_agent","expected":"blocked"}
+]

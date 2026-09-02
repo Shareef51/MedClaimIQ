@@ -1,0 +1,21 @@
+{
+  "release": 98,
+  "capability": "reclosed_enterprise_recovery_surveillance_systemic_recovery_decay_intelligence_enterprise_reopening_governance",
+  "migration": "0093_reg_exam_reclosed_enterprise_recovery_surveillance",
+  "predecessor": "0092_reg_exam_enterprise_recovery_outcome_validation",
+  "authority": "human_only_for_authoritative_investigation_independent_reassessment_materiality_validation_and_enterprise_reopening",
+  "traceability": "release97_enterprise_reclosure -> surveillance -> systemic_decay -> human_investigation -> independent_reassessment -> executive_internal_audit_challenge -> human_enterprise_reopening",
+  "artifacts": [
+    "backend/app/domain/regulatory_examination_reclosed_enterprise_recovery_surveillance.py",
+    "backend/app/evaluation/regulatory_examination_reclosed_enterprise_recovery_surveillance.py",
+    "backend/app/schemas/regulatory_examination_reclosed_enterprise_recovery_surveillance.py",
+    "backend/app/services/regulatory_examination_reclosed_enterprise_recovery_surveillance.py",
+    "backend/app/api/v1/regulatory_examination_reclosed_enterprise_recovery_surveillance.py",
+    "backend/app/workers/regulatory_examination_reclosed_enterprise_recovery_surveillance.py",
+    "backend/tests/test_regulatory_examination_reclosed_enterprise_recovery_surveillance.py",
+    "backend/alembic/versions/0093_reg_exam_reclosed_enterprise_recovery_surveillance.py",
+    "config/policies/regulatory-examination-reclosed-enterprise-recovery-surveillance.yaml",
+    "sample-data/regulatory/reclosed_enterprise_recovery_surveillance_scenarios.json",
+    "docs/regulatory-examination-reclosed-enterprise-recovery-surveillance.md"
+  ]
+}

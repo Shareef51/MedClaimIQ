@@ -1,0 +1,13 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: medclaimiq-api-single-pod-kill
+  namespace: medclaimiq-staging
+spec:
+  action: pod-kill
+  mode: one
+  duration: 60s
+  selector:
+    namespaces: [medclaimiq-staging]
+    labelSelectors:
+      app.kubernetes.io/name: medclaimiq-api

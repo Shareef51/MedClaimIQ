@@ -1,0 +1,8 @@
+{
+  "initial_backlog": 5000,
+  "producer_eps": 50.0,
+  "consumer_eps": 150.0,
+  "recovered": true,
+  "recovery_seconds": 50,
+  "remaining": 0.0
+}

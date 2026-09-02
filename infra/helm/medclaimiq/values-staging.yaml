@@ -1,0 +1,20 @@
+global:
+  environment: staging
+api:
+  replicas: 2
+  autoscaling: {enabled: true, minReplicas: 2, maxReplicas: 6, cpuUtilization: 70, memoryUtilization: 80}
+frontend:
+  replicas: 2
+  autoscaling: {enabled: true, minReplicas: 2, maxReplicas: 4, cpuUtilization: 70, memoryUtilization: 80}
+workers:
+  outbox-relay: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","outbox-relay"]}
+  event-replay: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","event-replay"]}
+  sla-event-scheduler: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","sla-event-scheduler"]}
+  sla-timer: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","sla-timer"]}
+ingress:
+  host: staging.medclaimiq.example.com
+  tlsSecretName: medclaimiq-staging-tls
+
+release:
+  auditEnabled: true
+  auditTenantId: tenant-staging

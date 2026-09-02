@@ -1,0 +1,4 @@
+[
+ {"scenario":"multi_cycle_recurrence","intervention_program_id":"IP-100","baseline_control_health":96,"current_control_health":68,"minimum_control_health":80,"in_scope_entity_ids":["US","EU","APAC"],"observed_entity_ids":["US","EU"],"cycles":[{"examination_id":"EX-1","confirmed_recurrence":true,"intervention_effective":false,"entity_ids":["US"]},{"examination_id":"EX-2","confirmed_recurrence":true,"intervention_effective":false,"entity_ids":["EU"]}]},
+ {"scenario":"stable_reclosure","intervention_program_id":"IP-200","baseline_control_health":94,"current_control_health":92,"minimum_control_health":80,"in_scope_entity_ids":["US","EU"],"observed_entity_ids":[],"cycles":[{"examination_id":"EX-9","confirmed_recurrence":false,"intervention_effective":true,"entity_ids":["US","EU"]}]}
+]

@@ -1,0 +1,12 @@
+{
+  "version": "2026.08",
+  "note": "Architecture inventory only. Production legal/BAA status must be verified by the deploying organization before PHI is enabled.",
+  "vendors": [
+    {"service":"OpenAI API","data_role":"LLM/embedding processor","phi_allowed":false,"baa_required_before_phi":true,"production_status":"blocked_pending_contract_review"},
+    {"service":"LangSmith","data_role":"optional observability projection","phi_allowed":false,"baa_required_before_phi":true,"production_status":"disabled_by_default"},
+    {"service":"Phoenix","data_role":"optional trace backend","phi_allowed":false,"baa_required_before_phi":true,"production_status":"self_host_or_contract_review"},
+    {"service":"AWS KMS/Secrets Manager","data_role":"key/secrets management","phi_allowed":"metadata_only","baa_required_before_phi":true,"production_status":"deployment_specific"},
+    {"service":"S3-compatible object storage","data_role":"evidence storage","phi_allowed":true,"baa_required_before_phi":true,"production_status":"deployment_specific"},
+    {"service":"Qdrant","data_role":"vector projection","phi_allowed":"minimum_metadata_only","baa_required_before_phi":true,"production_status":"self_host_or_contract_review"}
+  ]
+}

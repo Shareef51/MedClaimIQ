@@ -1,0 +1,12 @@
+{
+  "policy_id": "medclaimiq.authz.v1",
+  "default_effect": "deny",
+  "principles": [
+    "least_privilege",
+    "tenant_isolation",
+    "explicit_cross_tenant_grants",
+    "server_resolved_attributes",
+    "separation_of_duties",
+    "human_final_claim_decision"
+  ]
+}

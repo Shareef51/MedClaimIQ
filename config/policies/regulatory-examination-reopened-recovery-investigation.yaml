@@ -1,0 +1,18 @@
+policy_name: regulatory-examination-reopened-recovery-investigation
+version: 1
+recommendation_only: true
+human_authority:
+  renewed_remediation_authorization: required
+  residual_systemic_risk_acceptance: required
+  recovery_effectiveness_certification: required
+  program_reopen_or_reclose: required
+independent_challenge:
+  required: true
+  roles: [internal_auditor, chief_audit_executive, independent_assurance]
+executive_authorization_roles: [chief_risk_officer, chief_compliance_officer, executive_risk_committee, executive_certifier]
+automation_prohibitions:
+  authorize_renewed_remediation: true
+  accept_residual_risk: true
+  certify_recovery: true
+  alter_accounting_records: true
+  authorize_payments: true

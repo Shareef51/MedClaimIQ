@@ -1,0 +1,49 @@
+{
+  "dataset_version": "multimodal-agent-eval-v1",
+  "cases": [
+    {
+      "id": "hospital_fhir_required",
+      "agent": "hospital_verification",
+      "expected_required": [
+        "fhir"
+      ]
+    },
+    {
+      "id": "invoice_table_required",
+      "agent": "invoice_verification",
+      "expected_required": [
+        "table"
+      ]
+    },
+    {
+      "id": "fraud_parallel_multimodal",
+      "agent": "fraud_waste",
+      "expected_allowed": [
+        "image",
+        "audio",
+        "video"
+      ]
+    },
+    {
+      "id": "fusion_all_modalities",
+      "agent": "evidence_fusion",
+      "expected_allowed": [
+        "text",
+        "document",
+        "table",
+        "image",
+        "audio",
+        "video",
+        "fhir"
+      ]
+    },
+    {
+      "id": "material_conflict_escalates",
+      "escalation": "multimodal_conflict"
+    },
+    {
+      "id": "missing_modality_escalates",
+      "escalation": "missing_required_modality"
+    }
+  ]
+}

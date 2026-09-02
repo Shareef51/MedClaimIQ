@@ -1,0 +1,6 @@
+{
+  "capability": "reauthorized recovery execution and independent recovery assurance",
+  "migration": "0083_reg_exam_reauthorized_recovery_execution",
+  "authority": "human reauthorization, control approval, risk acceptance and recovery certification remain non-delegable",
+  "traceability": "human remediation reauthorization -> reauthorized recovery execution -> evidence -> independent recovery assurance"
+}

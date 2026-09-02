@@ -1,0 +1,24 @@
+policy_version: "1.0"
+mode: recommendation_and_monitoring_only
+authority:
+  ai_can_declare_authoritative_regulatory_conclusion: false
+  ai_can_approve_intervention_program: false
+  ai_can_reopen_or_close_commitment: false
+  worker_can_approve_intervention_program: false
+  worker_can_certify_effectiveness: false
+  human_supervisory_intervention_required: true
+materiality:
+  executive_review_threshold: 60
+  internal_audit_challenge_threshold: 80
+systemic_pattern:
+  minimum_recurring_commitments: 3
+  minimum_cross_entity_count: 3
+  shared_root_cause_occurrences: 2
+immutability:
+  intervention_versions: true
+  audit_events: true
+prohibited_actions:
+  - accounting_record_mutation
+  - payment_authorization
+  - collection_of_funds
+  - movement_of_money

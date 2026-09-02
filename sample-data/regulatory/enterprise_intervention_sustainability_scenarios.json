@@ -1,0 +1,6 @@
+[
+  {"scenario":"sustained-risk-reduction","baseline_systemic_risk_score":85,"post_remediation_systemic_risk_score":20,"required_entity_ids":["US","EU"],"sustainability_window_complete":true},
+  {"scenario":"closure-blocked-by-open-dependency","unresolved_blocker_count":2,"expected":"closure_blocked"},
+  {"scenario":"recurrence-after-program-closure","recurrence_detected":true,"expected":"human_reopen_review"},
+  {"scenario":"control-health-decay","control_health_decay_percent":35,"control_health_decay_threshold_percent":20,"expected":"supervisory_attention"}
+]

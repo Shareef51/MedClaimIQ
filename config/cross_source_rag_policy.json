@@ -1,0 +1,29 @@
+{
+  "structured_sql": {
+    "mode": "typed_query_templates_only",
+    "arbitrary_sql": false,
+    "max_rows": 200
+  },
+  "graph_rag": {
+    "max_depth": 4,
+    "max_edges": 200,
+    "claim_scope_required": true,
+    "authoritative_store": "postgresql_evidence_graph"
+  },
+  "fhir_rag": {
+    "use_versioned_snapshots": true,
+    "direct_unvalidated_resource_use": false
+  },
+  "evidence_fusion": {
+    "preserve_contradictions": true,
+    "authority_aware": true,
+    "citation_required": true,
+    "persist_immutable_pack": true
+  },
+  "security": {
+    "tenant_scope_non_relaxable": true,
+    "claim_scope_non_relaxable": true,
+    "client_supplied_acl": false,
+    "raw_query_persisted": false
+  }
+}

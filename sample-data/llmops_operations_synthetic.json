@@ -1,0 +1,10 @@
+{
+  "description": "Synthetic AI-operations examples; no real patient data or provider pricing.",
+  "operations": [
+    {"component":"rag","operation":"hybrid_retrieval","latency_ms":420,"status":"success","retrieved_chunks":8},
+    {"component":"langgraph","operation":"policy_agent","latency_ms":1830,"status":"success","input_tokens":1420,"output_tokens":270},
+    {"component":"mcp","operation":"fhir.resource.read","latency_ms":95,"status":"success"},
+    {"component":"evaluation","operation":"golden_claims_v1","latency_ms":3100,"status":"pass"}
+  ],
+  "pricing_note": "Cost is intentionally omitted until provider pricing is explicitly configured."
+}

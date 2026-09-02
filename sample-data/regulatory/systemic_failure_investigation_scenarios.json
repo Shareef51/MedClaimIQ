@@ -1,0 +1,17 @@
+[
+  {
+    "id": "persistent-root-cause",
+    "description": "A root cause persists across multiple intervention cycles and prior assumptions are invalidated.",
+    "expected": "human systemic-failure investigation and renewed strategy candidate"
+  },
+  {
+    "id": "cross-entity-control-redesign-failure",
+    "description": "Redesigned controls fail in two legal entities.",
+    "expected": "enterprise causal map and executive reauthorization gate"
+  },
+  {
+    "id": "ai-authorization-denied",
+    "description": "AI attempts to authorize renewed remediation.",
+    "expected": "blocked; authorized human executive required"
+  }
+]

@@ -1,0 +1,13 @@
+version: 2026-08-21
+settlement_evidence_sla_hours: 72
+financial_closeout_sla_hours: 168
+require_exact_reference_verification: true
+require_exact_currency_match: true
+require_full_ledger_correlation: true
+independent_human_closeout: true
+automation_authority:
+  collect_funds: false
+  create_bank_transactions: false
+  approve_accounting: false
+  authorize_payments: false
+  close_financial_recovery: false

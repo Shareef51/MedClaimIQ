@@ -1,0 +1,25 @@
+global:
+  environment: production
+  cloudProvider: aws
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::000000000000:role/medclaimiq-production-application
+config:
+  S3_USE_DEFAULT_CREDENTIAL_CHAIN: "true"
+  S3_ENDPOINT_URL: ""
+  S3_REGION: us-east-1
+  S3_SERVER_SIDE_ENCRYPTION: aws:kms
+secretsStore:
+  provider: aws
+  aws:
+    secretsManagerObjectName: medclaimiq-production/runtime
+ingress:
+  className: alb
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/replace-me
+    alb.ingress.kubernetes.io/wafv2-acl-arn: arn:aws:wafv2:region:account:regional/webacl/replace-me
+networkPolicy:
+  managedServiceCidrs: ["10.40.0.0/16"]

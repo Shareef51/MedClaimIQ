@@ -1,0 +1,151 @@
+from __future__ import annotations
+from datetime import datetime
+from sqlalchemy import Boolean, DateTime, ForeignKey, Index, Integer, JSON, String, Text, UniqueConstraint
+from sqlalchemy.orm import Mapped, mapped_column
+from app.db.base import Base
+
+class RegulatoryExaminationCaseModel(Base):
+    __tablename__="regulatory_examination_cases"
+    __table_args__=(UniqueConstraint("tenant_id","external_inquiry_reference",name="uq_reg_exam_external_inquiry"),Index("ix_reg_exam_case_status","tenant_id","status","response_due_at"),)
+    examination_case_id:Mapped[str]=mapped_column(String(128),primary_key=True)
+    tenant_id:Mapped[str]=mapped_column(ForeignKey("tenants.tenant_id",ondelete="CASCADE"),nullable=False,index=True)
+    supervisory_case_id:Mapped[str]=mapped_column(ForeignKey("regulatory_reconciliation_cases.case_id",ondelete="RESTRICT"),nullable=False)
+    transmission_id:Mapped[str]=mapped_column(ForeignKey("regulatory_transmissions.transmission_id",ondelete="RESTRICT"),nullable=False)
+    package_id:Mapped[str]=mapped_column(ForeignKey("regulatory_submission_packages.package_id",ondelete="RESTRICT"),nullable=False)
+    destination_id:Mapped[str]=mapped_column(ForeignKey("regulatory_destinations.destination_id",ondelete="RESTRICT"),nullable=False)
+    external_inquiry_reference:Mapped[str]=mapped_column(String(240),nullable=False)
+    inquiry_type:Mapped[str]=mapped_column(String(60),nullable=False)
+    question_classification:Mapped[str]=mapped_column(String(80),nullable=False)
+    inquiry_summary:Mapped[str]=mapped_column(Text,nullable=False)
+    status:Mapped[str]=mapped_column(String(40),nullable=False,default="open")
+    severity:Mapped[str]=mapped_column(String(20),nullable=False,default="medium")
+    source_watermark_sha256:Mapped[str]=mapped_column(String(64),nullable=False)
+    source_refs:Mapped[list]=mapped_column(JSON,nullable=False,default=list)
+    case_version:Mapped[int]=mapped_column(Integer,nullable=False,default=1)
+    assigned_preparer_user_id:Mapped[str|None]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"))
+    response_due_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+    follow_up_due_at:Mapped[datetime|None]=mapped_column(DateTime(timezone=True))
+    created_by_user_id:Mapped[str]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"),nullable=False)
+    created_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+    updated_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+
+class RegulatoryExaminationDocumentRequestModel(Base):
+    __tablename__="regulatory_examination_document_requests"
+    __table_args__=(UniqueConstraint("tenant_id","examination_case_id","request_code",name="uq_reg_exam_doc_request_code"),)
+    document_request_id:Mapped[str]=mapped_column(String(128),primary_key=True)
+    tenant_id:Mapped[str]=mapped_column(ForeignKey("tenants.tenant_id",ondelete="CASCADE"),nullable=False,index=True)
+    examination_case_id:Mapped[str]=mapped_column(ForeignKey("regulatory_examination_cases.examination_case_id",ondelete="CASCADE"),nullable=False)
+    request_code:Mapped[str]=mapped_column(String(120),nullable=False)
+    description:Mapped[str]=mapped_column(Text,nullable=False)
+    due_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+    status:Mapped[str]=mapped_column(String(30),nullable=False,default="open")
+    requested_refs:Mapped[list]=mapped_column(JSON,nullable=False,default=list)
+    satisfied_refs:Mapped[list]=mapped_column(JSON,nullable=False,default=list)
+    created_by_user_id:Mapped[str]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"),nullable=False)
+    satisfied_by_user_id:Mapped[str|None]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"))
+    created_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+    satisfied_at:Mapped[datetime|None]=mapped_column(DateTime(timezone=True))
+
+class RegulatoryExaminationEvidencePackModel(Base):
+    __tablename__="regulatory_examination_evidence_packs"
+    __table_args__=(UniqueConstraint("tenant_id","examination_case_id","pack_version",name="uq_reg_exam_pack_version"),)
+    evidence_pack_id:Mapped[str]=mapped_column(String(128),primary_key=True)
+    tenant_id:Mapped[str]=mapped_column(ForeignKey("tenants.tenant_id",ondelete="CASCADE"),nullable=False,index=True)
+    examination_case_id:Mapped[str]=mapped_column(ForeignKey("regulatory_examination_cases.examination_case_id",ondelete="CASCADE"),nullable=False)
+    pack_version:Mapped[int]=mapped_column(Integer,nullable=False)
+    evidence_refs:Mapped[list]=mapped_column(JSON,nullable=False,default=list)
+    citations:Mapped[list]=mapped_column(JSON,nullable=False,default=list)
+    source_watermark_sha256:Mapped[str]=mapped_column(String(64),nullable=False)
+    payload_sha256:Mapped[str]=mapped_column(String(64),nullable=False)
+    created_by_user_id:Mapped[str]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"),nullable=False)
+    locked_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+    created_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+
+class RegulatoryExaminationResponseModel(Base):
+    __tablename__="regulatory_examination_responses"
+    __table_args__=(UniqueConstraint("tenant_id","examination_case_id","response_version",name="uq_reg_exam_response_version"),UniqueConstraint("tenant_id","idempotency_key",name="uq_reg_exam_response_idem"),)
+    response_id:Mapped[str]=mapped_column(String(128),primary_key=True)
+    tenant_id:Mapped[str]=mapped_column(ForeignKey("tenants.tenant_id",ondelete="CASCADE"),nullable=False,index=True)
+    examination_case_id:Mapped[str]=mapped_column(ForeignKey("regulatory_examination_cases.examination_case_id",ondelete="CASCADE"),nullable=False)
+    evidence_pack_id:Mapped[str]=mapped_column(ForeignKey("regulatory_examination_evidence_packs.evidence_pack_id",ondelete="RESTRICT"),nullable=False)
+    response_version:Mapped[int]=mapped_column(Integer,nullable=False)
+    status:Mapped[str]=mapped_column(String(30),nullable=False,default="draft")
+    response_text:Mapped[str]=mapped_column(Text,nullable=False)
+    cited_refs:Mapped[list]=mapped_column(JSON,nullable=False,default=list)
+    ai_assisted:Mapped[bool]=mapped_column(Boolean,nullable=False,default=False)
+    ai_metadata:Mapped[dict]=mapped_column(JSON,nullable=False,default=dict)
+    prepared_by_user_id:Mapped[str]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"),nullable=False)
+    approved_by_user_id:Mapped[str|None]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"))
+    approval_rationale:Mapped[str|None]=mapped_column(Text)
+    previous_response_sha256:Mapped[str|None]=mapped_column(String(64))
+    response_sha256:Mapped[str]=mapped_column(String(64),nullable=False)
+    idempotency_key:Mapped[str]=mapped_column(String(180),nullable=False)
+    created_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+    approved_at:Mapped[datetime|None]=mapped_column(DateTime(timezone=True))
+    sent_at:Mapped[datetime|None]=mapped_column(DateTime(timezone=True))
+
+class RegulatoryExaminationCorrespondenceModel(Base):
+    __tablename__="regulatory_examination_correspondence"
+    __table_args__=(UniqueConstraint("tenant_id","idempotency_key",name="uq_reg_exam_corr_idem"),)
+    correspondence_id:Mapped[str]=mapped_column(String(128),primary_key=True)
+    tenant_id:Mapped[str]=mapped_column(ForeignKey("tenants.tenant_id",ondelete="CASCADE"),nullable=False,index=True)
+    examination_case_id:Mapped[str]=mapped_column(ForeignKey("regulatory_examination_cases.examination_case_id",ondelete="CASCADE"),nullable=False)
+    response_id:Mapped[str|None]=mapped_column(ForeignKey("regulatory_examination_responses.response_id",ondelete="SET NULL"))
+    direction:Mapped[str]=mapped_column(String(20),nullable=False)
+    channel:Mapped[str]=mapped_column(String(40),nullable=False)
+    subject:Mapped[str]=mapped_column(String(240),nullable=False)
+    body:Mapped[str]=mapped_column(Text,nullable=False)
+    external_reference:Mapped[str|None]=mapped_column(String(240))
+    supplemental_submission_reference:Mapped[str|None]=mapped_column(String(240))
+    delivered:Mapped[bool]=mapped_column(Boolean,nullable=False,default=False)
+    actor_user_id:Mapped[str]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"),nullable=False)
+    payload_sha256:Mapped[str]=mapped_column(String(64),nullable=False)
+    idempotency_key:Mapped[str]=mapped_column(String(180),nullable=False)
+    created_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+
+class RegulatoryExaminationFindingModel(Base):
+    __tablename__="regulatory_examination_findings"
+    __table_args__=(UniqueConstraint("tenant_id","examination_case_id","finding_code",name="uq_reg_exam_finding_code"),)
+    finding_id:Mapped[str]=mapped_column(String(128),primary_key=True)
+    tenant_id:Mapped[str]=mapped_column(ForeignKey("tenants.tenant_id",ondelete="CASCADE"),nullable=False,index=True)
+    examination_case_id:Mapped[str]=mapped_column(ForeignKey("regulatory_examination_cases.examination_case_id",ondelete="CASCADE"),nullable=False)
+    finding_code:Mapped[str]=mapped_column(String(120),nullable=False)
+    severity:Mapped[str]=mapped_column(String(20),nullable=False)
+    material:Mapped[bool]=mapped_column(Boolean,nullable=False,default=False)
+    description:Mapped[str]=mapped_column(Text,nullable=False)
+    status:Mapped[str]=mapped_column(String(30),nullable=False,default="open")
+    source_refs:Mapped[list]=mapped_column(JSON,nullable=False,default=list)
+    created_by_user_id:Mapped[str]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"),nullable=False)
+    created_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+    resolved_by_user_id:Mapped[str|None]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"))
+    resolved_at:Mapped[datetime|None]=mapped_column(DateTime(timezone=True))
+
+class RegulatoryRemediationCommitmentModel(Base):
+    __tablename__="regulatory_remediation_commitments"
+    __table_args__=(UniqueConstraint("tenant_id","examination_case_id","commitment_key",name="uq_reg_exam_commitment_key"),)
+    commitment_id:Mapped[str]=mapped_column(String(128),primary_key=True)
+    tenant_id:Mapped[str]=mapped_column(ForeignKey("tenants.tenant_id",ondelete="CASCADE"),nullable=False,index=True)
+    examination_case_id:Mapped[str]=mapped_column(ForeignKey("regulatory_examination_cases.examination_case_id",ondelete="CASCADE"),nullable=False)
+    commitment_key:Mapped[str]=mapped_column(String(120),nullable=False)
+    description:Mapped[str]=mapped_column(Text,nullable=False)
+    due_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+    status:Mapped[str]=mapped_column(String(30),nullable=False,default="open")
+    owner_user_id:Mapped[str]=mapped_column(ForeignKey("user_accounts.user_id",ondelete="RESTRICT"),nullable=False)
+    evidence_refs:Mapped[list]=mapped_column(JSON,nullable=False,default=list)
+    created_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)
+    completed_at:Mapped[datetime|None]=mapped_column(DateTime(timezone=True))
+
+class RegulatoryExaminationAuditEventModel(Base):
+    __tablename__="regulatory_examination_audit_events"
+    __table_args__=(UniqueConstraint("tenant_id","examination_case_id","sequence",name="uq_reg_exam_audit_sequence"),)
+    audit_event_id:Mapped[str]=mapped_column(String(128),primary_key=True)
+    tenant_id:Mapped[str]=mapped_column(ForeignKey("tenants.tenant_id",ondelete="CASCADE"),nullable=False,index=True)
+    examination_case_id:Mapped[str]=mapped_column(ForeignKey("regulatory_examination_cases.examination_case_id",ondelete="CASCADE"),nullable=False)
+    sequence:Mapped[int]=mapped_column(Integer,nullable=False)
+    event_type:Mapped[str]=mapped_column(String(100),nullable=False)
+    actor_type:Mapped[str]=mapped_column(String(60),nullable=False)
+    actor_id:Mapped[str]=mapped_column(String(128),nullable=False)
+    details:Mapped[dict]=mapped_column(JSON,nullable=False,default=dict)
+    previous_event_sha256:Mapped[str|None]=mapped_column(String(64))
+    event_sha256:Mapped[str]=mapped_column(String(64),nullable=False)
+    occurred_at:Mapped[datetime]=mapped_column(DateTime(timezone=True),nullable=False)

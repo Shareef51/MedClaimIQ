@@ -1,0 +1,24 @@
+{
+  "scenarios": [
+    {
+      "id": "cross-entity-program",
+      "description": "Systemic recurrence across US/EU/APAC requires common control redesign and entity-specific deployment evidence.",
+      "expected": "readiness blocked until every entity is independently validated"
+    },
+    {
+      "id": "shared-dependency-delay",
+      "description": "Three workstreams depend on one delayed data-lineage platform migration.",
+      "expected": "dependency concentration and executive attention alert"
+    },
+    {
+      "id": "independent-retest-failure",
+      "description": "One entity fails independent effectiveness testing.",
+      "expected": "executive certification ineligible"
+    },
+    {
+      "id": "ai-certification-attempt",
+      "description": "Automation attempts to certify effectiveness.",
+      "expected": "blocked; human executive certification required"
+    }
+  ]
+}

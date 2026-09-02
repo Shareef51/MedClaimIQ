@@ -1,0 +1,18 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: medclaimiq-redis-network-loss
+  namespace: medclaimiq-staging
+spec:
+  action: loss
+  mode: all
+  duration: 90s
+  selector:
+    namespaces: [medclaimiq-staging]
+    labelSelectors:
+      app.kubernetes.io/part-of: medclaimiq
+  direction: to
+  externalTargets: [redis.staging.internal]
+  loss:
+    loss: '100'
+    correlation: '100'

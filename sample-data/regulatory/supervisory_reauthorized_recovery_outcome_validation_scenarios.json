@@ -1,0 +1,29 @@
+[
+  {
+    "scenario_id": "P93-STABLE-RECERTIFICATION-CANDIDATE",
+    "recovery_program_id": "SRP-2026-004",
+    "release92_supervisory_recovery_execution_version_id": "P92-EXEC-004",
+    "release92_independent_recovery_assurance_version_id": "P92-IA-004",
+    "release92_baseline_systemic_risk_score": 92,
+    "current_systemic_risk_score": 43,
+    "minimum_required_reduction_percent": 35,
+    "observed_window_days": 120,
+    "minimum_window_days": 90,
+    "minimum_control_health_score": 88,
+    "observations": [
+      {"status": "stable", "control_health_score": 94, "release92_execution_reference": "P92-EXEC-004"},
+      {"status": "stable", "control_health_score": 92, "release92_execution_reference": "P92-EXEC-004"}
+    ]
+  },
+  {
+    "scenario_id": "P93-WITHHOLD-RECERTIFICATION",
+    "recovery_program_id": "SRP-2026-005",
+    "release92_supervisory_recovery_execution_version_id": "P92-EXEC-005",
+    "release92_baseline_systemic_risk_score": 94,
+    "current_systemic_risk_score": 79,
+    "blockers": [{"blocker_id": "BL-1", "status": "open", "severity": "critical", "evidence_fresh": true}],
+    "observed_window_days": 45,
+    "minimum_window_days": 90,
+    "observations": [{"status": "degraded", "control_health_score": 74, "release92_execution_reference": "P92-EXEC-005"}]
+  }
+]

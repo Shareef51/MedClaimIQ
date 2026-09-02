@@ -1,0 +1,14 @@
+{
+  "recurrence_min_count": 2,
+  "systemic_control_min_count": 2,
+  "critical_cluster_member_count": 4,
+  "risk_acceptance_requires_independent_human": true,
+  "management_attestation_required": true,
+  "independent_testing_required": true,
+  "independent_portfolio_certification_required": true,
+  "ai_authority": "analysis_recommendation_only",
+  "worker_authority": "monitoring_only",
+  "financial_accounting_mutation_authority": false,
+  "payment_authority": false,
+  "fund_movement": false
+}

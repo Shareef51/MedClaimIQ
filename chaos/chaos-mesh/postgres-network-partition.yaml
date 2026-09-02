@@ -1,0 +1,15 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: medclaimiq-postgres-network-partition
+  namespace: medclaimiq-staging
+spec:
+  action: partition
+  mode: all
+  duration: 60s
+  selector:
+    namespaces: [medclaimiq-staging]
+    labelSelectors:
+      app.kubernetes.io/part-of: medclaimiq
+  direction: to
+  externalTargets: [postgres.staging.internal]

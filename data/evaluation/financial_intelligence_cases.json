@@ -1,0 +1,7 @@
+[
+  {"case_id":"reserve-001","expected_signal":"outstanding_reserve","required_citation_types":["financial_authorization_packet","era_eft_reconciliation"],"expected_authority":"none","requires_human_finance_action":true},
+  {"case_id":"leakage-001","expected_signal":"net_paid_exceeds_approved","required_citation_types":["financial_authorization_packet","immutable_ledger_journal"],"expected_authority":"none","requires_human_finance_action":true},
+  {"case_id":"recon-001","expected_signal":"era_eft_reconciliation_exception","required_citation_types":["era_eft_reconciliation"],"expected_authority":"none","requires_human_finance_action":true},
+  {"case_id":"provider-001","expected_signal":"provider_payment_pattern","required_citation_types":["era_eft_reconciliation","financial_exception"],"expected_authority":"none","requires_human_finance_action":true},
+  {"case_id":"close-001","expected_signal":"period_close_readiness","required_citation_types":["accounting_period_readiness"],"expected_authority":"none","requires_human_finance_action":true}
+]

@@ -1,0 +1,24 @@
+{
+  "strategy": "hybrid",
+  "dense_vector": "dense",
+  "sparse_vector": "sparse",
+  "sparse_encoder": "hashed-bm25-qdrant-idf-v1",
+  "fusion": {"algorithm": "reciprocal_rank_fusion", "rrf_k": 60},
+  "query_intelligence": {
+    "planner": "deterministic-healthcare-query-planner-v1",
+    "max_query_variants": 5,
+    "max_subqueries": 4,
+    "metadata_filters_are_allowlisted": true,
+    "llm_generated_authorization_filters": false
+  },
+  "candidate_generation": {"multiplier": 4, "cross_domain": true},
+  "reranking": {
+    "version": "evidence-aware-reranker-v1",
+    "signals": ["rrf", "lexical_overlap", "source_authority", "evidence_confidence", "exact_terms", "temporal_alignment"]
+  },
+  "diversification": {"max_per_source": 2},
+  "compression": {"version": "citation-safe-context-compressor-v1", "preserve_citation_anchor": true},
+  "no_evidence": {"minimum_confidence": 0.35, "explicit_state": true},
+  "non_relaxable_filters": ["tenant_id", "claim_id", "acl_tags"],
+  "telemetry": {"raw_query_persisted": false, "append_only": true, "tenant_rls": true}
+}

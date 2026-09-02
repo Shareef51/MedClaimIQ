@@ -1,0 +1,32 @@
+{
+  "release": 109,
+  "release_id": "medclaimiq-rc-109",
+  "candidate_version": "v109.0.0-rc1",
+  "scenario_count": 24,
+  "scenarios": [
+    {"id":"load-baseline","category":"performance","expected":"pass"},
+    {"id":"load-peak","category":"performance","expected":"pass"},
+    {"id":"stress-saturation","category":"performance","expected":"controlled-degradation"},
+    {"id":"soak-120m","category":"performance","expected":"pass"},
+    {"id":"noisy-neighbor-rag","category":"multi-tenant","expected":"isolated"},
+    {"id":"noisy-neighbor-sse","category":"multi-tenant","expected":"isolated"},
+    {"id":"llm-latency-cost-budget","category":"ai-slo","expected":"pass"},
+    {"id":"rag-agent-latency-budget","category":"ai-slo","expected":"pass"},
+    {"id":"postgres-failover","category":"dependency","expected":"recover"},
+    {"id":"redis-loss","category":"dependency","expected":"recover"},
+    {"id":"kafka-partition","category":"dependency","expected":"recover"},
+    {"id":"vector-delay","category":"dependency","expected":"recover"},
+    {"id":"object-store-timeout","category":"dependency","expected":"recover"},
+    {"id":"llm-provider-outage","category":"provider","expected":"safe-fallback-or-human-escalation"},
+    {"id":"pod-loss","category":"kubernetes","expected":"recover"},
+    {"id":"node-loss","category":"kubernetes","expected":"recover"},
+    {"id":"az-loss","category":"kubernetes","expected":"recover"},
+    {"id":"postgres-pitr-restore","category":"backup-restore","expected":"checksum-match"},
+    {"id":"object-store-restore","category":"backup-restore","expected":"checksum-match"},
+    {"id":"regional-failover-failback","category":"dr","expected":"rpo-rto-pass"},
+    {"id":"hpa-scale-out-in","category":"capacity","expected":"pass"},
+    {"id":"alert-runbook-oncall","category":"operations","expected":"pass"},
+    {"id":"sev1-game-day","category":"incident-response","expected":"pass"},
+    {"id":"audit-evidence-pack","category":"governance","expected":"immutable"}
+  ]
+}

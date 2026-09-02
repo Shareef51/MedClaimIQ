@@ -1,0 +1,14 @@
+{
+  "capability": "systemic_failure_investigation_and_remediation_reauthorization",
+  "migration": "0074_reg_exam_systemic_failure_investigation",
+  "api_prefix": "/api/v1/regulatory-examination-systemic-failure-investigation",
+  "authority": "human_only_remediation_reauthorization",
+  "traceability": [
+    "multi_cycle_recurrence",
+    "systemic_investigation",
+    "root_cause_reassessment",
+    "renewed_strategy",
+    "independent_challenge",
+    "human_authorization"
+  ]
+}

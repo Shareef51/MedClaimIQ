@@ -1,0 +1,42 @@
+{
+  "policy_version": "governed-human-closure-v1",
+  "human_authority": {
+    "final_claim_decision_human_only": true,
+    "llm_adjudication_allowed": false,
+    "langgraph_adjudication_allowed": false,
+    "rag_adjudication_allowed": false,
+    "mcp_adjudication_allowed": false,
+    "automated_financial_execution_allowed": false
+  },
+  "decision_packet": {
+    "reviewer_lease_required": true,
+    "claim_status_version_required": true,
+    "packet_version_required": true,
+    "minimum_rationale_characters": 10,
+    "reason_code_required": true,
+    "evidence_snapshot_sha256_required": true,
+    "locked_payload_sha256_required": true,
+    "ai_disagreement_reason_required": true
+  },
+  "closure_gates": {
+    "block_open_material_graph_conflicts": true,
+    "block_unresolved_material_multimodal_conflicts": true,
+    "block_missing_required_modalities": true,
+    "block_changed_or_unready_evidence": true,
+    "request_information_and_escalation_are_non_financial_exceptions": true
+  },
+  "dual_control": {
+    "deny": true,
+    "partial_approve": true,
+    "claim_amount_at_or_above": 10000,
+    "ai_human_disagreement": true,
+    "fraud_waste_reason": true,
+    "self_second_review_allowed": false
+  },
+  "post_decision": {
+    "resolve_waiting_agent_checkpoints": true,
+    "queue_notification_intents": true,
+    "hash_chained_adjudication_audit": true,
+    "sse_review_events": true
+  }
+}

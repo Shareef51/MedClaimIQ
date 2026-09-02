@@ -1,0 +1,8 @@
+{
+  "release": 55,
+  "name": "Production Regulatory Remediation Predictive Risk Intelligence, Supervisory Scenario Analysis & Enterprise Assurance Forecasting",
+  "forecast_horizons_days": [30, 60, 90, 180, 365],
+  "scenario_types": ["dependency_delay", "capacity_reduction", "control_failure", "accelerated_remediation", "deadline_change", "retest_failure"],
+  "model_governance": {"immutable_versions": true, "explainability_required": true, "backtesting_required": true, "human_review_required": true},
+  "authority": {"recommendation_only": true, "can_approve_remediation": false, "can_accept_residual_risk": false, "can_certify_controls": false, "can_close_findings": false, "can_change_regulatory_commitments": false, "can_move_money": false}
+}

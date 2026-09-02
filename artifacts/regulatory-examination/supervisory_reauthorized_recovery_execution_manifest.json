@@ -1,0 +1,6 @@
+{
+  "capability": "supervisory reauthorized recovery execution, enterprise control re-transformation and independent recovery assurance",
+  "migration": "0087_reg_exam_supervisory_reauthorized_recovery_execution",
+  "authority": "Release 91 human supervisory recovery reauthorization is mandatory; control approval, risk acceptance, recovery certification, commitment closure and program reclosure remain non-delegable",
+  "traceability": "Release 91 human supervisory recovery reauthorization -> supervisory reauthorized recovery execution -> control re-transformation -> execution evidence -> independent recovery assurance -> human outcome review"
+}

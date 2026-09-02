@@ -1,0 +1,14 @@
+{
+  "strategy": "expand-contract",
+  "from_revision": "0028_multimodal_agent_orchestration",
+  "candidate_migrations": [
+    "0029_multimodal_reviewer_workbench.py"
+  ],
+  "blocked_operations": [
+    "drop_column",
+    "drop_constraint",
+    "drop_table"
+  ],
+  "violations": [],
+  "decision": "pass"
+}

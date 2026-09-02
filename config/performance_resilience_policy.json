@@ -1,0 +1,71 @@
+{
+  "policy_version": "2026-08",
+  "delivery_semantics": "performance-and-resilience-evidence-is-release-blocking-for-production",
+  "latency_budgets_ms": {
+    "api_health_p95": 150,
+    "claim_list_p95": 400,
+    "review_workbench_p95": 900,
+    "rag_hybrid_p95": 1800,
+    "agent_workflow_start_p95": 1200,
+    "fhir_read_p95": 1200,
+    "mcp_read_p95": 700,
+    "sse_connect_p95": 750
+  },
+  "error_budgets": {
+    "http_error_rate_max": 0.01,
+    "rag_error_rate_max": 0.02,
+    "agent_start_error_rate_max": 0.01,
+    "mcp_read_error_rate_max": 0.01,
+    "sse_disconnect_rate_max": 0.02
+  },
+  "throughput_targets": {
+    "concurrent_claim_reviewers": 250,
+    "concurrent_portal_users": 500,
+    "sse_connections_per_api_replica": 750,
+    "claim_events_per_second": 250,
+    "worker_events_per_second": 100,
+    "kafka_backlog_recovery_minutes": 15
+  },
+  "datastore_budgets_ms": {
+    "postgres_simple_query_p95": 50,
+    "redis_roundtrip_p95": 20,
+    "qdrant_search_p95": 150
+  },
+  "worker_backpressure": {
+    "max_inflight": 32,
+    "pause_threshold": 24,
+    "resume_threshold": 12,
+    "max_retry_attempts": 5,
+    "dlq_required_after_exhaustion": true
+  },
+  "autoscaling": {
+    "api_cpu_target_percent": 65,
+    "frontend_cpu_target_percent": 65,
+    "worker_cpu_target_percent": 70,
+    "kafka_lag_scale_threshold": 100,
+    "scale_up_observation_seconds": 300
+  },
+  "resilience": {
+    "availability_target": 0.999,
+    "dependency_failure_must_not_bypass_authorization": true,
+    "provider_timeout_must_fail_closed": true,
+    "rag_vector_store_failure_fallback": "structured-authoritative-evidence-or-human-review",
+    "redis_failure_fallback": "degraded-cacheless-operation-where-safe",
+    "kafka_failure_fallback": "transactional-outbox-retains-events",
+    "openai_failure_fallback": "bounded-retry-then-human-review",
+    "database_failure_fallback": "fail-request-no-unsafe-partial-write"
+  },
+  "regression": {
+    "p95_latency_increase_max_fraction": 0.1,
+    "throughput_drop_max_fraction": 0.1,
+    "error_rate_increase_max_absolute": 0.005,
+    "critical_resilience_failures_allowed": 0
+  },
+  "chaos": {
+    "production_execution_requires_explicit_approval": true,
+    "default_namespace": "medclaimiq-chaos",
+    "max_experiment_duration_minutes": 15,
+    "steady_state_required_before_experiment": true,
+    "abort_on_patient_safety_or_authorization_failure": true
+  }
+}

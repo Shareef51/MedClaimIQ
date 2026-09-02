@@ -1,0 +1,11 @@
+{
+  "domains": ["claim", "policy", "hospital", "invoice", "coding", "historical_claims", "evidence"],
+  "chunking": {"parent_tokens": 1200, "child_tokens": 350, "overlap_tokens": 60},
+  "embedding": {"provider": "openai", "model": "text-embedding-3-large", "dimensions": 1536, "batch_size": 64},
+  "vector_store": {"provider": "qdrant", "distance": "cosine", "collection_strategy": "domain_separated"},
+  "required_filters": ["tenant_id", "claim_id", "acl_tags"],
+  "indexed_payload_fields": ["tenant_id", "claim_id", "patient_subject_id", "domain", "source_type", "source_id", "source_version", "acl_tags", "entity_ids", "active", "service_date"],
+  "source_of_truth": "postgresql",
+  "qdrant_role": "rebuildable_vector_projection",
+  "indexing": {"idempotent": true, "retry": "exponential_backoff", "persistent_dlq": true, "versioned": true}
+}

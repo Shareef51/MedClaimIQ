@@ -1,0 +1,25 @@
+mode: monitoring_recommendation_only
+human_authority:
+  enterprise_reopening: required
+  residual_systemic_risk_acceptance: required
+  recovery_effectiveness_certification: required
+independent_reassessment:
+  required: true
+  allowed_roles: [internal_auditor, chief_audit_executive, independent_assurance]
+supervisory_review:
+  executive_review_required: true
+  internal_audit_review_required: true
+thresholds:
+  systemic_risk_rebound_percent: 20
+  recovery_effectiveness_decay_points: 10
+immutability:
+  surveillance_versions: true
+  investigation_versions: true
+  reopening_versions: true
+prohibited_automation:
+  - reopen_program
+  - reclose_program
+  - accept_residual_systemic_risk
+  - certify_recovery_effectiveness
+  - alter_accounting_records
+  - authorize_payments

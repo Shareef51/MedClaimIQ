@@ -1,0 +1,6 @@
+[
+  {"scenario":"high_risk_sampling","control_id":"CTRL-AML-102","population_size":500,"sample_size":25,"expected":"highest-risk records selected with immutable provenance"},
+  {"scenario":"cross_entity_exception","control_id":"CTRL-DATA-203","entities":["US","EU","UK"],"expected":"entity exception retained and surfaced for independent review"},
+  {"scenario":"failed_operating_effectiveness","control_id":"CTRL-OPS-333","expected":"human conclusion required and bounded retest scheduled"},
+  {"scenario":"sod_violation","control_id":"CTRL-FIN-410","expected":"preparer blocked from independently concluding same test run"}
+]

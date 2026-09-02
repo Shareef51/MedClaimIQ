@@ -1,0 +1,13 @@
+{
+  "release": 45,
+  "require_accepted_evidence_boundary": true,
+  "require_effective_contract_or_policy": true,
+  "require_locked_dispute_snapshot": true,
+  "require_citations": true,
+  "allow_ai_dispute_adjudication": false,
+  "allow_ai_accounting_change": false,
+  "allow_ai_payment_authorization": false,
+  "allow_worker_financial_mutation": false,
+  "allow_automatic_collection_or_fund_movement": false,
+  "independent_human_finance_approver_resolution_required": true
+}

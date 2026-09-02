@@ -1,0 +1,42 @@
+{
+  "release": 108,
+  "report_type": "release_security_readiness_design_evidence",
+  "candidate_version": "release108-rc",
+  "status": "human_certification_required",
+  "automated_security_certification": false,
+  "automated_production_promotion": false,
+  "local_validation": {
+    "deterministic_adversarial_fixture_cases": 61,
+    "real_external_scanner_execution": "CI-required; not represented as locally executed unless corresponding artifacts exist",
+    "offline_repository_security_baseline_passed": true,
+    "credential_pattern_findings": 0,
+    "security_cross_domain_regression": "99/99 passed",
+    "backend_tests_discovered": 792,
+    "monolithic_full_suite": "reached 36% with zero observed failures before execution timeout; not a complete pass"
+  },
+  "blocking_policy": {
+    "critical_findings_allowed": 0,
+    "high_findings_allowed": 0,
+    "secret_findings_allowed": 0,
+    "cross_tenant_escape_allowed": false,
+    "phi_pii_exfiltration_allowed": false
+  },
+  "required_evidence": [
+    "gitleaks",
+    "semgrep",
+    "dependency_scan",
+    "CycloneDX_SBOM",
+    "container_scan",
+    "IaC_scan",
+    "image_signing/provenance",
+    "API_fuzzing",
+    "audit_integrity",
+    "multimodal_adversarial_suite",
+    "Release107_human_release_candidate_decision"
+  ],
+  "human_authority": {
+    "medium_low_waiver_only": true,
+    "release_security_certification_required": true,
+    "production_promotion_separate": true
+  }
+}

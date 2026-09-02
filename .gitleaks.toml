@@ -1,0 +1,11 @@
+title = "MedClaimIQ secret scanning"
+
+[allowlist]
+description = "Only explicit synthetic/local placeholders are allowed; no directory-wide bypasses"
+regexes = [
+  '''local-only-change-this-[A-Za-z0-9_-]+''',
+  '''change-me-local-only''',
+  '''replace-with-[A-Za-z0-9_-]+''',
+  '''configure-in-secret-manager''',
+  '''identity\.example\.invalid'''
+]

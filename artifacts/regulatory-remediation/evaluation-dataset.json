@@ -1,0 +1,10 @@
+{
+  "dataset": "regulatory-remediation-closure-assurance",
+  "cases": [
+    {"id":"material-finding-capa","expected":"governed_human_capa_required"},
+    {"id":"ai-remediation-recommendation","expected":"recommendation_only"},
+    {"id":"self-approval","expected":"blocked"},
+    {"id":"failed-control-retest","expected":"closure_blocked"},
+    {"id":"independent-effective-closure","expected":"human_certification_required"}
+  ]
+}

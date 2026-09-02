@@ -1,0 +1,7 @@
+[
+  {"case_id":"exam-cited-pack","scenario":"immutable examination evidence pack with certified filing/transmission/supervisory citations","expected":"allowed","requires_human_response_approval":true},
+  {"case_id":"exam-ai-draft","scenario":"AI-assisted cited regulator response draft","expected":"blocked_until_independent_human_checker","requires_human_response_approval":true},
+  {"case_id":"exam-self-approval","scenario":"response maker attempts self approval","expected":"blocked","requires_human_response_approval":true},
+  {"case_id":"exam-material-finding","scenario":"material finding remains open at closure","expected":"blocked","requires_human_response_approval":true},
+  {"case_id":"exam-approved-delivery","scenario":"different human checker approves and securely delivers cited response","expected":"allowed","requires_human_response_approval":true}
+]

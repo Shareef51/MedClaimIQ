@@ -1,0 +1,25 @@
+version: 1
+name: regulatory-reopened-outcome-validation
+mode: governed-human-authority
+sustainability:
+  default_window_days: 90
+  minimum_window_days: 30
+  reclosure_readiness_threshold: 90
+second_recurrence:
+  automatic_escalation: true
+  blocks_reclosure: true
+required_gates:
+  - independent_revalidation
+  - sustainability_window_complete
+  - cross_entity_validation
+  - renewed_regulatory_commitments_complete
+human_only_actions:
+  - recertify_control_effectiveness
+  - approve_reclosure
+  - accept_residual_risk
+  - close_regulatory_finding
+prohibited_automation:
+  - accounting_record_changes
+  - payment_authorization
+  - fund_collection
+  - fund_movement

@@ -1,0 +1,1 @@
+{"human_release_required":true,"max_attempts":5,"base_backoff_seconds":30,"delivery_sla_hours":24,"ack_signature_required":true,"encryption":"AES-256-GCM","envelope_signature":"HMAC-SHA256","automatic_submission_authorization":false,"financial_source_read_only":true}

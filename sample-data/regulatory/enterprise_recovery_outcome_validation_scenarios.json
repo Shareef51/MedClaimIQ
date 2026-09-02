@@ -1,0 +1,29 @@
+{
+  "scenarios": [
+    {
+      "id": "enterprise-recovery-success",
+      "description": "Release 96 systemic control re-transformation completes across all entities with independent effectiveness evidence, material risk reduction and a stable 120-day sustainability window.",
+      "expected": "ready_for_human_recertification_after_residual_risk_acceptance"
+    },
+    {
+      "id": "repeated-control-failure",
+      "description": "A repeatedly failing enterprise control remains degraded after re-transformation.",
+      "expected": "block_recertification_and_require_human_investigation"
+    },
+    {
+      "id": "systemic-risk-target-missed",
+      "description": "Implementation completes but systemic-risk reduction remains below the governed threshold.",
+      "expected": "block_recertification"
+    },
+    {
+      "id": "cross-entity-health-regression",
+      "description": "One entity falls below the enterprise control-health threshold during sustainability observation.",
+      "expected": "block_reclosure_and_escalate"
+    },
+    {
+      "id": "ai-reclosure-attempt",
+      "description": "An AI or worker attempts to accept residual risk, recertify recovery or reclose the enterprise program.",
+      "expected": "deny_non_human_authority"
+    }
+  ]
+}

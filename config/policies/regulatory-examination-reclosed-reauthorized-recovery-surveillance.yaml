@@ -1,0 +1,31 @@
+name: regulatory-examination-reclosed-reauthorized-recovery-surveillance
+mode: recommendation-monitoring-only
+scope:
+  tenant_isolation_required: true
+  immutable_surveillance_versions: true
+  immutable_investigation_versions: true
+  immutable_reopening_decisions: true
+surveillance:
+  repeated_failure_control_regression: true
+  systemic_risk_rebound_threshold_percent: 20
+  cross_entity_propagation_threshold_percent: 40
+  new_examination_finding_correlation_requires_human_validation: true
+  regulator_followup_interpretation_requires_human: true
+reopening_governance:
+  human_investigation_required: true
+  independent_reassessment_required: true
+  executive_review_required: true
+  internal_audit_challenge_required: true
+  renewed_recovery_governance_candidate_required: true
+  human_only_reopening: true
+forbidden:
+  - ai_program_reopening
+  - ai_program_reclosure
+  - ai_residual_systemic_risk_acceptance
+  - ai_recovery_effectiveness_certification
+  - ai_regulator_intent_representation
+  - worker_program_reopening
+  - accounting_record_mutation
+  - payment_authorization
+  - funds_collection
+  - funds_movement

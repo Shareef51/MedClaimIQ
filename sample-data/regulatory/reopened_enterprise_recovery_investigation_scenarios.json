@@ -1,0 +1,56 @@
+{
+  "release": 99,
+  "title": "Reopened enterprise recovery investigation and remediation reauthorization",
+  "scenarios": [
+    {
+      "id": "persistent-systemic-failure",
+      "release98_enterprise_reopening_version_id": "er98-001",
+      "cycles": [
+        {
+          "cycle_id": "c1",
+          "sequence": 1,
+          "status": "failed",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        {
+          "cycle_id": "c2",
+          "sequence": 2,
+          "status": "recurred",
+          "evidence_refs": [
+            "e2"
+          ]
+        },
+        {
+          "cycle_id": "c3",
+          "sequence": 3,
+          "status": "systemic_failure",
+          "evidence_refs": [
+            "e3"
+          ]
+        }
+      ],
+      "expected": "human investigation and remediation reauthorization required"
+    },
+    {
+      "id": "emergent-root-cause",
+      "release98_enterprise_reopening_version_id": "er98-002",
+      "prior_root_cause_ids": [
+        "rc-old"
+      ],
+      "current_root_cause_ids": [
+        "rc-old",
+        "rc-new"
+      ],
+      "expected": "persistent and emergent root causes separated for human confirmation"
+    },
+    {
+      "id": "sod-block",
+      "release98_enterprise_reopening_version_id": "er98-003",
+      "investigation_owner_actor_id": "auditor-a",
+      "independent_reviewer_actor_id": "auditor-a",
+      "expected": "independent challenge rejected by segregation-of-duties guard"
+    }
+  ]
+}

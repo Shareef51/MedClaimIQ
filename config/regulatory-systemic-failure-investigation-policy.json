@@ -1,0 +1,27 @@
+{
+  "policy_name": "regulatory-examination-systemic-failure-investigation",
+  "immutable_versions": true,
+  "tenant_isolation_required": true,
+  "recommendation_only_ai": true,
+  "independent_challenge_required": true,
+  "executive_human_reauthorization_required": true,
+  "prohibited_automated_actions": [
+    "authorize_remediation",
+    "approve_intervention_program",
+    "accept_residual_systemic_risk",
+    "certify_controls",
+    "represent_regulator_intent",
+    "alter_accounting_records",
+    "authorize_payment",
+    "collect_funds",
+    "move_money"
+  ],
+  "reauthorization_required_gates": [
+    "evidence_reconstructed",
+    "root_cause_human_confirmed",
+    "cross_entity_scope_validated",
+    "independent_challenge_complete",
+    "regulator_follow_up_assessed",
+    "renewed_strategy_documented"
+  ]
+}

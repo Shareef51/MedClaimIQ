@@ -1,0 +1,30 @@
+{
+  "framework": "LangGraph",
+  "durability": {
+    "checkpointer": "PostgreSQL",
+    "strict_msgpack": true,
+    "stable_thread_id": true,
+    "initialize_checkpointer_schema_at_startup": true
+  },
+  "execution": {
+    "max_parallel_agents": 8,
+    "default_max_attempts": 3,
+    "default_timeout_seconds": 90,
+    "retry_backoff": "bounded_exponential",
+    "retry_base_seconds": 5,
+    "retry_max_seconds": 60
+  },
+  "human_in_the_loop": {
+    "durable_interrupt_resume": true,
+    "claim_review_permission_required": true,
+    "guardrail_block_requires_checkpoint": true,
+    "material_contradiction_requires_checkpoint": true
+  },
+  "agent_boundary": {
+    "database_session_exposed": false,
+    "authorization_mutator_exposed": false,
+    "claim_lifecycle_mutator_exposed": false,
+    "final_claim_decision_allowed": false,
+    "evidence_pack_binding_required": true
+  }
+}

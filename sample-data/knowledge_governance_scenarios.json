@@ -1,0 +1,30 @@
+{
+  "synthetic_only": true,
+  "scenarios": [
+    {
+      "name": "policy-v2-approved-release",
+      "source_key": "synthetic-payer-policy-library",
+      "document_key": "coverage-policy-orthopedic-v2",
+      "domain": "policy",
+      "authority_rank": 95,
+      "quality_expected": "pass",
+      "release_expected": "promoted"
+    },
+    {
+      "name": "stale-vector-after-embedding-change",
+      "from": {"model": "text-embedding-3-large", "dimensions": 1536, "index": "rag-v2-hybrid"},
+      "to": {"model": "text-embedding-3-large", "dimensions": 3072, "index": "rag-v3-hybrid"},
+      "expected": "migration_reindex_required"
+    },
+    {
+      "name": "retrieval-regression-blocks-release",
+      "baseline": {"recall": 0.94, "precision": 0.82, "ndcg": 0.90, "no_evidence_rate": 0.04},
+      "observed": {"recall": 0.86, "precision": 0.80, "ndcg": 0.82, "no_evidence_rate": 0.09},
+      "expected": "blocking"
+    },
+    {
+      "name": "retired-knowledge-delete-propagation",
+      "expected": "qdrant_projection_deleted_and_postgres_index_records_inactive"
+    }
+  ]
+}

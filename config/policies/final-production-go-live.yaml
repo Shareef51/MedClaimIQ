@@ -1,0 +1,25 @@
+mode: recommendation-monitoring-and-human-governed-release
+provenance:
+  release107_human_release_candidate_required: true
+  release108_human_security_certification_required: true
+  release109_human_operational_certification_required: true
+human_authority:
+  automated_go_live_approval: false
+  automated_production_promotion: false
+  automated_final_release_certification: false
+  automated_hypercare_closure: false
+non_bypassable:
+  - tenant_isolation_failure
+  - data_integrity_failure
+  - phi_pii_exfiltration
+  - critical_security_regression
+  - migration_integrity_failure
+  - rollback_unavailable
+  - sev1_incident
+release_controls:
+  immutable_manifest: true
+  gitops_only_production_promotion: true
+  human_change_window_approval: true
+  canary_or_progressive_rollout: true
+  rollback_available_until_hypercare_close: true
+  post_deployment_ai_rag_agent_verification: true

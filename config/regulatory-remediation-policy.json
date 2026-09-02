@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "material_findings_require_governed_capa": true,
+  "maker_checker_plan_approval_required": true,
+  "implementation_evidence_required": true,
+  "independent_control_retest_required": true,
+  "regulator_followup_checker_required": true,
+  "independent_closure_certification_required": true,
+  "open_waiver_blocks_effective_closure": true,
+  "ai_recommendation_only": true,
+  "financial_accounting_analysis_read_only": true,
+  "automation_can_approve_remediation": false,
+  "automation_can_certify_closure": false,
+  "automation_can_alter_financial_accounting_records": false,
+  "automation_can_authorize_payments": false,
+  "automation_can_collect_or_move_funds": false
+}

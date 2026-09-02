@@ -1,0 +1,7 @@
+[
+  {"scenario":"stable_post_closure","commitment_id":"C-7001","observations":[{"days_since_closure":30,"health_score":96,"control_effective":true},{"days_since_closure":90,"health_score":94,"control_effective":true}]},
+  {"scenario":"sustainability_decay","commitment_id":"C-7002","observations":[{"days_since_closure":30,"health_score":95,"control_effective":true},{"days_since_closure":120,"health_score":72,"control_effective":true}]},
+  {"scenario":"new_exam_recurrence","commitment_id":"C-7003","closed":{"control_id":"CTRL-22","obligation_id":"OBL-9","normalized_theme":"data_lineage"},"finding":{"finding_id":"F-NEW-1","control_id":"CTRL-22","obligation_id":"OBL-9","normalized_theme":"data_lineage"}},
+  {"scenario":"cross_entity_recurrence","commitment_id":"C-7004","signals":[{"entity_id":"US","control_id":"CTRL-5","recurrence_detected":true},{"entity_id":"EU","control_id":"CTRL-5","control_effective":false}]},
+  {"scenario":"human_reopen_required","commitment_id":"C-7005","decision":"reopen","expected_human_only":true}
+]

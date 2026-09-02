@@ -1,0 +1,4 @@
+[
+  {"provider_organization_id":"org-a","target_recovery":"100.00","verified_recovery":"100.00","remaining_balance":"0.00","currency":"USD","statement_version":1,"status":"derived_example"},
+  {"provider_organization_id":"org-b","target_recovery":"500.00","verified_recovery":"300.00","remaining_balance":"200.00","currency":"USD","statement_version":2,"status":"derived_example"}
+]

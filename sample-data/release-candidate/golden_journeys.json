@@ -1,0 +1,112 @@
+{
+  "release": 107,
+  "release_id": "rc-medclaimiq-2026-08",
+  "candidate_version": "2026.08-rc1",
+  "tenant_id": "tenant-synthetic-alpha",
+  "golden_journey": {
+    "journey_id": "claim-to-regulatory-governance-001",
+    "human_final_decision_recorded": true,
+    "automated_final_claim_decision": false,
+    "stages": [
+      {
+        "name": "multimodal_evidence_ingestion",
+        "status": "passed",
+        "tenant_id": "tenant-synthetic-alpha",
+        "evidence_refs": [
+          "evidence:multimodal_evidence_ingestion:001"
+        ],
+        "citations_validated": true
+      },
+      {
+        "name": "document_intelligence",
+        "status": "passed",
+        "tenant_id": "tenant-synthetic-alpha",
+        "evidence_refs": [
+          "evidence:document_intelligence:001"
+        ],
+        "citations_validated": true
+      },
+      {
+        "name": "healthcare_normalization_fhir",
+        "status": "passed",
+        "tenant_id": "tenant-synthetic-alpha",
+        "evidence_refs": [
+          "evidence:healthcare_normalization_fhir:001"
+        ],
+        "citations_validated": true
+      },
+      {
+        "name": "multi_rag_retrieval",
+        "status": "passed",
+        "tenant_id": "tenant-synthetic-alpha",
+        "evidence_refs": [
+          "evidence:multi_rag_retrieval:001"
+        ],
+        "citations_validated": true
+      },
+      {
+        "name": "langgraph_specialist_orchestration",
+        "status": "passed",
+        "tenant_id": "tenant-synthetic-alpha",
+        "evidence_refs": [
+          "evidence:langgraph_specialist_orchestration:001"
+        ],
+        "citations_validated": true
+      },
+      {
+        "name": "mcp_tool_boundary",
+        "status": "passed",
+        "tenant_id": "tenant-synthetic-alpha",
+        "evidence_refs": [
+          "evidence:mcp_tool_boundary:001"
+        ],
+        "citations_validated": true
+      },
+      {
+        "name": "human_review",
+        "status": "passed",
+        "tenant_id": "tenant-synthetic-alpha",
+        "evidence_refs": [
+          "evidence:human_review:001"
+        ],
+        "citations_validated": true
+      },
+      {
+        "name": "governed_claim_closure",
+        "status": "passed",
+        "tenant_id": "tenant-synthetic-alpha",
+        "evidence_refs": [
+          "evidence:governed_claim_closure:001"
+        ],
+        "citations_validated": true
+      },
+      {
+        "name": "regulatory_governance",
+        "status": "passed",
+        "tenant_id": "tenant-synthetic-alpha",
+        "evidence_refs": [
+          "evidence:regulatory_governance:001"
+        ],
+        "citations_validated": true
+      }
+    ]
+  },
+  "release_gates": {
+    "cross_domain_golden_journeys": "passed",
+    "api_contract_regression": "passed",
+    "tenant_isolation": "passed",
+    "durable_workflow_recovery": "passed",
+    "event_sse_integrity": "passed",
+    "failure_injection_resilience": "passed",
+    "migration_chain_integrity": "passed",
+    "security_readiness": "passed",
+    "ai_evaluation_quality": "passed",
+    "release_engineering_controls": "passed"
+  },
+  "quality_scores": {
+    "groundedness": 0.97,
+    "citation_precision": 0.98,
+    "agent_task_success": 0.95,
+    "human_escalation_correctness": 1.0
+  }
+}

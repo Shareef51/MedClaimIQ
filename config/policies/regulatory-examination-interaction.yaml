@@ -1,0 +1,23 @@
+version: 1
+release: 67
+purpose: governed regulatory examination interactions and commitment capture
+authority:
+  ai_can_summarize_meetings: true
+  ai_can_extract_candidate_commitments: true
+  ai_can_create_binding_commitment: false
+  ai_can_represent_regulator_intent: false
+  worker_can_confirm_commitment: false
+  human_confirmation_required: true
+classification:
+  allowed_statement_classes:
+    - documented_regulator_position
+    - enterprise_interpretation
+    - enterprise_statement
+    - ai_observation
+controls:
+  require_source_provenance: true
+  preserve_immutable_timeline: true
+  require_human_validation_for_summary: true
+  require_human_confirmation_for_commitment: true
+  run_prior_submission_contradiction_check: true
+  enforce_tenant_isolation: true

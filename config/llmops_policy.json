@@ -1,0 +1,26 @@
+{
+  "telemetry": {
+    "raw_prompts": false,
+    "raw_evidence": false,
+    "raw_queries": false,
+    "raw_tool_inputs": false,
+    "hash_sensitive_identifiers": true
+  },
+  "sampling": {
+    "parent_based": true,
+    "default_ratio": 0.1,
+    "safety_audit_records_are_unsampled": true,
+    "note": "Trace sampling never affects PostgreSQL safety/governance audit retention."
+  },
+  "slos": {
+    "model_latency_p95_ms": 15000,
+    "retrieval_latency_p95_ms": 2000,
+    "agent_error_rate": 0.05,
+    "mcp_error_rate": 0.02,
+    "daily_cost_usd": 100.0
+  },
+  "pricing": {
+    "policy": "provider pricing must be explicitly configured and versioned; unknown prices remain null",
+    "models": {}
+  }
+}

@@ -1,0 +1,1 @@
+{"dataset":"data/evaluation/provider_dispute_resolution.json","authority":"human_finance_approver_only","automated_dispute_resolution":false,"automated_accounting_change":false,"automated_payment_authorization":false,"automated_collection_or_fund_movement":false}

@@ -1,0 +1,29 @@
+{
+  "policy_version": "advanced-rag-policy-v1",
+  "max_rewrites": 5,
+  "max_retrieval_rounds": 2,
+  "minimum_confidence": 0.55,
+  "minimum_citation_coverage": 0.8,
+  "strict_citations_default": true,
+  "model_assisted_rewriting_default": false,
+  "allowed_self_query_fields": [
+    "service_date_from",
+    "service_date_to",
+    "minimum_authority_rank",
+    "source_type"
+  ],
+  "immutable_scope_fields": [
+    "tenant_id",
+    "claim_id",
+    "patient_subject_id",
+    "acl_tags"
+  ],
+  "fallback_rules": [
+    "never relax tenant or claim scope",
+    "never relax ACL tags",
+    "never broaden explicit temporal constraints",
+    "never lower authority threshold",
+    "never bypass knowledge lifecycle eligibility",
+    "route insufficient evidence to human review or evidence request"
+  ]
+}

@@ -1,0 +1,16 @@
+"""regulatory examination reclosure sustainability monitoring
+Revision ID: 0067_reg_exam_reclosure_sustainability
+Revises: 0066_reg_exam_reopened_commitment_reclosure
+"""
+from alembic import op
+import sqlalchemy as sa
+revision="0067_reg_exam_reclosure_sustainability"; down_revision="0066_reg_exam_reopened_commitment_reclosure"; branch_labels=None; depends_on=None
+
+def upgrade():
+    op.create_table("regulatory_exam_reclosure_sustainability_observations",sa.Column("observation_id",sa.String(36),primary_key=True),sa.Column("commitment_id",sa.String(36),nullable=False,index=True),sa.Column("reclosure_version_id",sa.String(36),nullable=False,index=True),sa.Column("tenant_id",sa.String(128),nullable=False,index=True),sa.Column("control_id",sa.String(128),nullable=False),sa.Column("entity_id",sa.String(128),nullable=False),sa.Column("assessment_json",sa.JSON(),nullable=False),sa.Column("evidence_refs_json",sa.JSON(),nullable=False),sa.Column("version_hash",sa.String(64),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True),server_default=sa.func.now(),nullable=False))
+    op.create_table("regulatory_exam_repeat_recurrence_escalation_versions",sa.Column("escalation_version_id",sa.String(36),primary_key=True),sa.Column("commitment_id",sa.String(36),nullable=True,index=True),sa.Column("tenant_id",sa.String(128),nullable=False,index=True),sa.Column("tier",sa.Integer(),nullable=False),sa.Column("assessment_json",sa.JSON(),nullable=False),sa.Column("status",sa.String(32),nullable=False),sa.Column("version_hash",sa.String(64),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True),server_default=sa.func.now(),nullable=False))
+    op.create_table("regulatory_exam_repeat_recurrence_investigations",sa.Column("investigation_id",sa.String(36),primary_key=True),sa.Column("commitment_id",sa.String(36),nullable=False,index=True),sa.Column("escalation_version_id",sa.String(36),nullable=False,index=True),sa.Column("tenant_id",sa.String(128),nullable=False,index=True),sa.Column("reviewer_role",sa.String(64),nullable=False),sa.Column("rationale",sa.Text(),nullable=False),sa.Column("evidence_refs_json",sa.JSON(),nullable=False),sa.Column("version_hash",sa.String(64),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True),server_default=sa.func.now(),nullable=False))
+    op.create_table("regulatory_exam_repeat_recurrence_governance_actions",sa.Column("governance_action_id",sa.String(36),primary_key=True),sa.Column("commitment_id",sa.String(36),nullable=False,index=True),sa.Column("investigation_id",sa.String(36),nullable=False,index=True),sa.Column("tenant_id",sa.String(128),nullable=False,index=True),sa.Column("action_type",sa.String(64),nullable=False),sa.Column("reviewer_role",sa.String(64),nullable=False),sa.Column("rationale",sa.Text(),nullable=False),sa.Column("version_hash",sa.String(64),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True),server_default=sa.func.now(),nullable=False))
+
+def downgrade():
+    op.drop_table("regulatory_exam_repeat_recurrence_governance_actions"); op.drop_table("regulatory_exam_repeat_recurrence_investigations"); op.drop_table("regulatory_exam_repeat_recurrence_escalation_versions"); op.drop_table("regulatory_exam_reclosure_sustainability_observations")

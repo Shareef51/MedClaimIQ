@@ -1,0 +1,7 @@
+{
+  "policy_version": "release39-v1",
+  "material_financial_change": {"absolute_amount": 100.0, "percentage": 0.10},
+  "dual_control": {"required_for_overturn": true, "required_for_material_financial_change": true, "independent_second_reviewer": true},
+  "validation": {"locked_reconsideration_snapshot_required": true, "citations_required": true, "block_open_missing_evidence": true, "block_unresolved_material_contradictions": true, "human_disagreement_reason_required": true},
+  "authority": {"ai_adjudication_authority": "none", "human_only_controlling_outcome": true, "automated_financial_execution": false}
+}

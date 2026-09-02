@@ -1,0 +1,21 @@
+{
+  "release": 105,
+  "capability": "reauthorized_enterprise_remediation_reexecution_outcome_validation_systemic_recovery_recertification_sustainability_reclosure",
+  "migration": "0100_reg_exam_reauth_enterprise_remed_reexec_outcome_validation",
+  "predecessor": "0099_reg_exam_reauthorized_enterprise_remediation_reexecution",
+  "authority": "human_only_for_residual_systemic_risk_acceptance_recovery_recertification_commitment_closure_and_sustainability_reclosure",
+  "traceability": "release103_human_reauthorization -> release104_remediation_reexecution -> release104_independent_recovery_effectiveness_assurance -> release105_independent_outcome_validation -> human_residual_risk_reassessment -> executive_recertification -> human_sustainability_reclosure",
+  "artifacts": [
+    "backend/app/domain/regulatory_examination_reauthorized_enterprise_remediation_reexecution_outcome_validation.py",
+    "backend/app/evaluation/regulatory_examination_reauthorized_enterprise_remediation_reexecution_outcome_validation.py",
+    "backend/app/schemas/regulatory_examination_reauthorized_enterprise_remediation_reexecution_outcome_validation.py",
+    "backend/app/services/regulatory_examination_reauthorized_enterprise_remediation_reexecution_outcome_validation.py",
+    "backend/app/api/v1/regulatory_examination_reauthorized_enterprise_remediation_reexecution_outcome_validation.py",
+    "backend/app/workers/regulatory_examination_reauthorized_enterprise_remediation_reexecution_outcome_validation.py",
+    "backend/tests/test_regulatory_examination_reauthorized_enterprise_remediation_reexecution_outcome_validation.py",
+    "backend/alembic/versions/0100_reg_exam_reauth_enterprise_remed_reexec_outcome_validation.py",
+    "config/policies/regulatory-examination-reauthorized-enterprise-remediation-reexecution-outcome-validation.yaml",
+    "sample-data/regulatory/reauthorized_enterprise_remediation_reexecution_outcome_validation_scenarios.json",
+    "docs/regulatory-examination-reauthorized-enterprise-remediation-reexecution-outcome-validation.md"
+  ]
+}

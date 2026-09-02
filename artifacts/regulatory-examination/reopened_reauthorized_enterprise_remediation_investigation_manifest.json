@@ -1,0 +1,28 @@
+{
+  "release": 103,
+  "capability": "reopened_reauthorized_enterprise_remediation_investigation",
+  "traceability": "Release 102 human enterprise reopening -> formal remediation investigation -> multi-cycle evidence -> systemic remediation-failure root cause -> human confirmation -> systemic remediation-failure classification -> human confirmation -> renewed remediation strategy -> independent challenge -> executive human reauthorization",
+  "authority": {
+    "ai": "analysis_recommendation_monitoring_only",
+    "worker": "monitoring_only",
+    "human_investigation_required": true,
+    "human_root_cause_confirmation_required": true,
+    "human_classification_confirmation_required": true,
+    "independent_internal_audit_challenge_required": true,
+    "human_executive_reauthorization_required": true
+  },
+  "artifacts": [
+    "domain_contract",
+    "evaluation_logic",
+    "schemas",
+    "service",
+    "api",
+    "worker",
+    "tests",
+    "alembic_migration_0098",
+    "governance_policy",
+    "synthetic_scenarios",
+    "verification_script",
+    "documentation"
+  ]
+}

@@ -1,0 +1,1 @@
+[{"scenario":"repeated recovery decay across entities","intervention_program_id":"IP-83-001","decay_cycles":[{"cycle_id":"C1","root_cause_id":"RC-1","entity_ids":["US"],"evidence_refs":["EV-1"]},{"cycle_id":"C2","root_cause_id":"RC-1","entity_ids":["EU"],"evidence_refs":["EV-2"]}],"expected":"human investigation and authorization required"}]

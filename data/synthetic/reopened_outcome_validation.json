@@ -1,0 +1,26 @@
+[
+  {
+    "scenario": "successful_reopened_issue_reclosure",
+    "deficiency_key": "DEF-DATA-LINEAGE-001",
+    "current_effectiveness_score": 1.0,
+    "recurrence_containment_score": 1.0,
+    "independent_validated": true,
+    "sustainability_complete": true,
+    "cross_entity_complete": true,
+    "commitments_complete": true,
+    "second_recurrence_count": 0,
+    "expected": "ready_for_human_recertification"
+  },
+  {
+    "scenario": "second_recurrence_escalation",
+    "deficiency_key": "DEF-AML-MONITORING-002",
+    "current_effectiveness_score": 0.98,
+    "recurrence_containment_score": 0.96,
+    "independent_validated": true,
+    "sustainability_complete": true,
+    "cross_entity_complete": true,
+    "commitments_complete": true,
+    "second_recurrence_count": 1,
+    "expected": "blocked_and_escalated"
+  }
+]

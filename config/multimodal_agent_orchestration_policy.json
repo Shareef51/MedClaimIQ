@@ -1,0 +1,26 @@
+{
+  "policy_version": "multimodal-agent-orchestration-v1",
+  "enabled": true,
+  "multimodal_agents": [
+    "hospital_verification",
+    "invoice_verification",
+    "fraud_waste",
+    "evidence_fusion",
+    "critic",
+    "decision_support"
+  ],
+  "parallel_agents": [
+    "hospital_verification",
+    "invoice_verification",
+    "fraud_waste"
+  ],
+  "max_retrieval_rounds_per_agent": 1,
+  "raw_media_in_agent_prompt": false,
+  "raw_media_in_telemetry": false,
+  "human_review": {
+    "material_conflict": true,
+    "missing_required_modality": true,
+    "insufficient_multimodal_evidence": true,
+    "final_claim_decision_by_agent": false
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "release": 107,
+  "assessment": "release_candidate_hardening_evidence",
+  "generated_at_utc": "2026-08-22T19:58:47.525862+00:00",
+  "cross_domain_selected_regression": {
+    "tests_passed": 99,
+    "tests_failed": 0,
+    "status": "passed"
+  },
+  "release107_targeted": {
+    "tests_passed": 4,
+    "tests_failed": 0,
+    "status": "passed"
+  },
+  "repository_test_inventory": {
+    "tests_collected": 787
+  },
+  "broader_repository_regression": {
+    "status": "partial_execution_window",
+    "observed_progress_percent": 36,
+    "observed_failures": 0,
+    "claim_full_suite_passed": false
+  },
+  "migration_graph": {
+    "revision_count": 103,
+    "root_revisions": [
+      "0001_enterprise_tenancy"
+    ],
+    "heads": [
+      "0102_release_candidate_hardening"
+    ],
+    "missing_predecessors": [],
+    "duplicate_revisions": [],
+    "cycle_count": 0,
+    "status": "passed"
+  },
+  "runtime_routes": {
+    "route_count": 968,
+    "release_candidate_routes_present": true,
+    "status": "passed"
+  },
+  "golden_journey": {
+    "required_cross_domain_stages": 9,
+    "status": "passed"
+  },
+  "authority": {
+    "automated_release_candidate_declaration": false,
+    "automated_production_promotion": false,
+    "human_release_candidate_decision_required": true,
+    "existing_production_human_approval_preserved": true
+  },
+  "release_candidate_assessment": "technically_ready_for_human_release_candidate_review",
+  "report_sha256": "b7d1ea0b394e89152f66cba4d6353a263414dc7f2b43e3d0782de5ce7279e2fc"
+}

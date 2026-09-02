@@ -1,0 +1,42 @@
+{{- if .Values.release.auditEnabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ printf "medclaimiq-release-audit-%s" (.Values.release.id | trunc 40) }}
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded,BeforeHookCreation
+spec:
+  backoffLimit: 2
+  template:
+    metadata:
+      labels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: release-audit}
+    spec:
+      restartPolicy: Never
+      serviceAccountName: {{ include "medclaimiq.serviceAccountName" . }}
+      automountServiceAccountToken: false
+      securityContext: {{ toYaml .Values.global.podSecurityContext | nindent 8 }}
+      containers:
+        - name: audit
+          image: {{ include "medclaimiq.image" .Values.images.api | quote }}
+          command: ["python", "-m", "app.release.audit"]
+          securityContext: {{ toYaml .Values.global.containerSecurityContext | nindent 12 }}
+          env:
+            - {name: DATABASE_URL, valueFrom: {secretKeyRef: {name: medclaimiq-runtime-secrets, key: {{ .Values.managedServices.databaseUrlSecretKey }}}}}
+            - {name: APP_ENV, value: {{ .Values.global.environment | quote }}}
+            - {name: RELEASE_AUDIT_TENANT_ID, value: {{ .Values.release.auditTenantId | quote }}}
+            - {name: RELEASE_ID, value: {{ .Values.release.id | quote }}}
+            - {name: RELEASE_GIT_SHA, value: {{ .Values.release.gitSha | quote }}}
+            - {name: RELEASE_API_DIGEST, value: {{ .Values.images.api.digest | quote }}}
+            - {name: RELEASE_FRONTEND_DIGEST, value: {{ .Values.images.frontend.digest | quote }}}
+            - {name: RELEASE_ALEMBIC_HEAD, value: {{ .Values.release.alembicHead | quote }}}
+            - {name: RELEASE_MANIFEST_SHA256, value: {{ .Values.release.manifestSha256 | quote }}}
+            - {name: RELEASE_SBOM_SHA256, value: {{ .Values.release.sbomSha256 | quote }}}
+            - {name: RELEASE_PROVENANCE_SHA256, value: {{ .Values.release.provenanceSha256 | quote }}}
+            - {name: RELEASE_STRATEGY, value: {{ .Values.release.strategy | quote }}}
+            - {name: RELEASE_GATE_SUMMARY, value: {{ .Values.release.gateSummaryJson | quote }}}
+            - {name: ARGOCD_APPLICATION, value: {{ printf "medclaimiq-%s" .Values.global.environment | quote }}}
+          resources:
+            requests: {cpu: 50m, memory: 128Mi}
+            limits: {cpu: 250m, memory: 256Mi}
+{{- end }}

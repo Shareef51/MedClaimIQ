@@ -1,0 +1,4 @@
+[
+  {"scenario":"new_exam_matches_closed_finding","recurrence_score":0.94,"sustainability_decay_score":0.82,"control_regression_score":0.88,"cross_entity_keys":["US","EU"],"expected":"reopen_candidate"},
+  {"scenario":"isolated_low_risk_observation","recurrence_score":0.20,"sustainability_decay_score":0.10,"control_regression_score":0.15,"cross_entity_keys":[],"expected":"observed"}
+]

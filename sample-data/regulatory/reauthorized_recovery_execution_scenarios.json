@@ -1,0 +1,42 @@
+{
+  "scenarios": [
+    {
+      "id": "healthy-reauthorized-execution",
+      "remediation_reauthorization_version_id": "ra-1",
+      "deployment_steps": [
+        {
+          "sequence": 1,
+          "entity_ids": [
+            "US"
+          ],
+          "dependencies_satisfied": true
+        },
+        {
+          "sequence": 2,
+          "entity_ids": [
+            "EU"
+          ],
+          "dependencies_satisfied": true
+        }
+      ],
+      "expected": "monitoring_only"
+    },
+    {
+      "id": "repeated-control-drift",
+      "remediation_reauthorization_version_id": "ra-2",
+      "planned_controls": [
+        {
+          "control_id": "c1",
+          "design_fingerprint": "approved-v3"
+        }
+      ],
+      "implemented_controls": [
+        {
+          "control_id": "c1",
+          "design_fingerprint": "unapproved-v4"
+        }
+      ],
+      "expected": "human_escalation"
+    }
+  ]
+}

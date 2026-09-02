@@ -1,0 +1,15 @@
+[
+  {"case_id":"intake-scope","agent":"intake","expected":"supported","evidence_keys":["ev-claim-1"],"must_require_human_review":false},
+  {"case_id":"hospital-conflict","agent":"hospital_verification","expected":"review_required","evidence_keys":["ev-fhir-1","ev-claim-1"],"must_require_human_review":true},
+  {"case_id":"invoice-amount-mismatch","agent":"invoice_verification","expected":"mismatch","evidence_keys":["ev-invoice-1","ev-claim-line-1"],"must_require_human_review":true},
+  {"case_id":"missing-eligibility","agent":"eligibility","expected":"insufficient_evidence","evidence_keys":[],"must_require_human_review":true},
+  {"case_id":"policy-supported","agent":"policy","expected":"supported","evidence_keys":["ev-policy-1"],"must_require_human_review":false},
+  {"case_id":"coding-mismatch","agent":"coding","expected":"mismatch","evidence_keys":["ev-code-1","ev-eob-1"],"must_require_human_review":true},
+  {"case_id":"duplicate-signal","agent":"duplicate_claim","expected":"risk","evidence_keys":["ev-history-1","ev-claim-1"],"must_require_human_review":true},
+  {"case_id":"fraud-signal-not-accusation","agent":"fraud_waste","expected":"risk","evidence_keys":["ev-network-1"],"must_require_human_review":true},
+  {"case_id":"denial-risk-missing-auth","agent":"denial_risk","expected":"risk","evidence_keys":["ev-policy-1","ev-auth-1"],"must_require_human_review":true},
+  {"case_id":"fusion-preserves-conflict","agent":"evidence_fusion","expected":"review_required","evidence_keys":["ev-fhir-1","ev-claim-1"],"must_require_human_review":true},
+  {"case_id":"critic-unsupported-finding","agent":"critic","expected":"review_required","evidence_keys":["ev-policy-1"],"must_require_human_review":true},
+  {"case_id":"decision-support-advisory","agent":"decision_support","expected":"review_required","evidence_keys":["ev-policy-1","ev-eob-1"],"must_require_human_review":true},
+  {"case_id":"human-review-routing","agent":"human_review_router","expected":"review_required","evidence_keys":["ev-fhir-1","ev-claim-1"],"must_require_human_review":true}
+]

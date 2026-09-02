@@ -1,0 +1,33 @@
+{
+  "authority_violations": 0,
+  "cases": 5,
+  "pass_rate": 1.0,
+  "passed": 5,
+  "results": [
+    {
+      "authority_ok": true,
+      "passed": true,
+      "scenario": "partial_recoupment_recovery"
+    },
+    {
+      "authority_ok": true,
+      "passed": true,
+      "scenario": "material_provider_dispute"
+    },
+    {
+      "authority_ok": true,
+      "passed": true,
+      "scenario": "payment_hold_outcome"
+    },
+    {
+      "authority_ok": true,
+      "passed": true,
+      "scenario": "void_reissue_outcome"
+    },
+    {
+      "authority_ok": true,
+      "passed": true,
+      "scenario": "recovery_effectiveness"
+    }
+  ]
+}

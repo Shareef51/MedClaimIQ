@@ -1,0 +1,24 @@
+{
+  "release": 110,
+  "scenario_count": 18,
+  "scenarios": [
+    "missing_release107_candidate",
+    "missing_release108_security_cert",
+    "missing_release109_ops_cert",
+    "migration_head_mismatch",
+    "backup_checkpoint_failure",
+    "tenant_isolation_preflight_failure",
+    "change_window_missing",
+    "canary_slo_breach",
+    "canary_data_integrity_failure",
+    "rollback_unavailable",
+    "smoke_failure",
+    "synthetic_claim_failure",
+    "rag_verification_failure",
+    "agent_verification_failure",
+    "mcp_verification_failure",
+    "observability_failure",
+    "sev1_hypercare_incident",
+    "successful_hypercare_close"
+  ]
+}

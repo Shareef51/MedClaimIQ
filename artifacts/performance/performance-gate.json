@@ -1,0 +1,192 @@
+{
+  "schema_version": "performance-gate-v1",
+  "candidate": "release28",
+  "environment": "synthetic-ci",
+  "generated_at": "2026-08-21T04:05:19.021599+00:00",
+  "decision": "pass",
+  "blocked_by": [],
+  "policy_sha256": "d74b03308bfa70fe7a5888133704e3b034c02e409916e62551a2cce4ae539985",
+  "results_sha256": "b11c7818ebd0fb2bd45db363c082914119d50390b3e4510871da5e3bd7587f9b",
+  "checks": [
+    {
+      "metric": "api_health_p95_ms",
+      "observed": 42.0,
+      "threshold": 150.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 42.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "claim_list_p95_ms",
+      "observed": 186.0,
+      "threshold": 400.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 186.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "review_workbench_p95_ms",
+      "observed": 521.0,
+      "threshold": 900.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 521.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "rag_hybrid_p95_ms",
+      "observed": 1160.0,
+      "threshold": 1800.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 1160.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "agent_workflow_start_p95_ms",
+      "observed": 710.0,
+      "threshold": 1200.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 710.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "fhir_read_p95_ms",
+      "observed": 480.0,
+      "threshold": 1200.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 480.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "mcp_read_p95_ms",
+      "observed": 260.0,
+      "threshold": 700.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 260.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "sse_connect_p95_ms",
+      "observed": 180.0,
+      "threshold": 750.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 180.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "http_error_rate",
+      "observed": 0.002,
+      "threshold": 0.01,
+      "comparator": "lte",
+      "unit": "rate",
+      "baseline": 0.002,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "rag_error_rate",
+      "observed": 0.004,
+      "threshold": 0.02,
+      "comparator": "lte",
+      "unit": "rate",
+      "baseline": 0.004,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "agent_start_error_rate",
+      "observed": 0.002,
+      "threshold": 0.01,
+      "comparator": "lte",
+      "unit": "rate",
+      "baseline": 0.002,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "mcp_read_error_rate",
+      "observed": 0.001,
+      "threshold": 0.01,
+      "comparator": "lte",
+      "unit": "rate",
+      "baseline": 0.001,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "sse_disconnect_rate",
+      "observed": 0.003,
+      "threshold": 0.02,
+      "comparator": "lte",
+      "unit": "rate",
+      "baseline": 0.003,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "postgres_simple_query_p95_ms",
+      "observed": 18.0,
+      "threshold": 50.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 18.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "redis_roundtrip_p95_ms",
+      "observed": 5.0,
+      "threshold": 20.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 5.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "qdrant_search_p95_ms",
+      "observed": 62.0,
+      "threshold": 150.0,
+      "comparator": "lte",
+      "unit": "ms",
+      "baseline": 62.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "worker_events_per_second",
+      "observed": 132.0,
+      "threshold": 100.0,
+      "comparator": "gte",
+      "unit": "events/s",
+      "baseline": 132.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    },
+    {
+      "metric": "sse_connections_per_api_replica",
+      "observed": 810.0,
+      "threshold": 750.0,
+      "comparator": "gte",
+      "unit": "connections",
+      "baseline": 810.0,
+      "regression_fraction": 0.0,
+      "passed": true
+    }
+  ]
+}

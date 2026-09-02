@@ -1,0 +1,26 @@
+policy_name: regulatory-examination-renewed-recovery-outcome-validation
+version: 1
+recommendation_only: true
+human_authority:
+  residual_systemic_risk_reassessment: required
+  recovery_effectiveness_certification: required
+  recovery_recertification: required
+  regulatory_commitment_closure: required
+  sustainability_reclosure: required
+independent_validation:
+  required: true
+  roles: [internal_auditor, chief_audit_executive, independent_assurance]
+executive_recertification_roles: [chief_risk_officer, chief_compliance_officer, executive_risk_committee, executive_certifier]
+minimum_sustainability_window_days: 30
+minimum_control_health_score: 80
+minimum_systemic_risk_reduction_percent: 25
+automation_prohibitions:
+  accept_residual_systemic_risk: true
+  certify_recovery_effectiveness: true
+  close_regulatory_commitments: true
+  recertify_recovery: true
+  reclose_program: true
+  alter_accounting_records: true
+  authorize_payments: true
+  collect_funds: true
+  move_money: true

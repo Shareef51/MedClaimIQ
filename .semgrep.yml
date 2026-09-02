@@ -1,0 +1,63 @@
+rules:
+  - id: medclaimiq-no-eval-exec
+    message: Dynamic eval/exec is prohibited in MedClaimIQ production code
+    severity: ERROR
+    languages: [python]
+    patterns:
+      - pattern-either:
+          - pattern: eval(...)
+          - pattern: exec(...)
+    paths:
+      include: [backend/app]
+
+  - id: medclaimiq-no-shell-true
+    message: shell=True is prohibited in production subprocess execution
+    severity: ERROR
+    languages: [python]
+    pattern: subprocess.$F(..., shell=True, ...)
+    paths:
+      include: [backend/app]
+
+  - id: medclaimiq-no-httpx-tls-verification-disable
+    message: Disabling TLS verification is prohibited for production HTTP clients
+    severity: ERROR
+    languages: [python]
+    pattern: httpx.$F(..., verify=False, ...)
+    paths:
+      include: [backend/app]
+
+  - id: medclaimiq-no-jwt-signature-bypass
+    message: JWT signature verification must never be disabled
+    severity: ERROR
+    languages: [python]
+    pattern-regex: >-
+      jwt\.decode\([^\n]*verify_signature[\"']?\s*:\s*False
+    paths:
+      include: [backend/app]
+
+  - id: medclaimiq-no-unsafe-yaml-load
+    message: Unsafe yaml.load is prohibited; use safe_load or an explicit safe loader
+    severity: ERROR
+    languages: [python]
+    pattern: yaml.load(...)
+    paths:
+      include: [backend/app]
+
+  - id: medclaimiq-no-pickle-deserialization
+    message: Pickle deserialization is prohibited on production data paths
+    severity: ERROR
+    languages: [python]
+    patterns:
+      - pattern-either:
+          - pattern: pickle.loads(...)
+          - pattern: pickle.load(...)
+    paths:
+      include: [backend/app]
+
+  - id: medclaimiq-no-browser-token-storage
+    message: Browser token storage is prohibited; use HttpOnly BFF session cookies
+    severity: ERROR
+    languages: [typescript]
+    pattern-regex: '(localStorage|sessionStorage)\.(setItem|getItem)\([^)]*(token|access|refresh)'
+    paths:
+      include: [frontend]

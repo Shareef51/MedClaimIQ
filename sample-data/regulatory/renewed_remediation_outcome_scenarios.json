@@ -1,0 +1,5 @@
+[
+  {"id":"recovery-complete","baseline_risk_score":90,"current_risk_score":25,"expected_entity_ids":["US","EU"],"completed_entity_ids":["US","EU"],"expected":"ready_after_independent_validation_and_human_risk_acceptance"},
+  {"id":"sustainability-block","unresolved_blockers":0,"sustainability_window_complete":false,"expected":"reclosure_blocked"},
+  {"id":"post-reclosure-decay","observations":[{"control_health":"degraded","recurrence_detected":true}],"expected":"human_reopen_candidate"}
+]

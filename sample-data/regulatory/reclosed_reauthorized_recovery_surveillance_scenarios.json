@@ -1,0 +1,51 @@
+{
+  "scenarios": [
+    {
+      "name": "repeated_control_regression",
+      "recovery_program_id": "rrp-90-001",
+      "reclosure_control_health_score": 95,
+      "current_control_health_score": 66,
+      "repeated_failure_control_regressions": 2,
+      "sustainability_breach_count": 1,
+      "prior_recovery_failure_cycles": 2
+    },
+    {
+      "name": "systemic_risk_rebound_cross_entity",
+      "recovery_program_id": "rrp-90-002",
+      "reclosure_systemic_risk_score": 18,
+      "current_systemic_risk_score": 36,
+      "entities": [
+        {
+          "entity_id": "entity-a",
+          "status": "failed",
+          "failure_count": 2,
+          "evidence_refs": [
+            "ev-a"
+          ]
+        },
+        {
+          "entity_id": "entity-b",
+          "status": "degraded",
+          "failure_count": 2,
+          "evidence_refs": [
+            "ev-b"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "human_reopening_required",
+      "recovery_program_id": "rrp-90-003",
+      "material_decay_confirmed": true,
+      "human_investigation_complete": true,
+      "independent_reassessment_complete": true,
+      "executive_review_complete": true,
+      "internal_audit_challenge_complete": true
+    }
+  ],
+  "safety": {
+    "automated_reopening": false,
+    "automated_recovery_certification": false,
+    "automated_risk_acceptance": false
+  }
+}

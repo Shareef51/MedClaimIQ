@@ -1,0 +1,23 @@
+global:
+  environment: production
+  cloudProvider: azure
+  podLabels:
+    azure.workload.identity/use: "true"
+serviceAccount:
+  annotations:
+    azure.workload.identity/client-id: 00000000-0000-0000-0000-000000000000
+config:
+  # MedClaimIQ's current evidence adapter is S3-compatible. For Azure, configure an
+  # approved S3-compatible object endpoint or add the provider-specific Blob adapter
+  # behind the existing ObjectStorage protocol before production evidence traffic.
+  S3_USE_DEFAULT_CREDENTIAL_CHAIN: "false"
+secretsStore:
+  provider: azure
+  azure:
+    keyVaultName: replace-me
+    tenantId: 00000000-0000-0000-0000-000000000000
+    clientId: 00000000-0000-0000-0000-000000000000
+ingress:
+  className: webapprouting.kubernetes.azure.com
+networkPolicy:
+  managedServiceCidrs: ["10.50.0.0/16"]

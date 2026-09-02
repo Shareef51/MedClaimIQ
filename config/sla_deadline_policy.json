@@ -1,0 +1,18 @@
+{
+  "policy_id": "medclaimiq.sla.v1",
+  "design": "tenant-versioned policy; sample values are synthetic defaults, not legal deadlines",
+  "calendar": {
+    "timezone": "America/New_York",
+    "working_weekdays": [0, 1, 2, 3, 4],
+    "business_start": "09:00",
+    "business_end": "17:00"
+  },
+  "rules": [
+    {"timer_type": "claim_review", "duration_minutes": 480, "clock_mode": "business", "warning_minutes_before_due": [120, 30]},
+    {"timer_type": "missing_document", "duration_minutes": 1440, "clock_mode": "business", "warning_minutes_before_due": [480, 120]},
+    {"timer_type": "hospital_verification", "duration_minutes": 960, "clock_mode": "business", "warning_minutes_before_due": [240, 60]},
+    {"timer_type": "provider_verification", "duration_minutes": 960, "clock_mode": "business", "warning_minutes_before_due": [240, 60]},
+    {"timer_type": "reviewer_action", "duration_minutes": 240, "clock_mode": "business", "warning_minutes_before_due": [60, 15]},
+    {"timer_type": "appeal_submission", "duration_minutes": 43200, "clock_mode": "elapsed", "warning_minutes_before_due": [10080, 1440]}
+  ]
+}

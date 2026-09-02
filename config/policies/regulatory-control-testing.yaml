@@ -1,0 +1,19 @@
+version: regulatory-control-testing-v1
+mode: orchestration_and_recommendation_only
+controls:
+  tenant_isolation: required
+  population_watermark: sha256_required
+  sample_provenance: required
+  evidence_chain: required
+  immutable_conclusion_versions: required
+  segregation_of_duties:
+    preparer_cannot_independently_conclude_same_run: true
+  independent_human_conclusion: required
+prohibited:
+  - ai_control_certification
+  - ai_remediation_approval
+  - ai_residual_risk_acceptance
+  - ai_finding_closure
+  - accounting_record_mutation
+  - payment_authorization
+  - fund_movement

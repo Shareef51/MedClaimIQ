@@ -1,0 +1,21 @@
+{
+  "release": 90,
+  "capability": "Production Regulatory Examination Reclosed Reauthorized Recovery Surveillance, Repeated Recovery Decay Intelligence & Enterprise Reopening Governance",
+  "immutable": true,
+  "authority": "human-only reopening; AI/agents/RAG/MCP/workers analysis/recommendation/monitoring-only",
+  "traceability": "reauthorized recovery reclosure -> surveillance -> repeated decay -> human investigation -> independent reassessment -> executive/internal-audit challenge -> human reopening -> renewed recovery governance",
+  "artifacts": [
+    "backend/alembic/versions/0085_reg_exam_reclosed_reauthorized_recovery_surveillance.py",
+    "backend/app/api/v1/regulatory_examination_reclosed_reauthorized_recovery_surveillance.py",
+    "backend/app/domain/regulatory_examination_reclosed_reauthorized_recovery_surveillance.py",
+    "backend/app/evaluation/regulatory_examination_reclosed_reauthorized_recovery_surveillance.py",
+    "backend/app/schemas/regulatory_examination_reclosed_reauthorized_recovery_surveillance.py",
+    "backend/app/services/regulatory_examination_reclosed_reauthorized_recovery_surveillance.py",
+    "backend/app/workers/regulatory_examination_reclosed_reauthorized_recovery_surveillance.py",
+    "backend/tests/test_regulatory_examination_reclosed_reauthorized_recovery_surveillance.py",
+    "config/policies/regulatory-examination-reclosed-reauthorized-recovery-surveillance.yaml",
+    "docs/regulatory-examination-reclosed-reauthorized-recovery-surveillance.md",
+    "sample-data/regulatory/reclosed_reauthorized_recovery_surveillance_scenarios.json",
+    "scripts/verify_regulatory_examination_reclosed_reauthorized_recovery_surveillance.py"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name":"recovery_settlement_reconciliation_intelligence",
+  "source_read_only":true,
+  "derived_records_immutable":true,
+  "provider_statement_delivery_requires_human_release":true,
+  "balance_statement_versioning":true,
+  "settlement_ledger_citations_required":true,
+  "audit_closeout_packages_hash_bound":true,
+  "ai_authority":{"alter_balances":false,"post_journals":false,"authorize_payments":false,"modify_closeout_certificates":false,"create_bank_transactions":false,"collect_funds":false,"move_funds":false},
+  "aging_buckets":["0-2d","3-7d","8-30d","31+d"]
+}

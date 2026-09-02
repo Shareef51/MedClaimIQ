@@ -1,0 +1,15 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "meta": {"tag": [{"system": "https://medclaimiq.example/data-policy", "code": "synthetic-only"}]},
+  "entry": [
+    {"resource": {"resourceType": "Patient", "id": "patient-001", "meta": {"versionId": "2", "lastUpdated": "2026-08-15T10:30:00Z"}, "identifier": [{"system": "https://synthetic.medclaimiq.example/mrn", "value": "MRN-SYN-0001"}], "name": [{"family": "Khan", "given": ["Mira"]}], "birthDate": "1988-04-12"}},
+    {"resource": {"resourceType": "Encounter", "id": "enc-001", "meta": {"versionId": "1"}, "status": "finished", "subject": {"reference": "Patient/patient-001"}, "period": {"start": "2026-08-10T08:30:00Z", "end": "2026-08-10T09:15:00Z"}, "serviceProvider": {"reference": "Organization/org-hospital-001"}}},
+    {"resource": {"resourceType": "Coverage", "id": "cov-001", "meta": {"versionId": "3"}, "status": "active", "beneficiary": {"reference": "Patient/patient-001"}, "subscriberId": "SYN-SUB-001", "payor": [{"reference": "Organization/org-payer-001"}], "period": {"start": "2026-01-01", "end": "2026-12-31"}}},
+    {"resource": {"resourceType": "Claim", "id": "fhir-claim-001", "meta": {"versionId": "2"}, "status": "active", "patient": {"reference": "Patient/patient-001"}, "created": "2026-08-10", "provider": {"reference": "Organization/org-hospital-001"}, "insurer": {"reference": "Organization/org-payer-001"}, "total": {"value": 150, "currency": "USD"}}},
+    {"resource": {"resourceType": "ExplanationOfBenefit", "id": "eob-001", "meta": {"versionId": "1"}, "status": "active", "use": "claim", "patient": {"reference": "Patient/patient-001"}, "created": "2026-08-10", "provider": {"reference": "Organization/org-hospital-001"}, "insurer": {"reference": "Organization/org-payer-001"}, "outcome": "complete", "total": [{"category": {"coding": [{"code": "submitted"}]}, "amount": {"value": 150, "currency": "USD"}}]}},
+    {"resource": {"resourceType": "DocumentReference", "id": "docref-001", "meta": {"versionId": "1"}, "status": "current", "subject": {"reference": "Patient/patient-001"}, "content": [{"attachment": {"contentType": "application/pdf", "url": "https://synthetic.invalid/documents/discharge-001.pdf", "title": "Synthetic encounter summary"}}]}},
+    {"resource": {"resourceType": "Organization", "id": "org-hospital-001", "meta": {"versionId": "1"}, "name": "Synthetic General Hospital"}},
+    {"resource": {"resourceType": "Practitioner", "id": "prac-001", "meta": {"versionId": "1"}, "identifier": [{"value": "NPI-SYN-1001"}], "name": [{"family": "Rao", "given": ["Asha"]}]}}
+  ]
+}

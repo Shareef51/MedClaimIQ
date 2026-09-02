@@ -1,0 +1,6 @@
+[
+  {"tool": "claims.summary.read", "agent": "intake", "mode": "read", "expected": "succeeded"},
+  {"tool": "fhir.resource.read", "agent": "hospital_verification", "mode": "read", "expected": "succeeded"},
+  {"tool": "claim.request_evidence", "agent": "human_review_router", "mode": "dry_run", "expected": "dry_run"},
+  {"tool": "notification.claim_update", "agent": "human_review_router", "mode": "execute", "expected": "approval_required"}
+]

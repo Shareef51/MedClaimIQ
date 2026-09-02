@@ -1,0 +1,60 @@
+name: regulatory-examination-reclosed-reauthorized-enterprise-remediation-reexecution-surveillance
+mode: recommendation-monitoring-only
+scope:
+  tenant_isolation_required: true
+  release105_reauthorized_enterprise_remediation_reexecution_sustainability_reclosure_reference_required: true
+  release104_reexecution_lineage_preserved: true
+  release103_human_remediation_reauthorization_lineage_preserved: true
+  immutable_surveillance_versions: true
+  immutable_investigation_versions: true
+  immutable_independent_reassessment_versions: true
+  immutable_enterprise_challenge_versions: true
+  immutable_reopening_decisions: true
+surveillance:
+  persistent_emergent_root_cause_treatment_decay_detection: true
+  root_cause_treatment_decay_threshold_percent: 20
+  systemic_control_retransformation_regression_detection: true
+  repeated_failure_control_regression_detection: true
+  multi_cycle_reexecution_recovery_decay_scoring: true
+  systemic_risk_rebound_threshold_percent: 20
+  cross_entity_recurrence_threshold_percent: 35
+  new_examination_finding_correlation_requires_human_validation: true
+  regulator_followup_interpretation_requires_human: true
+  regulatory_commitment_breach_monitoring: true
+  stale_evidence_monitoring: true
+enterprise_escalation:
+  enterprise_materiality_scoring: true
+  reexecution_remediation_failure_candidate_detection: true
+  repeated_enterprise_recovery_failure_requires_executive_internal_audit_challenge: true
+  human_investigation_required: true
+  independent_reassessment_required: true
+  segregation_of_duties_required: true
+reopening_governance:
+  prior_executive_recertification_reclosure_comparison_required: true
+  enterprise_materiality_human_validation_required: true
+  root_cause_treatment_decay_scope_human_validation_required: true
+  cross_entity_recurrence_scope_human_validation_required: true
+  examination_finding_links_human_validation_required: true
+  regulator_followups_human_interpretation_required: true
+  executive_review_required: true
+  internal_audit_challenge_required: true
+  renewed_enterprise_recovery_governance_candidate_required: true
+  deterministic_readiness_required: true
+  human_only_reopening: true
+forbidden:
+  - ai_authoritative_investigation_opening
+  - ai_root_cause_confirmation
+  - ai_program_reopening
+  - ai_program_reclosure
+  - ai_residual_systemic_risk_acceptance
+  - ai_recovery_effectiveness_certification
+  - ai_regulatory_commitment_closure
+  - ai_regulator_intent_representation
+  - worker_authoritative_investigation_opening
+  - worker_program_reopening
+  - worker_program_reclosure
+  - worker_recovery_certification
+  - accounting_record_mutation
+  - payment_authorization
+  - funds_collection
+  - funds_movement

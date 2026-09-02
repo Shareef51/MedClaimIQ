@@ -1,0 +1,22 @@
+{
+  "policy_version": "recovery-control-assurance-v1",
+  "source_financial_records_read_only": true,
+  "maker_checker_certification_required": true,
+  "material_exceptions_block_lock_and_certification": true,
+  "provider_statement_delivery_required": true,
+  "ledger_tie_out_required": true,
+  "closed_accounting_period_required": true,
+  "release48_closeout_report_required": true,
+  "control_evidence_sample_limit": 10,
+  "legal_hold_manifest_required": true,
+  "destructive_purge_automatic": false,
+  "regulatory_submission_automatic": false,
+  "external_submission_receipt_human_recorded": true,
+  "ai_can_prepare_summarize_flag": true,
+  "ai_can_certify": false,
+  "ai_can_submit_as_regulatory_authority": false,
+  "worker_can_certify": false,
+  "worker_can_submit": false,
+  "worker_can_modify_financial_records": false,
+  "fund_movement_authority": "none"
+}

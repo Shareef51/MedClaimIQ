@@ -1,0 +1,15 @@
+release: 61
+mode: monitoring_and_recommendation_only
+reopening_authority: human_only
+revalidation_required_after_reopen: true
+recurrence_thresholds:
+  investigate: 0.50
+  reopen_candidate: 0.75
+prohibited_actions:
+  - ai_reopen_finding
+  - ai_close_reopened_finding
+  - ai_accept_residual_risk
+  - ai_certify_control_effectiveness
+  - modify_accounting_records
+  - authorize_payments
+  - collect_or_move_money

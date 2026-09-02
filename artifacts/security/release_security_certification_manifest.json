@@ -1,0 +1,15 @@
+{
+  "release": 108,
+  "name": "production_security_privacy_compliance_red_team_release_security_certification",
+  "migration": "0103_release_security_red_team_certification",
+  "down_revision": "0102_release_candidate_hardening",
+  "policy": "config/policies/release-security-certification.yaml",
+  "attack_matrix": "sample-data/security/adversarial_attack_matrix.json",
+  "readiness_report": "artifacts/security/release_security_readiness_report.json",
+  "schema": "schemas/security/release-security-certification.schema.json",
+  "human_security_certification_required": true,
+  "automated_production_promotion": false,
+  "local_security_baseline": "artifacts/security/local_security_baseline.json",
+  "validation_summary": "artifacts/security/validation_summary.json",
+  "security_policy": "SECURITY.md"
+}

@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: medclaimiq
+  namespace: argocd
+spec:
+  description: MedClaimIQ healthcare claims platform
+  sourceRepos:
+    - https://github.com/REPLACE_ORG/REPLACE_REPO.git
+  destinations:
+    - namespace: medclaimiq-staging
+      server: https://kubernetes.default.svc
+    - namespace: medclaimiq-production
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  orphanedResources:
+    warn: true

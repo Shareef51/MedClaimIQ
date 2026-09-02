@@ -1,0 +1,30 @@
+{
+  "scenario": "material regulatory finding corrective-action closure",
+  "finding": {
+    "finding_code": "REG-CAPA-001",
+    "severity": "high",
+    "material": true,
+    "description": "Evidence binding for a certified recovery control was incomplete."
+  },
+  "remediation": {
+    "root_cause": "Control execution evidence was not consistently bound to the certified reporting record.",
+    "corrective_action": "Implement deterministic evidence binding and exception escalation.",
+    "preventive_action": "Add preventive monitoring and reviewer training.",
+    "control_redesign": "Maker-checker validation plus immutable evidence checkpoints.",
+    "risk_level": "high",
+    "ai_authority": "none"
+  },
+  "tasks": [
+    {"task_key":"CAPA-1","type":"corrective","depends_on":[]},
+    {"task_key":"CAPA-2","type":"preventive","depends_on":["CAPA-1"]}
+  ],
+  "closure_requirements": [
+    "human plan approval",
+    "completed evidence-bound CAPA tasks",
+    "immutable implementation checkpoint",
+    "passing independent control retest",
+    "independently approved regulator follow-up",
+    "independent human closure certification"
+  ],
+  "prohibited_automation": ["approve remediation","certify closure","alter journals","authorize payment","collect funds","move money"]
+}

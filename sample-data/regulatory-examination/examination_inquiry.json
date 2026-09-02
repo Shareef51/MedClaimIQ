@@ -1,0 +1,12 @@
+{
+  "external_inquiry_reference": "REG-EXAM-DEMO-2026-001",
+  "inquiry_type": "examination",
+  "question_classification": "accounting_tieout",
+  "inquiry_summary": "Provide evidence supporting the certified recovery accounting tie-out, regulator transmission acknowledgment, and supervisory reconciliation controls.",
+  "document_requests": [
+    {"request_code": "ledger-tieout", "description": "Posted double-entry journals and recovery-to-ledger correlation evidence"},
+    {"request_code": "submission-proof", "description": "Certified package, human release, transport and cryptographic acknowledgment provenance"}
+  ],
+  "expected_response_governance": "human_maker_plus_independent_human_checker",
+  "ai_authority": "draft_and_recommendation_only"
+}

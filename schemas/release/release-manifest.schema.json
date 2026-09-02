@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://medclaimiq.example/schemas/release-manifest.schema.json",
+  "title": "MedClaimIQ Release Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "release_id",
+    "git_sha",
+    "created_at",
+    "images",
+    "database",
+    "artifacts",
+    "gates",
+    "manifest_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "medclaimiq.release.v1"
+    },
+    "release_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128
+    },
+    "git_sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{7,64}$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "images": {
+      "type": "object",
+      "required": [
+        "api",
+        "frontend"
+      ],
+      "properties": {
+        "api": {
+          "$ref": "#/$defs/image"
+        },
+        "frontend": {
+          "$ref": "#/$defs/image"
+        }
+      },
+      "additionalProperties": false
+    },
+    "database": {
+      "type": "object",
+      "required": [
+        "alembic_head",
+        "migration_strategy"
+      ],
+      "properties": {
+        "alembic_head": {
+          "type": "string",
+          "minLength": 1
+        },
+        "migration_strategy": {
+          "const": "expand-contract"
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "required": [
+        "sbom_sha256",
+        "provenance_sha256"
+      ],
+      "properties": {
+        "sbom_sha256": {
+          "$ref": "#/$defs/sha"
+        },
+        "provenance_sha256": {
+          "$ref": "#/$defs/sha"
+        }
+      }
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "pass",
+          "fail",
+          "pending"
+        ]
+      }
+    },
+    "manifest_sha256": {
+      "$ref": "#/$defs/sha"
+    }
+  },
+  "$defs": {
+    "sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "image": {
+      "type": "object",
+      "required": [
+        "repository",
+        "digest"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "minLength": 3
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "capability": "enterprise_intervention_program_execution",
+  "migration": "0069_reg_exam_enterprise_intervention_execution",
+  "root": "MedClaimIQ/",
+  "authority": "human-governed",
+  "automated_certification": false,
+  "traceability": [
+    "systemic_pattern",
+    "intervention_program",
+    "corrective_action",
+    "implementation_evidence",
+    "independent_testing",
+    "human_certification"
+  ]
+}

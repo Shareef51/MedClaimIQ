@@ -1,0 +1,18 @@
+{
+  "schema_version": "availability-resilience-report-v1",
+  "generated_at": "2026-08-21T04:06:07.275410+00:00",
+  "availability_target": 0.999,
+  "performance_decision": "pass",
+  "resilience_decision": "pass",
+  "critical_resilience_failures": 0,
+  "experiment_count": 6,
+  "max_observed_recovery_seconds": 46.0,
+  "capacity_model": {
+    "sustained_api_rps": 105.0,
+    "sse_connections": 1575,
+    "worker_events_per_second": 210.0,
+    "estimated_reviewer_users_at_0.2_rps_each": 525
+  },
+  "release_recommendation": "pass",
+  "disclaimer": "synthetic/check-in evidence is not a contractual availability result; production availability requires deployed-environment SLI measurement"
+}

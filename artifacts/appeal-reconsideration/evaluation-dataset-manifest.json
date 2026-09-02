@@ -1,0 +1,26 @@
+{
+  "dataset_version": "appeal-reconsideration-eval-v1",
+  "case_count": 6,
+  "modalities": [
+    "audio",
+    "document",
+    "fhir",
+    "image",
+    "video"
+  ],
+  "all_require_human_resolution": true,
+  "quality_contract": {
+    "citation_coverage_target": 0.95,
+    "original_decision_immutable": true,
+    "recommendation_agent_adjudication_authority": "none",
+    "independent_human_resolution_required": true
+  },
+  "cases": [
+    "appeal-doc-amount-change",
+    "appeal-image-corroboration",
+    "appeal-audio-conflict",
+    "appeal-video-new-fact",
+    "appeal-fhir-version-change",
+    "appeal-missing-itemization"
+  ]
+}

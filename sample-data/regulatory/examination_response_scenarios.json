@@ -1,0 +1,29 @@
+{
+  "scenarios": [
+    {
+      "id": "stale-evidence",
+      "question_id": "Q-100",
+      "expected": "block draft readiness until refreshed evidence version is reviewed"
+    },
+    {
+      "id": "contradictory-amendment",
+      "question_id": "Q-101",
+      "expected": "flag contradiction with prior approved response and require human amendment review"
+    },
+    {
+      "id": "missing-receipt",
+      "question_id": "Q-102",
+      "expected": "submission remains unreconciled until receipt/acknowledgment is recorded"
+    },
+    {
+      "id": "follow-up",
+      "question_id": "Q-103",
+      "expected": "follow-up retains parent submission and response lineage"
+    },
+    {
+      "id": "ai-boundary",
+      "question_id": "Q-104",
+      "expected": "AI draft cannot approve or transmit itself"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "envelope_version": "1.0",
+  "delivery": "at-least-once",
+  "partition_key": "claim_id",
+  "topics": [
+    "medclaimiq.claim.events.v1",
+    "medclaimiq.evidence.events.v1",
+    "medclaimiq.healthcare.events.v1",
+    "medclaimiq.agent.events.v1",
+    "medclaimiq.mcp.events.v1",
+    "medclaimiq.sla.events.v1"
+  ],
+  "retry": {
+    "max_attempts": 3,
+    "retry_topics": true,
+    "dead_letter": true
+  },
+  "consumer": {
+    "idempotency_receipts": true,
+    "manual_commit_after_db_commit": true
+  },
+  "outbox": {
+    "skip_locked": true,
+    "idempotent_producer": true
+  },
+  "privacy": {
+    "raw_documents_in_events": false,
+    "raw_prompts_in_events": false
+  },
+  "replay": {
+    "human_authorized": true,
+    "preserve_original_event_id": true
+  }
+}

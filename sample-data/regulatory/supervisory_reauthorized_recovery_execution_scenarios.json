@@ -1,0 +1,46 @@
+{
+  "scenarios": [
+    {
+      "id": "healthy-supervisory-reauthorized-execution",
+      "supervisory_recovery_reauthorization_version_id": "sra-91-1",
+      "release91_investigation_version_id": "inv-91-1",
+      "deployment_steps": [
+        {
+          "sequence": 1,
+          "entity_ids": [
+            "US"
+          ],
+          "dependencies_satisfied": true,
+          "human_sequence_approval_reference": "seq-1"
+        },
+        {
+          "sequence": 2,
+          "entity_ids": [
+            "EU"
+          ],
+          "dependencies_satisfied": true,
+          "human_sequence_approval_reference": "seq-2"
+        }
+      ],
+      "expected": "monitoring_only"
+    },
+    {
+      "id": "repeated-failure-retransformation-drift",
+      "supervisory_recovery_reauthorization_version_id": "sra-91-2",
+      "release91_investigation_version_id": "inv-91-2",
+      "planned_controls": [
+        {
+          "control_id": "c1",
+          "design_fingerprint": "approved-v5"
+        }
+      ],
+      "implemented_controls": [
+        {
+          "control_id": "c1",
+          "design_fingerprint": "unapproved-v6"
+        }
+      ],
+      "expected": "human_escalation"
+    }
+  ]
+}

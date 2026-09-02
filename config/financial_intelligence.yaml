@@ -1,0 +1,39 @@
+version: release42-v1
+mode: read_only_intelligence
+reserve_analytics:
+  source: human_authorized_controlling_financial_packet
+  net_paid_source: era_eft_reconciliation_minus_returns
+  persist_immutable_derived_snapshots: true
+  ai_can_modify_reserve: false
+payment_integrity:
+  duplicate_fingerprint_weight: 60
+  overpayment_weight: 50
+  open_financial_exception_weight: 25
+  reconciliation_exception_weight: 30
+  partial_reconciliation_weight: 15
+  returned_payment_weight: 20
+  aging_31_plus_weight: 25
+  open_recoupment_weight: 15
+  score_max: 100
+period_close_readiness:
+  open_reconciliation_weight: 30
+  open_financial_exception_weight: 30
+  pending_adjustment_weight: 20
+  unbalanced_journal_weight: 100
+financial_rag:
+  strategy: structured_ledger_hybrid_lexical_citation_retrieval_v1
+  require_citations: true
+  source_types: [financial_authorization_packet, era_eft_reconciliation, immutable_ledger_journal, financial_exception, accounting_period_readiness]
+  model_assisted_synthesis_enabled: false
+  model: gpt-5.6-terra
+  recommendation_only: true
+authority:
+  llm_can_modify_ledger: false
+  langgraph_can_modify_ledger: false
+  rag_can_modify_ledger: false
+  mcp_can_modify_ledger: false
+  analytics_worker_can_modify_ledger: false
+  ai_can_modify_reserve: false
+  ai_can_authorize_payment: false
+  ai_can_close_accounting_period: false
+  automatic_fund_movement: false

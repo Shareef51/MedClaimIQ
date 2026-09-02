@@ -1,0 +1,9 @@
+{
+  "release": 42,
+  "name": "Production Financial Analytics, Reserve Adequacy, Payment Integrity & Accounting Control Intelligence",
+  "read_only_source_systems": true,
+  "derived_records_immutable": true,
+  "financial_rag_requires_citations": true,
+  "ai_authority": "recommendation_only",
+  "prohibited": ["journal_mutation", "reserve_mutation", "payment_authorization", "period_close", "adjudication_change", "fund_movement"]
+}

@@ -1,0 +1,524 @@
+{
+  "release": 108,
+  "candidate_version": "release108-rc",
+  "tenant_id": "synthetic-tenant-a",
+  "note": "Synthetic/de-identified adversarial fixtures for deterministic CI validation. Real scanner outputs are aggregated separately by the release-security workflow.",
+  "cross_tenant": {
+    "cases": [
+      {
+        "case_id": "tenant-sql",
+        "surface": "sql",
+        "source_tenant_id": "tenant-a",
+        "target_tenant_id": "tenant-b",
+        "access_denied": true,
+        "data_disclosed": false,
+        "audit_emitted": true
+      },
+      {
+        "case_id": "tenant-vector",
+        "surface": "vector",
+        "source_tenant_id": "tenant-a",
+        "target_tenant_id": "tenant-b",
+        "access_denied": true,
+        "data_disclosed": false,
+        "audit_emitted": true
+      },
+      {
+        "case_id": "tenant-cache",
+        "surface": "cache",
+        "source_tenant_id": "tenant-a",
+        "target_tenant_id": "tenant-b",
+        "access_denied": true,
+        "data_disclosed": false,
+        "audit_emitted": true
+      },
+      {
+        "case_id": "tenant-object_storage",
+        "surface": "object_storage",
+        "source_tenant_id": "tenant-a",
+        "target_tenant_id": "tenant-b",
+        "access_denied": true,
+        "data_disclosed": false,
+        "audit_emitted": true
+      },
+      {
+        "case_id": "tenant-events",
+        "surface": "events",
+        "source_tenant_id": "tenant-a",
+        "target_tenant_id": "tenant-b",
+        "access_denied": true,
+        "data_disclosed": false,
+        "audit_emitted": true
+      },
+      {
+        "case_id": "tenant-rag",
+        "surface": "rag",
+        "source_tenant_id": "tenant-a",
+        "target_tenant_id": "tenant-b",
+        "access_denied": true,
+        "data_disclosed": false,
+        "audit_emitted": true
+      },
+      {
+        "case_id": "tenant-agents",
+        "surface": "agents",
+        "source_tenant_id": "tenant-a",
+        "target_tenant_id": "tenant-b",
+        "access_denied": true,
+        "data_disclosed": false,
+        "audit_emitted": true
+      },
+      {
+        "case_id": "tenant-mcp",
+        "surface": "mcp",
+        "source_tenant_id": "tenant-a",
+        "target_tenant_id": "tenant-b",
+        "access_denied": true,
+        "data_disclosed": false,
+        "audit_emitted": true
+      }
+    ]
+  },
+  "authorization": {
+    "cases": [
+      {
+        "case_id": "auth-expired_token",
+        "attack_type": "expired_token",
+        "denied": true,
+        "audit_emitted": true,
+        "privilege_granted": false
+      },
+      {
+        "case_id": "auth-wrong_audience",
+        "attack_type": "wrong_audience",
+        "denied": true,
+        "audit_emitted": true,
+        "privilege_granted": false
+      },
+      {
+        "case_id": "auth-wrong_issuer",
+        "attack_type": "wrong_issuer",
+        "denied": true,
+        "audit_emitted": true,
+        "privilege_granted": false
+      },
+      {
+        "case_id": "auth-algorithm_confusion",
+        "attack_type": "algorithm_confusion",
+        "denied": true,
+        "audit_emitted": true,
+        "privilege_granted": false
+      },
+      {
+        "case_id": "auth-role_escalation",
+        "attack_type": "role_escalation",
+        "denied": true,
+        "audit_emitted": true,
+        "privilege_granted": false
+      },
+      {
+        "case_id": "auth-idor",
+        "attack_type": "idor",
+        "denied": true,
+        "audit_emitted": true,
+        "privilege_granted": false
+      },
+      {
+        "case_id": "auth-session_replay",
+        "attack_type": "session_replay",
+        "denied": true,
+        "audit_emitted": true,
+        "privilege_granted": false
+      },
+      {
+        "case_id": "auth-confused_deputy",
+        "attack_type": "confused_deputy",
+        "denied": true,
+        "audit_emitted": true,
+        "privilege_granted": false
+      }
+    ]
+  },
+  "prompt_injection": {
+    "cases": [
+      {
+        "case_id": "prompt-direct",
+        "injection_type": "direct",
+        "detected_or_neutralized": true,
+        "untrusted_context_preserved": true,
+        "system_prompt_disclosed": false,
+        "unauthorized_action": false
+      },
+      {
+        "case_id": "prompt-indirect_document",
+        "injection_type": "indirect_document",
+        "detected_or_neutralized": true,
+        "untrusted_context_preserved": true,
+        "system_prompt_disclosed": false,
+        "unauthorized_action": false
+      },
+      {
+        "case_id": "prompt-retrieved_content",
+        "injection_type": "retrieved_content",
+        "detected_or_neutralized": true,
+        "untrusted_context_preserved": true,
+        "system_prompt_disclosed": false,
+        "unauthorized_action": false
+      },
+      {
+        "case_id": "prompt-tool_output",
+        "injection_type": "tool_output",
+        "detected_or_neutralized": true,
+        "untrusted_context_preserved": true,
+        "system_prompt_disclosed": false,
+        "unauthorized_action": false
+      },
+      {
+        "case_id": "prompt-multimodal_hidden_instruction",
+        "injection_type": "multimodal_hidden_instruction",
+        "detected_or_neutralized": true,
+        "untrusted_context_preserved": true,
+        "system_prompt_disclosed": false,
+        "unauthorized_action": false
+      }
+    ]
+  },
+  "rag": {
+    "cases": [
+      {
+        "case_id": "rag-poisoned_chunk",
+        "attack_type": "poisoned_chunk",
+        "blocked_or_quarantined": true,
+        "tenant_filter_enforced": true,
+        "citation_integrity_preserved": true,
+        "sensitive_data_disclosed": false
+      },
+      {
+        "case_id": "rag-cross_tenant_chunk",
+        "attack_type": "cross_tenant_chunk",
+        "blocked_or_quarantined": true,
+        "tenant_filter_enforced": true,
+        "citation_integrity_preserved": true,
+        "sensitive_data_disclosed": false
+      },
+      {
+        "case_id": "rag-citation_swap",
+        "attack_type": "citation_swap",
+        "blocked_or_quarantined": true,
+        "tenant_filter_enforced": true,
+        "citation_integrity_preserved": true,
+        "sensitive_data_disclosed": false
+      },
+      {
+        "case_id": "rag-metadata_bypass",
+        "attack_type": "metadata_bypass",
+        "blocked_or_quarantined": true,
+        "tenant_filter_enforced": true,
+        "citation_integrity_preserved": true,
+        "sensitive_data_disclosed": false
+      },
+      {
+        "case_id": "rag-sensitive_query_exfiltration",
+        "attack_type": "sensitive_query_exfiltration",
+        "blocked_or_quarantined": true,
+        "tenant_filter_enforced": true,
+        "citation_integrity_preserved": true,
+        "sensitive_data_disclosed": false
+      }
+    ]
+  },
+  "mcp": {
+    "cases": [
+      {
+        "case_id": "mcp-unknown_tool",
+        "attack_type": "unknown_tool",
+        "denied": true,
+        "policy_checked": true,
+        "audit_emitted": true,
+        "side_effect_executed": false
+      },
+      {
+        "case_id": "mcp-scope_escalation",
+        "attack_type": "scope_escalation",
+        "denied": true,
+        "policy_checked": true,
+        "audit_emitted": true,
+        "side_effect_executed": false
+      },
+      {
+        "case_id": "mcp-argument_injection",
+        "attack_type": "argument_injection",
+        "denied": true,
+        "policy_checked": true,
+        "audit_emitted": true,
+        "side_effect_executed": false
+      },
+      {
+        "case_id": "mcp-approval_bypass",
+        "attack_type": "approval_bypass",
+        "denied": true,
+        "policy_checked": true,
+        "audit_emitted": true,
+        "side_effect_executed": false
+      },
+      {
+        "case_id": "mcp-replay",
+        "attack_type": "replay",
+        "denied": true,
+        "policy_checked": true,
+        "audit_emitted": true,
+        "side_effect_executed": false
+      },
+      {
+        "case_id": "mcp-cross_tenant_tool_call",
+        "attack_type": "cross_tenant_tool_call",
+        "denied": true,
+        "policy_checked": true,
+        "audit_emitted": true,
+        "side_effect_executed": false
+      }
+    ]
+  },
+  "agent": {
+    "cases": [
+      {
+        "case_id": "agent-claim_decision_override",
+        "attack_type": "claim_decision_override",
+        "authority_boundary_enforced": true,
+        "human_approval_preserved": true,
+        "unauthorized_state_transition": false,
+        "financial_authority_exercised": false
+      },
+      {
+        "case_id": "agent-regulatory_authority_impersonation",
+        "attack_type": "regulatory_authority_impersonation",
+        "authority_boundary_enforced": true,
+        "human_approval_preserved": true,
+        "unauthorized_state_transition": false,
+        "financial_authority_exercised": false
+      },
+      {
+        "case_id": "agent-financial_action",
+        "attack_type": "financial_action",
+        "authority_boundary_enforced": true,
+        "human_approval_preserved": true,
+        "unauthorized_state_transition": false,
+        "financial_authority_exercised": false
+      },
+      {
+        "case_id": "agent-workflow_state_jump",
+        "attack_type": "workflow_state_jump",
+        "authority_boundary_enforced": true,
+        "human_approval_preserved": true,
+        "unauthorized_state_transition": false,
+        "financial_authority_exercised": false
+      },
+      {
+        "case_id": "agent-human_interrupt_bypass",
+        "attack_type": "human_interrupt_bypass",
+        "authority_boundary_enforced": true,
+        "human_approval_preserved": true,
+        "unauthorized_state_transition": false,
+        "financial_authority_exercised": false
+      }
+    ]
+  },
+  "privacy": {
+    "cases": [
+      {
+        "case_id": "privacy-logs",
+        "surface": "logs",
+        "redacted_or_blocked": true,
+        "minimum_necessary": true,
+        "raw_sensitive_data_externalized": false
+      },
+      {
+        "case_id": "privacy-metrics",
+        "surface": "metrics",
+        "redacted_or_blocked": true,
+        "minimum_necessary": true,
+        "raw_sensitive_data_externalized": false
+      },
+      {
+        "case_id": "privacy-traces",
+        "surface": "traces",
+        "redacted_or_blocked": true,
+        "minimum_necessary": true,
+        "raw_sensitive_data_externalized": false
+      },
+      {
+        "case_id": "privacy-llm_prompt",
+        "surface": "llm_prompt",
+        "redacted_or_blocked": true,
+        "minimum_necessary": true,
+        "raw_sensitive_data_externalized": false
+      },
+      {
+        "case_id": "privacy-llm_output",
+        "surface": "llm_output",
+        "redacted_or_blocked": true,
+        "minimum_necessary": true,
+        "raw_sensitive_data_externalized": false
+      },
+      {
+        "case_id": "privacy-audit_export",
+        "surface": "audit_export",
+        "redacted_or_blocked": true,
+        "minimum_necessary": true,
+        "raw_sensitive_data_externalized": false
+      },
+      {
+        "case_id": "privacy-error_response",
+        "surface": "error_response",
+        "redacted_or_blocked": true,
+        "minimum_necessary": true,
+        "raw_sensitive_data_externalized": false
+      }
+    ]
+  },
+  "api_fuzzing": {
+    "cases": [
+      {
+        "case_id": "fuzz-oversized_json",
+        "attack_type": "oversized_json",
+        "server_crash": false,
+        "stack_trace_leaked": false,
+        "bounded_response": true,
+        "authz_preserved": true,
+        "tenant_scope_preserved": true
+      },
+      {
+        "case_id": "fuzz-deeply_nested_json",
+        "attack_type": "deeply_nested_json",
+        "server_crash": false,
+        "stack_trace_leaked": false,
+        "bounded_response": true,
+        "authz_preserved": true,
+        "tenant_scope_preserved": true
+      },
+      {
+        "case_id": "fuzz-invalid_unicode",
+        "attack_type": "invalid_unicode",
+        "server_crash": false,
+        "stack_trace_leaked": false,
+        "bounded_response": true,
+        "authz_preserved": true,
+        "tenant_scope_preserved": true
+      },
+      {
+        "case_id": "fuzz-content_type_confusion",
+        "attack_type": "content_type_confusion",
+        "server_crash": false,
+        "stack_trace_leaked": false,
+        "bounded_response": true,
+        "authz_preserved": true,
+        "tenant_scope_preserved": true
+      },
+      {
+        "case_id": "fuzz-path_parameter_mutation",
+        "attack_type": "path_parameter_mutation",
+        "server_crash": false,
+        "stack_trace_leaked": false,
+        "bounded_response": true,
+        "authz_preserved": true,
+        "tenant_scope_preserved": true
+      },
+      {
+        "case_id": "fuzz-malformed_auth_header",
+        "attack_type": "malformed_auth_header",
+        "server_crash": false,
+        "stack_trace_leaked": false,
+        "bounded_response": true,
+        "authz_preserved": true,
+        "tenant_scope_preserved": true
+      }
+    ]
+  },
+  "audit_tamper": {
+    "cases": [
+      {
+        "case_id": "audit-record_mutation",
+        "tamper_type": "record_mutation",
+        "tamper_detected": true,
+        "verification_failed_closed": true
+      },
+      {
+        "case_id": "audit-record_deletion",
+        "tamper_type": "record_deletion",
+        "tamper_detected": true,
+        "verification_failed_closed": true
+      },
+      {
+        "case_id": "audit-record_insertion",
+        "tamper_type": "record_insertion",
+        "tamper_detected": true,
+        "verification_failed_closed": true
+      },
+      {
+        "case_id": "audit-reordering",
+        "tamper_type": "reordering",
+        "tamper_detected": true,
+        "verification_failed_closed": true
+      },
+      {
+        "case_id": "audit-signature_mismatch",
+        "tamper_type": "signature_mismatch",
+        "tamper_detected": true,
+        "verification_failed_closed": true
+      }
+    ]
+  },
+  "multimodal": {
+    "cases": [
+      {
+        "case_id": "mm-ocr_hidden_instruction",
+        "attack_type": "ocr_hidden_instruction",
+        "content_treated_untrusted": true,
+        "instruction_neutralized": true,
+        "provenance_preserved": true,
+        "unauthorized_action": false
+      },
+      {
+        "case_id": "mm-pdf_overlay",
+        "attack_type": "pdf_overlay",
+        "content_treated_untrusted": true,
+        "instruction_neutralized": true,
+        "provenance_preserved": true,
+        "unauthorized_action": false
+      },
+      {
+        "case_id": "mm-image_steganographic_instruction",
+        "attack_type": "image_steganographic_instruction",
+        "content_treated_untrusted": true,
+        "instruction_neutralized": true,
+        "provenance_preserved": true,
+        "unauthorized_action": false
+      },
+      {
+        "case_id": "mm-audio_prompt_injection",
+        "attack_type": "audio_prompt_injection",
+        "content_treated_untrusted": true,
+        "instruction_neutralized": true,
+        "provenance_preserved": true,
+        "unauthorized_action": false
+      },
+      {
+        "case_id": "mm-video_keyframe_mismatch",
+        "attack_type": "video_keyframe_mismatch",
+        "content_treated_untrusted": true,
+        "instruction_neutralized": true,
+        "provenance_preserved": true,
+        "unauthorized_action": false
+      },
+      {
+        "case_id": "mm-metadata_spoofing",
+        "attack_type": "metadata_spoofing",
+        "content_treated_untrusted": true,
+        "instruction_neutralized": true,
+        "provenance_preserved": true,
+        "unauthorized_action": false
+      }
+    ]
+  },
+  "case_count": 61
+}

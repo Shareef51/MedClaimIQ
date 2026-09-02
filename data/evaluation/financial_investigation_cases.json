@@ -1,0 +1,7 @@
+[
+ {"case_id":"dup-provider","scenario":"duplicate_payment","expected_controls":{"human_investigator_required":true,"immutable_evidence_pack":true,"material_dual_approval":true},"authority":{"ai_can_execute_remediation":false,"automation_can_move_funds":false}},
+ {"case_id":"overpayment","scenario":"overpayment_recoupment","expected_controls":{"human_investigator_required":true,"immutable_evidence_pack":true,"material_dual_approval":true},"authority":{"ai_can_execute_remediation":false,"automation_can_move_funds":false}},
+ {"case_id":"reserve","scenario":"reserve_review","expected_controls":{"human_investigator_required":true,"immutable_evidence_pack":true,"material_dual_approval":true},"authority":{"ai_can_execute_remediation":false,"automation_can_move_funds":false}},
+ {"case_id":"returned","scenario":"returned_payment","expected_controls":{"human_investigator_required":true,"immutable_evidence_pack":true,"material_dual_approval":true},"authority":{"ai_can_execute_remediation":false,"automation_can_move_funds":false}},
+ {"case_id":"provider-pattern","scenario":"provider_integrity","expected_controls":{"human_investigator_required":true,"immutable_evidence_pack":true,"material_dual_approval":true},"authority":{"ai_can_execute_remediation":false,"automation_can_move_funds":false}}
+]

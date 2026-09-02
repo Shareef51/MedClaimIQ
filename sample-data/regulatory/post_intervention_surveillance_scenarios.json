@@ -1,0 +1,8 @@
+{
+  "scenarios": [
+    {"id":"P76-01","name":"systemic risk rebound","closure_systemic_risk_score":12,"current_systemic_risk_score":35,"expected":"human recurrence investigation"},
+    {"id":"P76-02","name":"new examination correlation","obligation_overlap":0.9,"control_overlap":0.8,"root_cause_similarity":0.85,"entity_overlap":0.7,"expected":"human validation of likely relation"},
+    {"id":"P76-03","name":"cross-entity recurrence","affected_entity_ids":["US","EU","APAC"],"expected":"executive and internal-audit escalation"},
+    {"id":"P76-04","name":"AI reopening attempt","actor_role":"ai_agent","decision":"reopen","expected":"blocked"}
+  ]
+}

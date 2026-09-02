@@ -1,0 +1,129 @@
+{
+  "data_classification": "synthetic_only",
+  "tenant_id": "tenant-payer-demo",
+  "patient": {
+    "patient_id": "patient-synthetic-001",
+    "patient_subject_id": "patient-subject-synthetic-001",
+    "external_identifiers": {
+      "member_ref": "SYN-MEMBER-1001"
+    },
+    "synthetic_data": true
+  },
+  "provider": {
+    "provider_id": "provider-synthetic-001",
+    "organization_id": "org-payer-provider-network",
+    "provider_ref": "SYN-PROVIDER-2001",
+    "provider_type": "facility",
+    "external_identifiers": {
+      "synthetic_npi": "1999999999"
+    }
+  },
+  "policy": {
+    "policy_id": "policy-synthetic-001",
+    "patient_subject_id": "patient-subject-synthetic-001",
+    "payer_organization_id": "org-payer-claims",
+    "policy_ref": "SYN-POLICY-3001",
+    "plan_name": "Synthetic Gold Plan",
+    "effective_from": "2026-01-01",
+    "effective_to": "2026-12-31",
+    "policy_version": 1,
+    "source_system": "synthetic-policy-admin"
+  },
+  "encounter": {
+    "encounter_id": "encounter-synthetic-001",
+    "patient_subject_id": "patient-subject-synthetic-001",
+    "provider_organization_id": "org-payer-provider-network",
+    "encounter_ref": "SYN-ENC-4001",
+    "encounter_type": "outpatient",
+    "started_at": "2026-08-15T08:00:00+00:00",
+    "ended_at": "2026-08-15T10:00:00+00:00",
+    "source_system": "synthetic-fhir-server",
+    "external_identifiers": {
+      "fhir_resource": "Encounter/synthetic-001"
+    }
+  },
+  "claim": {
+    "claim_id": "claim-synthetic-001",
+    "external_claim_ref": "SYN-CLAIM-5001",
+    "patient_subject_id": "patient-subject-synthetic-001",
+    "provider_organization_id": "org-payer-provider-network",
+    "payer_organization_id": "org-payer-claims",
+    "policy_id": "policy-synthetic-001",
+    "encounter_id": "encounter-synthetic-001",
+    "claim_type": "medical",
+    "assigned_reviewer_user_id": "user-reviewer",
+    "total_amount": "250.00",
+    "currency": "USD",
+    "service_from": "2026-08-15",
+    "service_to": "2026-08-15",
+    "created_by_actor_type": "system",
+    "created_by_actor_id": "synthetic-claim-loader",
+    "idempotency_key": "seed-claim-synthetic-001",
+    "trace_id": "seed-trace-claim-synthetic-001"
+  },
+  "claim_lines": [
+    {
+      "claim_line_id": "claim-line-synthetic-001",
+      "line_number": 1,
+      "code_system": "CPT",
+      "service_code": "99213",
+      "description": "Synthetic outpatient office visit",
+      "service_date": "2026-08-15",
+      "units": "1.00",
+      "amount": "250.00",
+      "provider_id": "provider-synthetic-001"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "evidence-synthetic-bill-001",
+      "claim_id": "claim-synthetic-001",
+      "source_type": "synthetic_fixture",
+      "source_system": "synthetic-document-generator",
+      "source_locator": {"fixture": "medical_bill_001.pdf", "page": 1},
+      "document_type": "medical_bill",
+      "media_type": "application/pdf",
+      "object_key": "synthetic/claim-synthetic-001/medical_bill_001.pdf",
+      "content_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "byte_size": 4096,
+      "status": "accepted",
+      "evidence_version": 1,
+      "uploaded_by_user_id": "user-reviewer",
+      "authoritative": false,
+      "actor_type": "system",
+      "actor_id": "synthetic-evidence-loader",
+      "idempotency_key": "seed-evidence-synthetic-bill-001",
+      "trace_id": "seed-trace-claim-synthetic-001"
+    },
+    {
+      "evidence_id": "evidence-synthetic-extract-001",
+      "claim_id": "claim-synthetic-001",
+      "source_type": "generated_derivative",
+      "source_system": "synthetic-document-parser",
+      "source_locator": {"parent": "evidence-synthetic-bill-001", "page": 1},
+      "document_type": "extracted_text",
+      "media_type": "application/json",
+      "object_key": "synthetic/claim-synthetic-001/extracted/medical_bill_001.json",
+      "content_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "byte_size": 1024,
+      "status": "ready",
+      "evidence_version": 1,
+      "authoritative": false,
+      "actor_type": "worker",
+      "actor_id": "synthetic-document-parser",
+      "idempotency_key": "seed-evidence-synthetic-extract-001",
+      "trace_id": "seed-trace-claim-synthetic-001"
+    }
+  ],
+  "lineage": [
+    {
+      "lineage_id": "lineage-synthetic-001",
+      "child_evidence_id": "evidence-synthetic-extract-001",
+      "parent_evidence_id": "evidence-synthetic-bill-001",
+      "relationship": "derived_from",
+      "transformation_name": "synthetic-document-parser",
+      "transformation_version": "1.0.0",
+      "transformation_metadata": {"page": 1, "parser_mode": "layout-aware"}
+    }
+  ]
+}

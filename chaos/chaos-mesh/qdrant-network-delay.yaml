@@ -1,0 +1,19 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: medclaimiq-qdrant-network-delay
+  namespace: medclaimiq-staging
+spec:
+  action: delay
+  mode: all
+  duration: 120s
+  selector:
+    namespaces: [medclaimiq-staging]
+    labelSelectors:
+      app.kubernetes.io/part-of: medclaimiq
+  direction: to
+  externalTargets: [qdrant.staging.internal]
+  delay:
+    latency: 1500ms
+    jitter: 250ms
+    correlation: '50'

@@ -1,0 +1,14 @@
+{
+  "decision": "PASS",
+  "checks": {
+    "postgres_pitr": true,
+    "object_versioning": true,
+    "multi_az": true,
+    "restore_runbook": true,
+    "immutable_vector_projection": true,
+    "rto_rpo_defined": true
+  },
+  "failed": [],
+  "rto_minutes": 60,
+  "rpo_minutes": 5
+}

@@ -1,0 +1,74 @@
+{
+  "cases": [
+    {
+      "case_id": "invoice-image-table-match",
+      "metrics": {
+        "citation_anchor_accuracy": 1.0,
+        "inconsistency_detection": 1.0,
+        "knowledge_gap_accuracy": 1.0,
+        "required_modality_safety": 1.0,
+        "routing_accuracy": 1.0
+      },
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "case_id": "invoice-fhir-material-mismatch",
+      "metrics": {
+        "citation_anchor_accuracy": 1.0,
+        "inconsistency_detection": 1.0,
+        "knowledge_gap_accuracy": 1.0,
+        "required_modality_safety": 1.0,
+        "routing_accuracy": 1.0
+      },
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "case_id": "audio-timecode",
+      "metrics": {
+        "citation_anchor_accuracy": 1.0,
+        "inconsistency_detection": 1.0,
+        "knowledge_gap_accuracy": 1.0,
+        "required_modality_safety": 1.0,
+        "routing_accuracy": 1.0
+      },
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "case_id": "video-keyframe-anchor",
+      "metrics": {
+        "citation_anchor_accuracy": 1.0,
+        "inconsistency_detection": 1.0,
+        "knowledge_gap_accuracy": 1.0,
+        "required_modality_safety": 1.0,
+        "routing_accuracy": 1.0
+      },
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "case_id": "missing-required-video",
+      "metrics": {
+        "citation_anchor_accuracy": 1.0,
+        "inconsistency_detection": 1.0,
+        "knowledge_gap_accuracy": 1.0,
+        "required_modality_safety": 1.0,
+        "routing_accuracy": 1.0
+      },
+      "passed": true,
+      "reasons": []
+    }
+  ],
+  "dataset_version": "multimodal-rag-v1",
+  "decision": "pass",
+  "metrics": {
+    "citation_anchor_accuracy": 1.0,
+    "inconsistency_detection": 1.0,
+    "knowledge_gap_accuracy": 1.0,
+    "required_modality_safety": 1.0,
+    "routing_accuracy": 1.0
+  },
+  "reasons": []
+}

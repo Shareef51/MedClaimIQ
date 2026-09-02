@@ -1,0 +1,26 @@
+policy_id: regulatory-examination-reauthorized-recovery-outcome-validation
+mode: production
+authority:
+  ai_recommendation_only: true
+  human_residual_risk_reassessment_required: true
+  independent_outcome_validation_required: true
+  executive_recovery_recertification_required: true
+  human_sustainability_reclosure_required: true
+forbidden:
+  - ai_accept_residual_systemic_risk
+  - ai_certify_recovery_effectiveness
+  - ai_close_regulatory_commitments
+  - ai_recertify_recovery
+  - ai_reclose_program
+  - worker_accept_residual_risk
+  - worker_certify_recovery
+  - worker_close_commitments
+  - worker_reclose_program
+  - accounting_record_mutation
+  - payment_authorization
+  - funds_movement
+assurance:
+  minimum_sustainability_window_days: 60
+  minimum_control_health_score: 85
+  minimum_systemic_risk_reduction_percent: 30
+  repeated_failure_controls_require_explicit_validation: true

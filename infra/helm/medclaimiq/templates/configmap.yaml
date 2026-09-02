@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: medclaimiq-runtime
+  labels:
+    {{- include "medclaimiq.labels" . | nindent 4 }}
+data:
+  MEDCLAIMIQ_RELEASE_ID: {{ .Values.release.id | quote }}
+  MEDCLAIMIQ_RELEASE_GIT_SHA: {{ .Values.release.gitSha | quote }}
+  {{- range $k, $v := .Values.config }}
+  {{ $k }}: {{ $v | quote }}
+  {{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: medclaimiq-frontend-runtime
+  labels:
+    {{- include "medclaimiq.labels" . | nindent 4 }}
+data:
+  {{- range $k, $v := .Values.frontendConfig }}
+  {{ $k }}: {{ $v | quote }}
+  {{- end }}

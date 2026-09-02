@@ -1,0 +1,23 @@
+{
+  "policy_version": "multimodal-reviewer-v1",
+  "evidence_viewer": {
+    "signed_source_ttl_seconds": 300,
+    "raw_object_keys_exposed_to_browser": false,
+    "same_origin_media_bff": true,
+    "http_range_forwarding": true,
+    "pdf_server_side_page_render": true,
+    "pdf_bbox_highlight": true
+  },
+  "supported_anchors": ["page_number", "bbox", "start_ms", "end_ms", "frame_index", "frame_sha256", "fhir_snapshot_id", "fhir_resource_type", "fhir_logical_id", "fhir_version_id"],
+  "annotations": {
+    "active_review_lease_required": true,
+    "immutable": true,
+    "targets": ["evidence", "multimodal_item", "inconsistency", "agent_finding", "checkpoint"]
+  },
+  "safety": {
+    "final_claim_decision_human_only": true,
+    "ai_findings_are_advisory": true,
+    "media_is_read_only": true,
+    "tenant_claim_authorization_required": true
+  }
+}

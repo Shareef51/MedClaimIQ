@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: medclaimiq-api
+spec:
+  replicas: 6
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: api-rollout}
+  template:
+    metadata:
+      labels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: api-rollout}
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/example/medclaimiq-api@sha256:REPLACE_WITH_SIGNED_DIGEST
+          ports: [{containerPort: 8000}]
+          readinessProbe: {httpGet: {path: /api/v1/health, port: 8000}, periodSeconds: 10}
+  strategy:
+    canary:
+      stableService: medclaimiq-api-stable
+      canaryService: medclaimiq-api-canary
+      maxUnavailable: 0
+      maxSurge: 1
+      abortScaleDownDelaySeconds: 30
+      steps:
+        - setWeight: 10
+        - pause: {duration: 2m}
+        - analysis: {templates: [{templateName: medclaimiq-api-release-slo}]}
+        - setWeight: 25
+        - pause: {duration: 3m}
+        - analysis: {templates: [{templateName: medclaimiq-api-release-slo}]}
+        - setWeight: 50
+        - pause: {duration: 5m}
+        - analysis: {templates: [{templateName: medclaimiq-api-release-slo}]}
+        - setWeight: 100

@@ -1,0 +1,67 @@
+{
+  "dataset_version": "multimodal-rag-v1",
+  "cases": [
+    {
+      "case_id": "invoice-image-table-match",
+      "query": "Compare invoice image and table amount",
+      "requested_modalities": ["image", "table"],
+      "required_modalities": ["image", "table"],
+      "expected_modalities": ["image", "table"],
+      "expect_material_inconsistency": false,
+      "expect_blocking_gap": false,
+      "items": [
+        {"modality":"image","text":"Invoice total $125.00","evidence_id":"ev-img","page_number":1,"bbox":[1,2,100,50],"source_locator":{"kind":"image_ocr"}},
+        {"modality":"table","text":"Invoice total $125.00","evidence_id":"ev-pdf","page_number":2,"source_locator":{"table":0}}
+      ]
+    },
+    {
+      "case_id": "invoice-fhir-material-mismatch",
+      "query": "Cross-check billed amount with hospital FHIR EOB",
+      "requested_modalities": ["table", "fhir"],
+      "required_modalities": ["table", "fhir"],
+      "expected_modalities": ["table", "fhir"],
+      "expect_material_inconsistency": true,
+      "expect_blocking_gap": true,
+      "items": [
+        {"modality":"table","text":"Total $150.00","evidence_id":"ev-invoice","page_number":1,"source_locator":{"table":1}},
+        {"modality":"fhir","domain":"hospital","text":"EOB total $125.00","fhir_snapshot_id":"snap-1","fhir_resource_type":"ExplanationOfBenefit","fhir_logical_id":"eob-1","fhir_version_id":"3"}
+      ]
+    },
+    {
+      "case_id": "audio-timecode",
+      "query": "Find what the caller said in the audio recording",
+      "requested_modalities": ["audio"],
+      "required_modalities": ["audio"],
+      "expected_modalities": ["audio"],
+      "expect_material_inconsistency": false,
+      "expect_blocking_gap": false,
+      "items": [
+        {"modality":"audio","text":"Caller states invoice total $125.00","evidence_id":"ev-audio","start_ms":1200,"end_ms":4800,"source_locator":{"segment":2}}
+      ]
+    },
+    {
+      "case_id": "video-keyframe-anchor",
+      "query": "Inspect the video keyframe and timeline",
+      "requested_modalities": ["video"],
+      "required_modalities": ["video"],
+      "expected_modalities": ["video"],
+      "expect_material_inconsistency": false,
+      "expect_blocking_gap": false,
+      "items": [
+        {"modality":"video","text":"Frame shows synthetic invoice","evidence_id":"ev-video","start_ms":15000,"end_ms":15000,"frame_index":1,"frame_sha256":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","source_locator":{"kind":"keyframe"}}
+      ]
+    },
+    {
+      "case_id": "missing-required-video",
+      "query": "Verify video evidence against hospital record",
+      "requested_modalities": ["video", "fhir"],
+      "required_modalities": ["video", "fhir"],
+      "expected_modalities": ["video", "fhir"],
+      "expect_material_inconsistency": false,
+      "expect_blocking_gap": true,
+      "items": [
+        {"modality":"fhir","domain":"hospital","text":"Encounter record","fhir_snapshot_id":"snap-2","fhir_resource_type":"Encounter","fhir_logical_id":"enc-1","fhir_version_id":"1"}
+      ]
+    }
+  ]
+}

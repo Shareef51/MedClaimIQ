@@ -1,0 +1,24 @@
+version: 1
+mode: preparation_only
+human_authority:
+  approve_regulator_response: required
+  approve_submission_package: required
+  transmit_to_regulator: human_or_separately_authorized_non_ai_system_only
+ai_permissions:
+  retrieve_evidence: true
+  map_request_to_evidence: true
+  detect_conflicts: true
+  draft_cited_response: true
+  simulate_examiner_questions: true
+  approve_response: false
+  approve_submission: false
+  transmit_submission: false
+privileged_evidence:
+  classes: [legal_privileged, regulatory_privileged]
+  segregate_from_standard_response: true
+  explicit_human_clearance_required: true
+readiness:
+  minimum_human_review_score: 100
+  block_on_unresolved_conflict: true
+  block_on_missing_citation: true
+  block_on_unsegregated_privileged_evidence: true

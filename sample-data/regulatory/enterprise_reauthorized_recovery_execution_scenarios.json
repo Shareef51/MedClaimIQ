@@ -1,0 +1,44 @@
+{
+  "release": 96,
+  "capability": "enterprise reauthorized recovery execution, systemic control re-transformation and independent effectiveness assurance",
+  "scenarios": [
+    {
+      "scenario_id": "p96-enterprise-recovery-execution",
+      "recovery_program_id": "erp-96-001",
+      "enterprise_recovery_reauthorization_version_id": "reauth95-001",
+      "release95_human_reauthorization_confirmed": true,
+      "release95_reauthorization_decision": "authorize",
+      "systemic_controls": [
+        {
+          "control_id": "ctrl-shared-access",
+          "action": "replace",
+          "failure_cycle_count": 4,
+          "entity_ids": [
+            "entity-a",
+            "entity-b"
+          ],
+          "release95_reauthorization_scope_reference": "scope-95-1"
+        },
+        {
+          "control_id": "ctrl-ownership",
+          "action": "re-transform",
+          "failure_cycle_count": 3,
+          "entity_ids": [
+            "entity-a",
+            "entity-b",
+            "entity-c"
+          ],
+          "release95_reauthorization_scope_reference": "scope-95-2"
+        }
+      ],
+      "expected_governance": "human control approval, evidence-bound execution, independent effectiveness assurance, executive oversight"
+    },
+    {
+      "scenario_id": "p96-missing-human-reauthorization",
+      "recovery_program_id": "erp-96-002",
+      "enterprise_recovery_reauthorization_version_id": "reauth95-002",
+      "release95_human_reauthorization_confirmed": false,
+      "expected_result": "reject authoritative recovery program creation"
+    }
+  ]
+}

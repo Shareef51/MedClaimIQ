@@ -1,0 +1,26 @@
+{
+  "schema_version": "performance-results-v1",
+  "candidate_version": "synthetic-baseline-v1",
+  "environment": "synthetic-ci",
+  "metrics": {
+    "api_health_p95_ms": 42.0,
+    "claim_list_p95_ms": 186.0,
+    "review_workbench_p95_ms": 521.0,
+    "rag_hybrid_p95_ms": 1160.0,
+    "agent_workflow_start_p95_ms": 710.0,
+    "fhir_read_p95_ms": 480.0,
+    "mcp_read_p95_ms": 260.0,
+    "sse_connect_p95_ms": 180.0,
+    "http_error_rate": 0.002,
+    "rag_error_rate": 0.004,
+    "agent_start_error_rate": 0.002,
+    "mcp_read_error_rate": 0.001,
+    "sse_disconnect_rate": 0.003,
+    "postgres_simple_query_p95_ms": 18.0,
+    "redis_roundtrip_p95_ms": 5.0,
+    "qdrant_search_p95_ms": 62.0,
+    "sustained_rps": 86.0,
+    "worker_events_per_second": 132.0,
+    "sse_connections_per_api_replica": 810.0
+  }
+}

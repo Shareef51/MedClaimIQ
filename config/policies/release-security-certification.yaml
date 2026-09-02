@@ -1,0 +1,44 @@
+mode: adversarial-analysis-monitoring-human-certification-only
+scope:
+  release107_human_release_candidate_required: true
+  red_team_surfaces:
+    - cross_tenant_penetration
+    - oidc_rbac_authorization_abuse
+    - prompt_injection_indirect_injection
+    - rag_poisoning_data_exfiltration
+    - mcp_tool_abuse
+    - agent_privilege_boundary
+    - phi_pii_leakage
+    - secrets_and_supply_chain
+    - api_fuzzing
+    - audit_tamper_detection
+    - adversarial_multimodal_evidence
+release_security_gates:
+  all_required: true
+  critical_findings_allowed: 0
+  high_findings_allowed: 0
+  secret_findings_allowed: 0
+  cross_tenant_escape_allowed: false
+  phi_pii_exfiltration_allowed: false
+  security_certification_human_only: true
+waiver_governance:
+  critical_waiver_allowed: false
+  high_waiver_allowed: false
+  secret_leak_waiver_allowed: false
+  cross_tenant_escape_waiver_allowed: false
+  phi_pii_exfiltration_waiver_allowed: false
+  medium_low_require_expiry: true
+  compensating_controls_required: true
+  evidence_required: true
+  human_security_risk_approval_required: true
+human_authority:
+  automated_waiver_approval: false
+  automated_security_certification: false
+  automated_production_promotion: false
+safety:
+  final_claim_decision_human_only: true
+  regulatory_authority_human_only: true
+  accounting_mutation_allowed: false
+  payment_authority_allowed: false
+  funds_collection_allowed: false
+  funds_movement_allowed: false

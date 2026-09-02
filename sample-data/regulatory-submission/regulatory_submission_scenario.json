@@ -1,0 +1,10 @@
+{
+  "scenario": "synthetic certified recovery regulatory closeout",
+  "reporting_period": "2026-08",
+  "accounting_periods": ["synthetic-period-2026-08"],
+  "controls": {"ledger_tieout": "pass", "provider_statement_delivery": "pass", "material_exceptions": 0},
+  "maker": "synthetic-accounting-controller",
+  "checker": "synthetic-auditor",
+  "submission_mode": "human_staged_external_receipt",
+  "contains_real_claim_or_provider_data": false
+}

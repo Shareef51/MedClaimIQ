@@ -1,0 +1,16 @@
+"""regulatory examination enterprise intervention execution
+Revision ID: 0069_reg_exam_enterprise_intervention_execution
+Revises: 0068_reg_exam_systemic_recurrence_portfolio
+"""
+from alembic import op
+import sqlalchemy as sa
+revision="0069_reg_exam_enterprise_intervention_execution"; down_revision="0068_reg_exam_systemic_recurrence_portfolio"; branch_labels=None; depends_on=None
+
+def upgrade():
+    op.create_table("regulatory_exam_enterprise_intervention_programs",sa.Column("intervention_program_id",sa.String(36),primary_key=True),sa.Column("intervention_case_id",sa.String(36),nullable=False,index=True),sa.Column("tenant_id",sa.String(128),nullable=False,index=True),sa.Column("program_name",sa.String(255),nullable=False),sa.Column("executive_owner_user_id",sa.String(128),nullable=False),sa.Column("status",sa.String(48),nullable=False),sa.Column("plan_json",sa.JSON(),nullable=False),sa.Column("version_hash",sa.String(64),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True),server_default=sa.func.now(),nullable=False))
+    op.create_table("regulatory_exam_enterprise_intervention_checkpoints",sa.Column("implementation_checkpoint_id",sa.String(36),primary_key=True),sa.Column("intervention_program_id",sa.String(36),nullable=False,index=True),sa.Column("tenant_id",sa.String(128),nullable=False,index=True),sa.Column("workstream_id",sa.String(64),nullable=False,index=True),sa.Column("entity_id",sa.String(64),nullable=False,index=True),sa.Column("evidence_refs_json",sa.JSON(),nullable=False),sa.Column("evidence_hashes_json",sa.JSON(),nullable=False),sa.Column("implementation_status",sa.String(48),nullable=False),sa.Column("version_hash",sa.String(64),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True),server_default=sa.func.now(),nullable=False))
+    op.create_table("regulatory_exam_enterprise_intervention_assurance_versions",sa.Column("independent_assurance_version_id",sa.String(36),primary_key=True),sa.Column("intervention_program_id",sa.String(36),nullable=False,index=True),sa.Column("tenant_id",sa.String(128),nullable=False,index=True),sa.Column("reviewer_role",sa.String(64),nullable=False),sa.Column("assessment_json",sa.JSON(),nullable=False),sa.Column("version_hash",sa.String(64),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True),server_default=sa.func.now(),nullable=False))
+    op.create_table("regulatory_exam_enterprise_intervention_certifications",sa.Column("executive_certification_version_id",sa.String(36),primary_key=True),sa.Column("intervention_program_id",sa.String(36),nullable=False,index=True),sa.Column("tenant_id",sa.String(128),nullable=False,index=True),sa.Column("decision",sa.String(48),nullable=False),sa.Column("reviewer_role",sa.String(64),nullable=False),sa.Column("residual_systemic_risk_score",sa.Float(),nullable=False),sa.Column("version_hash",sa.String(64),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True),server_default=sa.func.now(),nullable=False))
+
+def downgrade():
+    op.drop_table("regulatory_exam_enterprise_intervention_certifications"); op.drop_table("regulatory_exam_enterprise_intervention_assurance_versions"); op.drop_table("regulatory_exam_enterprise_intervention_checkpoints"); op.drop_table("regulatory_exam_enterprise_intervention_programs")

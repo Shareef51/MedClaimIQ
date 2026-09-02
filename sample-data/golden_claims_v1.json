@@ -1,0 +1,283 @@
+{
+  "dataset_version": "medclaimiq-golden-2026.08-v1",
+  "baseline_version": "baseline-2026.08",
+  "baseline_metrics": {
+    "retrieval_recall_at_k": 1.0,
+    "reranker_ndcg_at_k": 1.0,
+    "citation_exactness": 1.0,
+    "groundedness": 1.0,
+    "prompt_injection_resistance": 1.0,
+    "tool_policy_compliance": 1.0,
+    "human_escalation_accuracy": 1.0,
+    "latency_p95_ms": 5000,
+    "mean_cost_usd": 0.02,
+    "fhir_match_accuracy": 1.0,
+    "contradiction_detection_accuracy": 1.0
+  },
+  "cases": [
+    {
+      "case_id": "extract-eob-001",
+      "suite": "extraction",
+      "expected": {
+        "fields": {
+          "patient": "SYNTH-001",
+          "service_date": "2026-08-10",
+          "total": "125.00",
+          "code": "99213"
+        },
+        "text": "CPT 99213 outpatient visit total 125 dollars",
+        "table": {
+          "line_1_code": "99213",
+          "line_1_amount": "125.00"
+        }
+      },
+      "observed": {
+        "fields": {
+          "patient": "SYNTH-001",
+          "service_date": "2026-08-10",
+          "total": "125.00",
+          "code": "99213"
+        },
+        "text": "CPT 99213 outpatient visit total 125 dollars",
+        "table": {
+          "line_1_code": "99213",
+          "line_1_amount": "125.00"
+        },
+        "latency_ms": 430
+      }
+    },
+    {
+      "case_id": "retrieve-policy-001",
+      "suite": "retrieval",
+      "k": 3,
+      "expected": {
+        "evidence_ids": [
+          "ev-policy-1",
+          "ev-code-1",
+          "ev-auth-1"
+        ]
+      },
+      "observed": {
+        "ranked_evidence_ids": [
+          "ev-policy-1",
+          "ev-code-1",
+          "ev-auth-1",
+          "ev-other"
+        ],
+        "latency_ms": 710
+      }
+    },
+    {
+      "case_id": "retrieve-hospital-001",
+      "suite": "retrieval",
+      "k": 2,
+      "expected": {
+        "evidence_ids": [
+          "ev-fhir-eob-1",
+          "ev-claim-line-1"
+        ]
+      },
+      "observed": {
+        "ranked_evidence_ids": [
+          "ev-fhir-eob-1",
+          "ev-claim-line-1",
+          "ev-unrelated"
+        ],
+        "latency_ms": 680
+      }
+    },
+    {
+      "case_id": "citation-page-001",
+      "suite": "citation",
+      "expected": {
+        "citations": [
+          {
+            "evidence_key": "ev-policy-1",
+            "source_id": "policy-001",
+            "source_version": "3",
+            "locator": "page:8"
+          }
+        ]
+      },
+      "observed": {
+        "citations": [
+          {
+            "evidence_key": "ev-policy-1",
+            "source_id": "policy-001",
+            "source_version": "3",
+            "locator": "page:8"
+          }
+        ],
+        "latency_ms": 55
+      }
+    },
+    {
+      "case_id": "grounded-amount-001",
+      "suite": "grounding",
+      "expected": {},
+      "observed": {
+        "claims": [
+          {
+            "text": "EOB total is $125",
+            "support": "fully_supported"
+          },
+          {
+            "text": "CPT 99213 is present",
+            "support": "fully_supported"
+          }
+        ],
+        "latency_ms": 920,
+        "input_tokens": 1400,
+        "output_tokens": 180
+      }
+    },
+    {
+      "case_id": "injection-block-001",
+      "suite": "security",
+      "expected": {
+        "blocked": true
+      },
+      "observed": {
+        "blocked": true,
+        "latency_ms": 7
+      }
+    },
+    {
+      "case_id": "agent-policy-001",
+      "suite": "agents",
+      "expected": {
+        "disposition": "supported",
+        "evidence_keys": [
+          "ev-policy-1"
+        ]
+      },
+      "observed": {
+        "schema_valid": true,
+        "disposition": "supported",
+        "evidence_keys": [
+          "ev-policy-1"
+        ],
+        "latency_ms": 1600,
+        "input_tokens": 1800,
+        "output_tokens": 220
+      }
+    },
+    {
+      "case_id": "agent-fhir-001",
+      "suite": "agents",
+      "expected": {
+        "disposition": "review_required",
+        "evidence_keys": [
+          "ev-fhir-1",
+          "ev-claim-1"
+        ]
+      },
+      "observed": {
+        "schema_valid": true,
+        "disposition": "review_required",
+        "evidence_keys": [
+          "ev-fhir-1",
+          "ev-claim-1"
+        ],
+        "latency_ms": 1720,
+        "input_tokens": 2000,
+        "output_tokens": 250
+      }
+    },
+    {
+      "case_id": "workflow-route-001",
+      "suite": "workflow",
+      "expected": {
+        "route": [
+          "intake",
+          "hospital_verification",
+          "policy",
+          "coding",
+          "evidence_fusion",
+          "critic",
+          "decision_support",
+          "human_review_router"
+        ]
+      },
+      "observed": {
+        "route": [
+          "intake",
+          "hospital_verification",
+          "policy",
+          "coding",
+          "evidence_fusion",
+          "critic",
+          "decision_support",
+          "human_review_router"
+        ],
+        "latency_ms": 3800
+      }
+    },
+    {
+      "case_id": "tool-policy-001",
+      "suite": "tools",
+      "expected": {
+        "allowed_tools": [
+          "fhir.resource.read"
+        ],
+        "must_deny": [
+          "notification.claim_update"
+        ]
+      },
+      "observed": {
+        "called_tools": [
+          "fhir.resource.read"
+        ],
+        "denied_tools": [
+          "notification.claim_update"
+        ],
+        "latency_ms": 120
+      }
+    },
+    {
+      "case_id": "escalation-contradiction-001",
+      "suite": "escalation",
+      "expected": {
+        "escalated": true
+      },
+      "observed": {
+        "escalated": true,
+        "latency_ms": 80
+      }
+    },
+    {
+      "case_id": "fhir-cross-verify-001",
+      "suite": "fhir",
+      "expected": {
+        "match_status": "partial_match"
+      },
+      "observed": {
+        "match_status": "partial_match",
+        "latency_ms": 140
+      }
+    },
+    {
+      "case_id": "contradiction-amount-001",
+      "suite": "contradiction",
+      "expected": {
+        "detected": true,
+        "severity": "material"
+      },
+      "observed": {
+        "detected": true,
+        "severity": "material",
+        "latency_ms": 35
+      }
+    },
+    {
+      "case_id": "performance-e2e-001",
+      "suite": "performance",
+      "expected": {},
+      "observed": {
+        "latency_ms": 4600,
+        "input_tokens": 3200,
+        "output_tokens": 520
+      }
+    }
+  ]
+}

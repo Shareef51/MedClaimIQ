@@ -1,0 +1,22 @@
+{
+  "policy_version": "2026-08-21",
+  "appeal_window_days": 180,
+  "appeal_triage_sla_hours": 24,
+  "appeal_review_sla_hours": 120,
+  "notice_release_sla_hours": 24,
+  "max_delivery_attempts": 3,
+  "decision_notice_template": {
+    "template_key": "medical_claim_decision_notice",
+    "template_version": "1.0.0",
+    "required_sections": ["decision_summary", "reason_explanations", "evidence_snapshot_reference", "appeal_rights", "human_authority_statement"]
+  },
+  "appeal_ground_codes": ["new_evidence", "factual_error", "coding_dispute", "coverage_dispute", "process_error", "other"],
+  "governance": {
+    "notice_release_requires_authorized_human": true,
+    "appeal_resolution_requires_independent_human_reviewer": true,
+    "original_decision_records_are_immutable": true,
+    "ai_can_draft_only": true,
+    "ai_can_overturn_decision": false,
+    "automated_financial_execution": false
+  }
+}

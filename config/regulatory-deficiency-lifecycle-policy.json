@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "formal_classification_requires_human": true,
+  "material_weakness_requires_independent_challenge": true,
+  "corrective_action_approval_requires_human": true,
+  "executive_closure_requires_retest": true,
+  "executive_closure_requires_independent_validation": true,
+  "ai_recommendation_only": true,
+  "accounting_mutation_allowed": false,
+  "payments_allowed": false,
+  "default_action_sla_days": 30,
+  "critical_action_sla_days": 7,
+  "compensating_control_expiry_escalation_days": 14
+}

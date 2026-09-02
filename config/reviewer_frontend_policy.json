@@ -1,0 +1,30 @@
+{
+  "authentication": {
+    "flow": "oidc_authorization_code_pkce",
+    "browser_token_storage": "forbidden",
+    "session_cookie_encryption": "aes-256-gcm",
+    "http_only": true,
+    "same_site": "lax",
+    "bff_backend_allowlist": true
+  },
+  "realtime": {
+    "queue_stream": "tenant_review_metadata_sse",
+    "claim_stream": "claim_scoped_sse",
+    "reconnect_cursor": "stream_sequence"
+  },
+  "review_lock": {
+    "raw_token_storage": "browser_memory_only",
+    "server_storage": "sha256_only",
+    "automatic_renew_seconds": 180
+  },
+  "decision": {
+    "human_only": true,
+    "optimistic_claim_version": true,
+    "ai_override_reason": "required_when_disagreeing"
+  },
+  "privacy": {
+    "local_storage_access_token": false,
+    "raw_evidence_in_browser_logs": false,
+    "cross_origin_mutations": "deny"
+  }
+}

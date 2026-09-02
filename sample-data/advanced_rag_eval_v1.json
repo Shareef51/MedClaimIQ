@@ -1,0 +1,45 @@
+{
+  "dataset_version": "advanced-rag-v1",
+  "cases": [
+    {
+      "case_id": "policy-hyde",
+      "query": "Please find the authoritative policy coverage exclusion for this service",
+      "authorized_domains": ["policy", "claim"],
+      "agent": "policy",
+      "core_terms": ["policy", "coverage", "exclusion"],
+      "expected_routing_mode": "hybrid_hyde"
+    },
+    {
+      "case_id": "coding-exact",
+      "query": "Check CPT 99213 against the billed evidence",
+      "authorized_domains": ["coding", "invoice"],
+      "agent": "coding",
+      "core_terms": ["99213"],
+      "expected_routing_mode": "exact"
+    },
+    {
+      "case_id": "fhir-temporal",
+      "query": "Cross verify the FHIR hospital record after 2026-01-01 before 2026-03-01",
+      "authorized_domains": ["hospital", "claim"],
+      "agent": "hospital_verification",
+      "core_terms": ["fhir", "hospital"],
+      "expected_routing_mode": "hybrid_balanced"
+    },
+    {
+      "case_id": "duplicate-history",
+      "query": "Find previous claim duplicate evidence",
+      "authorized_domains": ["historical_claims", "claim"],
+      "agent": "duplicate_claim",
+      "core_terms": ["duplicate", "claim"],
+      "expected_routing_mode": "hybrid_balanced"
+    },
+    {
+      "case_id": "authorization-scope",
+      "query": "Compare policy and coding evidence",
+      "authorized_domains": ["policy"],
+      "agent": "decision_support",
+      "core_terms": ["policy"],
+      "expected_routing_mode": "hybrid_hyde"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "policy_version": "2026-08-release51",
+  "human_supervisory_certification_required": true,
+  "maker_checker_required": true,
+  "material_exceptions_block_certification": true,
+  "acknowledgment_signature_required": true,
+  "rejection_root_cause_required": true,
+  "rejected_submission_requires_effective_acknowledged_amendment": true,
+  "aging_buckets_days": [2, 7, 30],
+  "evidence_sample_max_items": 8,
+  "automation_authority": "monitoring_and_recommendation_only",
+  "automation_can_authorize_submission": false,
+  "automation_can_certify_reconciliation": false,
+  "automation_can_change_financial_or_accounting_records": false,
+  "automation_can_authorize_payment": false,
+  "automation_can_collect_or_move_funds": false
+}

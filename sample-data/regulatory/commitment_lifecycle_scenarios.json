@@ -1,0 +1,6 @@
+[
+  {"scenario":"confirmed_verbal_commitment","commitment_id":"COM-68-001","examination_id":"EX-2026-01","owner":"reg-affairs-1","milestones":["evidence inventory","control retest","response package"],"expected":"human certification required"},
+  {"scenario":"written_verbal_mismatch","commitment_id":"COM-68-002","expected":"reconciliation flag and human review"},
+  {"scenario":"overdue_shared_dependency","commitment_id":"COM-68-003","expected":"SSE escalation without automated obligation change"},
+  {"scenario":"cross_examination_correlation","commitment_ids":["COM-68-004","COM-68-005"],"expected":"recommendation-only correlation cluster"}
+]

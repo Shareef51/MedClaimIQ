@@ -1,0 +1,40 @@
+mode: recommendation-analysis-monitoring-only
+provenance:
+  release107_human_release_candidate_decision_required: true
+  release108_human_release_security_certification_required: true
+operational_go_live_gates:
+  load_stress_soak: required
+  tenant_noisy_neighbor: required
+  ai_rag_agent_slo_cost: required
+  dependency_resilience: required
+  provider_outage_fallback: required
+  kubernetes_disruption: required
+  backup_restore: required
+  dr_rpo_rto: required
+  failover_failback: required
+  autoscaling_capacity: required
+  observability_alert_runbooks: required
+  incident_response_exercise: required
+  minimum_soak_minutes: 60
+  minimum_capacity_forecast_days: 30
+non_bypassable:
+  - tenant_isolation_failure
+  - data_loss
+  - data_corruption
+  - backup_restore_failure
+  - rpo_breach
+  - rto_breach
+  - unsafe_model_fallback
+  - sev1_operational_risk
+human_authority:
+  operational_risk_acceptance_required: true
+  operational_readiness_certification_required: true
+  automated_operational_certification: false
+  automated_production_promotion: false
+safety:
+  synthetic_or_deidentified_drill_data_only: true
+  production_chaos_requires_separate_human_approval: true
+  accounting_mutation_allowed: false
+  payment_authority_allowed: false
+  funds_collection_allowed: false
+  funds_movement_allowed: false

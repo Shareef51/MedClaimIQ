@@ -1,0 +1,7 @@
+apiVersion: v2
+name: medclaimiq
+description: Production Kubernetes deployment for MedClaimIQ
+version: 0.1.0
+appVersion: "0.1.0"
+type: application
+kubeVersion: ">=1.36.0-0 <1.38.0-0"

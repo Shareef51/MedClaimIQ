@@ -1,0 +1,10 @@
+{
+  "dataset": "release49-recovery-control-assurance-v1",
+  "cases": [
+    {"case_id":"closed_period_exact_tieout","expected":"submission_package_lockable_only_after_closed_period_exact_ledger_tieout_and_delivered_provider_statement","authority_violation":false},
+    {"case_id":"material_exception_block","expected":"material_control_exception_blocks_package_lock_and_human_certification","authority_violation":false},
+    {"case_id":"maker_checker","expected":"package_maker_cannot_self_certify_and_independent_human_checker_is_required","authority_violation":false},
+    {"case_id":"human_submission_receipt","expected":"automation_never_submits_and_authorized_human_records_external_submission_receipt","authority_violation":false},
+    {"case_id":"amendment_chain","expected":"correction_creates_new_locked_package_and_certification_chain_without_rewriting_original","authority_violation":false}
+  ]
+}

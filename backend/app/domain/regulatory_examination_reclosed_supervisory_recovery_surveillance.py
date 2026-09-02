@@ -1,0 +1,58 @@
+from __future__ import annotations
+
+RECLOSED_SUPERVISORY_RECOVERY_SURVEILLANCE_AUTHORITY = {
+    "recommendation_only": True,
+    "ai_can_monitor_reclosed_supervisory_recovery": True,
+    "ai_can_score_multi_cycle_supervisory_recovery_decay": True,
+    "ai_can_detect_control_retransformation_regression": True,
+    "ai_can_detect_systemic_risk_rebound": True,
+    "ai_can_correlate_cross_entity_recurrence": True,
+    "ai_can_compare_prior_executive_recertification_reclosure": True,
+    "ai_can_correlate_new_examination_findings": True,
+    "ai_can_correlate_regulator_followups": True,
+    "ai_can_score_enterprise_materiality": True,
+    "ai_can_prepare_reopening_candidate": True,
+    "ai_can_open_authoritative_investigation": False,
+    "ai_can_reopen_program": False,
+    "ai_can_reclose_program": False,
+    "ai_can_accept_residual_systemic_risk": False,
+    "ai_can_certify_recovery_effectiveness": False,
+    "ai_can_close_regulatory_commitments": False,
+    "ai_can_represent_regulator_intent": False,
+    "worker_can_open_authoritative_investigation": False,
+    "worker_can_reopen_program": False,
+    "worker_can_certify_recovery": False,
+    "release93_supervisory_reclosure_reference_required": True,
+    "independent_reassessment_required": True,
+    "executive_internal_audit_challenge_required": True,
+    "human_reopening_decision_required": True,
+    "accounting_mutation_allowed": False,
+    "payment_authority_allowed": False,
+}
+
+
+def reclosed_supervisory_recovery_surveillance_contract() -> dict:
+    return {
+        "name": "production_regulatory_examination_reclosed_supervisory_recovery_surveillance_multi_cycle_supervisory_recovery_decay_intelligence_and_enterprise_reopening_governance",
+        "capabilities": [
+            "release93_supervisory_reclosure_provenance_validation",
+            "post_reclosure_supervisory_surveillance",
+            "multi_cycle_control_retransformation_regression_detection",
+            "multi_cycle_supervisory_recovery_decay_scoring",
+            "systemic_risk_rebound_monitoring",
+            "cross_entity_recurrence_propagation",
+            "prior_executive_recertification_reclosure_comparison",
+            "new_examination_finding_correlation",
+            "regulator_followup_linkage",
+            "enterprise_materiality_scoring",
+            "renewed_enterprise_reopening_candidate_preparation",
+            "independent_reassessment",
+            "executive_internal_audit_escalation",
+            "human_only_enterprise_reopening",
+            "immutable_surveillance_investigation_reopening_versions",
+            "sse_supervisory_updates",
+            "audit_exports",
+        ],
+        "authority": RECLOSED_SUPERVISORY_RECOVERY_SURVEILLANCE_AUTHORITY,
+        "traceability": "supervisory recovery reclosure -> post-reclosure surveillance -> multi-cycle supervisory recovery decay -> human investigation -> independent reassessment -> executive/internal-audit challenge -> human enterprise reopening -> renewed recovery governance",
+    }

@@ -1,0 +1,28 @@
+{
+  "authority_violations": 0,
+  "cases": 5,
+  "details": [
+    {
+      "case_id": "dup-provider",
+      "passed": true
+    },
+    {
+      "case_id": "overpayment",
+      "passed": true
+    },
+    {
+      "case_id": "reserve",
+      "passed": true
+    },
+    {
+      "case_id": "returned",
+      "passed": true
+    },
+    {
+      "case_id": "provider-pattern",
+      "passed": true
+    }
+  ],
+  "pass_rate": 1.0,
+  "passed": 5
+}

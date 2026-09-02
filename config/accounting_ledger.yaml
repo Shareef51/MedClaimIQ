@@ -1,0 +1,32 @@
+version: release41-v1
+ledger:
+  currency_precision: 2
+  require_balanced_double_entry: true
+  immutable_posted_journals: true
+  chain_journal_hashes: true
+  accounts:
+    claims_payable: liability
+    cash_clearing: asset
+    claims_adjustment_expense: expense
+    claims_adjustment_recovery: contra_expense
+    provider_recoupment_receivable: asset
+reconciliation:
+  require_era_and_eft_for_reconciled: true
+  require_currency_match: true
+  require_reference_match: true
+  support_partial_and_multi_payment: true
+  aging_buckets: ["0-2d", "3-7d", "8-30d", "31+d"]
+  exception_priority: 90
+accounting_close:
+  require_accounting_controller: true
+  block_on_open_partial_or_exception_reconciliation: true
+  block_on_pending_adjustment: true
+  immutable_after_close: true
+authority:
+  llm_can_post_journal: false
+  langgraph_can_post_journal: false
+  rag_can_post_journal: false
+  mcp_can_post_journal: false
+  background_worker_can_post_journal: false
+  background_worker_can_close_period: false
+  automatic_fund_movement: false

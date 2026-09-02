@@ -1,0 +1,32 @@
+financial_handoff:
+  packet_authorization_sla_hours: 8
+  outbound_handoff_sla_hours: 8
+  settlement_reconciliation_sla_hours: 72
+  exception_review_sla_hours: 24
+  require_distinct_preparer_and_approver: true
+  block_on_active_payment_hold: true
+  duplicate_payment_fingerprint_fields:
+    - tenant_id
+    - claim_id
+    - controlling_decision_history_sha256
+    - amount
+    - currency
+    - payee_ref
+  remittance:
+    eob_format_version: release40-v1
+    x12_835_style_version: release40-v1
+    trading_partner_certification_required_before_production_exchange: true
+  adapters:
+    default: sandbox-financial-ledger
+    contract: stage_authorized_instruction_only
+  settlement_webhook:
+    signature: hmac-sha256
+    secret_env: FINANCIAL_SETTLEMENT_WEBHOOK_SECRET
+  authority:
+    llm_can_authorize_funds: false
+    langgraph_can_authorize_funds: false
+    rag_can_authorize_funds: false
+    mcp_can_authorize_funds: false
+    background_worker_can_authorize_funds: false
+    adapter_can_authorize_funds: false
+    automatic_fund_movement: false

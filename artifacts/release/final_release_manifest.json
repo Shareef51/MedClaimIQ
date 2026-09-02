@@ -1,0 +1,17 @@
+{
+  "release": 110,
+  "migration": "0105_final_production_go_live",
+  "project": "MedClaimIQ",
+  "final_release": true,
+  "required_upstream": [
+    107,
+    108,
+    109
+  ],
+  "authority": {
+    "automated_go_live": false,
+    "automated_promotion": false,
+    "automated_certification": false,
+    "automated_hypercare_closure": false
+  }
+}

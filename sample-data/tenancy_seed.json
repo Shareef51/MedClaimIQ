@@ -1,0 +1,90 @@
+{
+  "tenants": [
+    {
+      "tenant_id": "tenant-payer-demo",
+      "slug": "payer-demo",
+      "display_name": "MedClaimIQ Demo Payer",
+      "tenant_type": "payer",
+      "data_region": "local"
+    },
+    {
+      "tenant_id": "tenant-hospital-demo",
+      "slug": "hospital-demo",
+      "display_name": "MedClaimIQ Demo Hospital",
+      "tenant_type": "hospital",
+      "data_region": "local"
+    }
+  ],
+  "organizations": [
+    {
+      "tenant_id": "tenant-payer-demo",
+      "organization_id": "org-payer-claims",
+      "slug": "claims-operations",
+      "display_name": "Claims Operations",
+      "organization_type": "payer"
+    },
+    {
+      "tenant_id": "tenant-hospital-demo",
+      "organization_id": "org-hospital-main",
+      "slug": "main-hospital",
+      "display_name": "Demo General Hospital",
+      "organization_type": "hospital"
+    },
+    {
+      "tenant_id": "tenant-payer-demo",
+      "organization_id": "org-payer-provider-network",
+      "slug": "provider-network",
+      "display_name": "Synthetic Provider Network",
+      "organization_type": "provider"
+    }
+  ],
+  "users": [
+    {
+      "user_id": "user-payer-admin",
+      "external_subject": "demo|payer-admin",
+      "display_name": "Demo Payer Administrator",
+      "email": "payer-admin@example.invalid",
+      "status": "active",
+      "external_issuer": "https://identity.local.medclaimiq"
+    },
+    {
+      "user_id": "user-reviewer",
+      "external_subject": "demo|claims-reviewer",
+      "display_name": "Demo Claims Reviewer",
+      "email": "reviewer@example.invalid",
+      "status": "active",
+      "external_issuer": "https://identity.local.medclaimiq"
+    },
+    {
+      "user_id": "user-hospital-admin",
+      "external_subject": "demo|hospital-admin",
+      "display_name": "Demo Hospital Administrator",
+      "email": "hospital-admin@example.invalid",
+      "status": "active",
+      "external_issuer": "https://identity.local.medclaimiq"
+    }
+  ],
+  "memberships": [
+    {
+      "tenant_id": "tenant-payer-demo",
+      "membership_id": "membership-payer-admin",
+      "user_id": "user-payer-admin",
+      "role": "tenant_admin"
+    },
+    {
+      "tenant_id": "tenant-payer-demo",
+      "membership_id": "membership-reviewer",
+      "user_id": "user-reviewer",
+      "role": "claims_reviewer",
+      "organization_id": "org-payer-claims"
+    },
+    {
+      "tenant_id": "tenant-hospital-demo",
+      "membership_id": "membership-hospital-admin",
+      "user_id": "user-hospital-admin",
+      "role": "hospital_admin",
+      "organization_id": "org-hospital-main",
+      "provider_organization_id": "org-hospital-main"
+    }
+  ]
+}

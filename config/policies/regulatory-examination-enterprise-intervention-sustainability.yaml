@@ -1,0 +1,16 @@
+name: regulatory-examination-enterprise-intervention-sustainability
+mode: recommendation-monitoring-only
+human_authority:
+  residual_systemic_risk_acceptance: required
+  executive_program_closure: required
+  regulatory_commitment_closure: required
+independent_assurance:
+  sustainability_assurance: required
+  cross_entity_coverage: required
+guardrails:
+  ai_can_accept_residual_risk: false
+  ai_can_close_program: false
+  worker_can_close_program: false
+  automated_reopen_allowed: false
+  accounting_mutation_allowed: false
+  payment_authority_allowed: false

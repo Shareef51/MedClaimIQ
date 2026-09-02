@@ -1,0 +1,1 @@
+{"version":"2026-08-21","evidence_sla_hours":72,"closeout_sla_hours":168,"require_exact_currency_match":true,"require_full_ledger_correlation_for_positive_closeout":true,"independent_closeout_approver":true,"automation":{"collect_funds":false,"create_bank_transaction":false,"approve_accounting":false,"authorize_payment":false,"close_financial_recovery":false}}

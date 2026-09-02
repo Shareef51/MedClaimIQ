@@ -1,0 +1,14 @@
+services:
+  postgres:
+    ports: !override
+      - "5442:5432"
+  redis:
+    ports: !override
+      - "6389:6379"
+  minio:
+    ports: !override
+      - "9010:9000"
+      - "9011:9001"
+  redpanda-console:
+    ports: !override
+      - "8090:8080"

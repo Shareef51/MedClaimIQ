@@ -1,0 +1,14 @@
+{
+  "material_dispute_amount": 100.0,
+  "default_recovery_verification_sla_hours": 24,
+  "material_dispute_sla_hours": 12,
+  "provider_dispute_sla_hours": 24,
+  "require_immutable_evidence_pack": true,
+  "require_independent_human_dispute_resolver": true,
+  "allow_worker_case_bootstrap_only": true,
+  "allow_worker_financial_mutation": false,
+  "allow_ai_dispute_adjudication": false,
+  "allow_ai_accounting_change": false,
+  "allow_ai_payment_authorization": false,
+  "allow_automatic_collection_or_fund_movement": false
+}

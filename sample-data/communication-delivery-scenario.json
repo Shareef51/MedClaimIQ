@@ -1,0 +1,12 @@
+{
+  "scenario": "synthetic-post-decision-delivery-and-appeal",
+  "claim_id": "synthetic-claim-communication-001",
+  "notice": {"status": "human_released", "evidence_snapshot_sha256": "synthetic-locked-evidence-hash"},
+  "endpoints": [
+    {"channel": "portal", "locale": "en", "consent": "required_only"},
+    {"channel": "email", "locale": "en", "consent": "opted_in"},
+    {"channel": "sms", "locale": "es", "consent": "opted_in"}
+  ],
+  "events": ["portal_delivered", "email_provider_accepted", "email_delivered_receipt", "sms_bounced", "human_transport_recovery", "appeal_submitted"],
+  "expected_governance": {"provider_adjudication_authority": false, "worker_adjudication_authority": false, "ai_adjudication_authority": false}
+}

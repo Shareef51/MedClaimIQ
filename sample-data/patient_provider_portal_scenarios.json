@@ -1,0 +1,5 @@
+[
+  {"scenario":"patient_missing_document","role":"patient","claim_status":"pending_evidence","request":["itemized_bill"],"expected":"signed upload -> quarantine -> acknowledgement"},
+  {"scenario":"provider_relationship_scope","role":"provider","expected":"only claims linked to provider organization are visible"},
+  {"scenario":"internal_reasoning_hidden","role":"patient","expected":"no fraud, denial-risk, critic, reviewer-note, or agent internals in portal response"}
+]

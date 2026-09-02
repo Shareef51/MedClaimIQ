@@ -1,0 +1,21 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+*.egg-info/
+*.log
+.DS_Store
+.idea/
+.vscode/
+coverage.xml
+htmlcov/
+
+# Next.js frontend
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
+frontend/.env.production
+frontend/npm-debug.log*
+frontend/*.tsbuildinfo

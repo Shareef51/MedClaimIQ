@@ -1,0 +1,22 @@
+[
+  {
+    "tenant_id": "tenant-demo",
+    "claim_id": "claim-synthetic-approved",
+    "payment_intent_id": "pay-synthetic-001",
+    "provider_event_id": "settlement-synthetic-accepted",
+    "status": "accepted",
+    "settled_amount": null,
+    "currency": "USD",
+    "external_reference": "sandbox-ledger-001"
+  },
+  {
+    "tenant_id": "tenant-demo",
+    "claim_id": "claim-synthetic-approved",
+    "payment_intent_id": "pay-synthetic-001",
+    "provider_event_id": "settlement-synthetic-settled",
+    "status": "settled",
+    "settled_amount": "700.00",
+    "currency": "USD",
+    "external_reference": "sandbox-ledger-001"
+  }
+]

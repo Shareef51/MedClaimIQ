@@ -1,0 +1,4 @@
+[
+  {"scenario":"critical_path_control_replacement","intervention_program_id":"prog-84-a","milestones":[{"id":"m1","critical_path":true,"status":"blocked","evidence_refs":[]}],"expected":"human escalation"},
+  {"scenario":"cross_entity_recovery_revalidation","intervention_program_id":"prog-84-b","tests":[{"result":"pass","independent_reviewer_id":"audit-1","entity_ids":["US","EU"]}],"expected":"independent evidence only; no automated certification"}
+]

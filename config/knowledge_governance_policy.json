@@ -1,0 +1,29 @@
+{
+  "policy_version": "1.0.0",
+  "source": {
+    "minimum_authority_rank": 40,
+    "owner_required": true
+  },
+  "quality": {
+    "minimum_citation_coverage": 0.90,
+    "required_metadata": ["title", "source_type"],
+    "all_checks_must_pass_for_release": true
+  },
+  "retrieval_drift": {
+    "max_recall_regression": 0.03,
+    "max_precision_regression": 0.05,
+    "max_ndcg_regression": 0.05,
+    "max_no_evidence_rate_increase": 0.03,
+    "blocking_before_release": true
+  },
+  "approval": {
+    "prevent_self_approval": true,
+    "release_requires_independent_approver": true
+  },
+  "projection": {
+    "database_is_authoritative": true,
+    "vector_store_is_rebuildable": true,
+    "continuous_stale_scan_minutes": 15,
+    "max_reindex_attempts": 3
+  }
+}

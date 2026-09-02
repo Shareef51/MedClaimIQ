@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://medclaimiq.local/schemas/release-security-certification.schema.json",
+  "title": "MedClaimIQ Release Security Certification",
+  "type": "object",
+  "required": [
+    "release_id",
+    "candidate_version",
+    "release107_release_candidate_decision_version_id",
+    "security_red_team_run_version_id",
+    "decision",
+    "evidence_refs"
+  ],
+  "properties": {
+    "release_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "release107_release_candidate_decision_version_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "security_red_team_run_version_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision": {
+      "enum": [
+        "certify",
+        "reject",
+        "defer"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "automated_production_promotion": {
+      "const": false
+    }
+  }
+}

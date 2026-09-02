@@ -1,0 +1,19 @@
+{
+  "policy_version": "1.0.0",
+  "recommendation_only_ai": true,
+  "human_program_approval_required": true,
+  "independent_revalidation_required": true,
+  "human_residual_systemic_risk_reassessment_required": true,
+  "executive_recertification_required": true,
+  "automatic_reclosure_allowed": false,
+  "second_systemic_recurrence": {
+    "executive_escalation_required": true,
+    "internal_audit_escalation_required": true,
+    "minimum_sustainability_reset_days": 365
+  },
+  "forbidden_ai_actions": [
+    "approve_remediation_program", "accept_residual_systemic_risk", "certify_effectiveness",
+    "reclose_intervention_program", "represent_regulator_intent", "alter_accounting_records",
+    "authorize_payments", "collect_funds", "move_money"
+  ]
+}

@@ -1,0 +1,5 @@
+[
+  {"scenario":"systemic-risk-rebound","closure_residual_risk_score":20,"current_systemic_risk_score":35,"closure_control_effectiveness":95,"current_control_effectiveness":82,"expected_entity_ids":["US","EU"],"regressed_entity_ids":["EU"]},
+  {"scenario":"new-examination-match","root_cause_similarity":0.92,"control_overlap":0.85,"entity_overlap":0.70,"regulatory_obligation_overlap":0.88},
+  {"scenario":"stable-recovery","closure_residual_risk_score":25,"current_systemic_risk_score":23,"closure_control_effectiveness":94,"current_control_effectiveness":93,"expected_entity_ids":["US","EU"],"regressed_entity_ids":[]}
+]

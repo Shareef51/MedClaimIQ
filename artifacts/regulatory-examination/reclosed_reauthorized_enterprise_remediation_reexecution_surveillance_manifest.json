@@ -1,0 +1,22 @@
+{
+  "release": 106,
+  "capability": "reclosed_reauthorized_enterprise_remediation_reexecution_surveillance_systemic_recovery_decay_intelligence_enterprise_reopening_governance",
+  "migration": "0101_reg_exam_reclosed_reauth_ent_remed_reexec_surveillance",
+  "predecessor": "0100_reg_exam_reauth_enterprise_remed_reexec_outcome_validation",
+  "authority": "human_only_for_authoritative_investigation_independent_reassessment_enterprise_challenge_and_reopening",
+  "traceability": "release105_human_sustainability_reclosure -> reexecution_surveillance -> root_cause_treatment_decay_and_systemic_control_regression -> systemic_recovery_decay -> human_investigation -> independent_reassessment -> executive_internal_audit_challenge -> human_enterprise_reopening",
+  "artifacts": [
+    "backend/app/domain/regulatory_examination_reclosed_reauthorized_enterprise_remediation_reexecution_surveillance.py",
+    "backend/app/evaluation/regulatory_examination_reclosed_reauthorized_enterprise_remediation_reexecution_surveillance.py",
+    "backend/app/schemas/regulatory_examination_reclosed_reauthorized_enterprise_remediation_reexecution_surveillance.py",
+    "backend/app/services/regulatory_examination_reclosed_reauthorized_enterprise_remediation_reexecution_surveillance.py",
+    "backend/app/api/v1/regulatory_examination_reclosed_reauthorized_enterprise_remediation_reexecution_surveillance.py",
+    "backend/app/workers/regulatory_examination_reclosed_reauthorized_enterprise_remediation_reexecution_surveillance.py",
+    "backend/tests/test_regulatory_examination_reclosed_reauthorized_enterprise_remediation_reexecution_surveillance.py",
+    "backend/alembic/versions/0101_reg_exam_reclosed_reauth_ent_remed_reexec_surveillance.py",
+    "config/policies/regulatory-examination-reclosed-reauthorized-enterprise-remediation-reexecution-surveillance.yaml",
+    "sample-data/regulatory/reclosed_reauthorized_enterprise_remediation_reexecution_surveillance_scenarios.json",
+    "docs/regulatory-examination-reclosed-reauthorized-enterprise-remediation-reexecution-surveillance.md",
+    "scripts/verify_regulatory_examination_reclosed_reauthorized_enterprise_remediation_reexecution_surveillance.py"
+  ]
+}

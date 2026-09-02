@@ -1,0 +1,31 @@
+policy_version: "1.0"
+mode: recommendation_monitoring_and_human_governed_execution
+authority:
+  ai_can_approve_remediation_program: false
+  ai_can_certify_effectiveness: false
+  ai_can_accept_residual_systemic_risk: false
+  ai_can_close_regulatory_commitment: false
+  worker_can_approve_remediation_program: false
+  worker_can_certify_effectiveness: false
+  human_program_approval_required: true
+  independent_effectiveness_assurance_required: true
+  human_executive_certification_required: true
+execution_gates:
+  readiness_for_independent_assurance: 90
+  require_all_cross_entity_validation: true
+  require_evidence_hashes: true
+  block_on_overdue_dependencies: true
+assurance:
+  maximum_certifiable_residual_systemic_risk: 25
+  require_independent_reviewer: true
+  require_cross_entity_test_coverage: 1.0
+immutability:
+  program_versions: true
+  checkpoint_versions: true
+  assurance_versions: true
+  certification_versions: true
+prohibited_actions:
+  - accounting_record_mutation
+  - payment_authorization
+  - collection_of_funds
+  - movement_of_money

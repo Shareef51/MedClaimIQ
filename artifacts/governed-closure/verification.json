@@ -1,0 +1,29 @@
+{
+  "capability": "production_multimodal_human_decision_support_and_governed_claim_closure",
+  "verification": {
+    "backend_test_suite": {"passed": 428, "failed": 0},
+    "governed_closure_verifier": "PASS",
+    "frontend_typescript_syntax_check": "PASS",
+    "frontend_contract_tests": "PASS"
+  },
+  "controls": {
+    "human_final_decision_only": true,
+    "llm_adjudication": false,
+    "langgraph_adjudication": false,
+    "rag_adjudication": false,
+    "mcp_adjudication": false,
+    "automated_financial_execution": false,
+    "exclusive_reviewer_lease": true,
+    "optimistic_claim_version": true,
+    "optimistic_packet_version": true,
+    "evidence_snapshot_sha256": true,
+    "decision_payload_lock_sha256": true,
+    "unresolved_material_conflict_blocking": true,
+    "dual_control": true,
+    "immutable_hash_chained_adjudication_audit": true,
+    "checkpoint_resolution": true,
+    "notification_intents": true,
+    "sse_status_propagation": true,
+    "evidence_to_human_decision_traceability": true
+  }
+}

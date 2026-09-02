@@ -1,0 +1,18 @@
+{
+  "policy_version": "multimodal-rag-v1",
+  "max_candidates": 60,
+  "max_selected_items": 30,
+  "minimum_confidence": 0.5,
+  "minimum_citation_coverage": 0.8,
+  "material_inconsistency_fields": ["amount", "code"],
+  "citation_requirements": {
+    "document": ["evidence_id"],
+    "table": ["evidence_id"],
+    "image": ["evidence_id", "image_or_bbox_locator"],
+    "audio": ["start_ms", "end_ms"],
+    "video_keyframe": ["start_ms", "frame_index", "frame_sha256"],
+    "fhir": ["snapshot_id", "resource_type", "logical_id", "version_id"]
+  },
+  "raw_media_in_telemetry": false,
+  "human_review_on_material_inconsistency": true
+}

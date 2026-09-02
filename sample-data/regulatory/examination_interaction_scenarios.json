@@ -1,0 +1,6 @@
+[
+  {"scenario":"verbal_commitment_candidate","statement":"We will provide transaction testing evidence by 2026-09-15","expected":"candidate_only_until_human_confirmation"},
+  {"scenario":"regulator_position_separation","statement":"Examiner requested additional sampling evidence","classification":"documented_regulator_position"},
+  {"scenario":"enterprise_interpretation","statement":"The team interprets the request as limited to Entity A","classification":"enterprise_interpretation"},
+  {"scenario":"prior_submission_conflict","statement":"Remediation is complete","prior_submission":"Remediation is not complete","expected":"contradiction_flag"}
+]

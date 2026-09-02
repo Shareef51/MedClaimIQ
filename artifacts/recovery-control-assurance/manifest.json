@@ -1,0 +1,7 @@
+{
+  "artifact": "recovery portfolio control assurance",
+  "controls": ["closed accounting period", "certified financial closeout", "ledger tie-out", "posted/balanced journals", "material exception blocking", "provider balance statement completeness", "provider statement delivery completeness", "Release 48 closeout report completeness", "legal-hold retention manifest"],
+  "certification": "maker-checker human only",
+  "submission": "human staged; external receipt recorded; no autonomous regulatory submitter",
+  "authority": {"ai_certification": false, "worker_submission": false, "financial_mutation": false, "fund_movement": false}
+}

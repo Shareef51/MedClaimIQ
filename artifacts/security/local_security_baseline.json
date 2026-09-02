@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "backend_nonroot": true,
+    "frontend_nonroot": true,
+    "network_policy": true,
+    "security_headers_middleware": true,
+    "oidc_rs256_default": true,
+    "gitleaks_config": true,
+    "semgrep_config": true,
+    "security_workflow": true
+  },
+  "credential_pattern_findings": [],
+  "passed": true,
+  "sha256": "52436128a861ffe16f35a94b264c484e4824b1f4cedfd08ad395aee66a281e89"
+}

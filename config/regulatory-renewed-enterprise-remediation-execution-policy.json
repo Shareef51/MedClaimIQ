@@ -1,0 +1,12 @@
+{
+  "policy_version":"1.0.0",
+  "recommendation_only":true,
+  "independent_recovery_testing_required":true,
+  "cross_entity_validation_required":true,
+  "human_residual_risk_acceptance_required":true,
+  "human_control_transformation_approval_required":true,
+  "ai_can_accept_residual_systemic_risk":false,
+  "ai_can_certify_effectiveness":false,
+  "automated_regulatory_commitment_closure":false,
+  "implementation_drift_threshold":0.0
+}

@@ -1,0 +1,16 @@
+release45:
+  enabled: true
+  retrieval_namespace_prefix: provider-dispute
+  embedding_model: text-embedding-3-large
+  embedding_dimensions: 1536
+  require_quarantine_acceptance: true
+  require_effective_contract_or_policy: true
+  recommendation_only: true
+  independent_human_resolution_required: true
+  background_worker:
+    may_process_pre_registered_evidence: true
+    may_register_new_evidence: false
+    may_resolve_dispute: false
+    may_change_accounting: false
+    may_authorize_payment: false
+    may_collect_or_move_funds: false

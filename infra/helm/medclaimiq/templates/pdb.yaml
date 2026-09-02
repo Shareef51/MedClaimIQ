@@ -1,0 +1,26 @@
+{{- if .Values.pdb.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata: {name: medclaimiq-api}
+spec:
+  minAvailable: {{ .Values.pdb.apiMinAvailable }}
+  selector: {matchLabels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: api}}
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata: {name: medclaimiq-frontend}
+spec:
+  minAvailable: {{ .Values.pdb.frontendMinAvailable }}
+  selector: {matchLabels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: frontend}}
+{{- range $name, $worker := .Values.workers }}
+{{- if $worker.enabled }}
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata: {name: medclaimiq-{{ $name }}}
+spec:
+  minAvailable: {{ $.Values.pdb.workerMinAvailable }}
+  selector: {matchLabels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: {{ $name | quote }}}}
+{{- end }}
+{{- end }}
+{{- end }}

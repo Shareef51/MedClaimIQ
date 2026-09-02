@@ -1,0 +1,33 @@
+mode: recommendation-analysis-monitoring-only
+scope:
+  cross_domain_release_candidate: true
+  required_domains:
+    - multimodal_evidence_ingestion
+    - document_intelligence
+    - healthcare_normalization_fhir
+    - multi_rag_retrieval
+    - langgraph_specialist_orchestration
+    - mcp_tool_boundary
+    - human_review
+    - governed_claim_closure
+    - regulatory_governance
+release_gates:
+  all_required: true
+  tenant_isolation_blocking: true
+  migration_chain_blocking: true
+  security_readiness_blocking: true
+  ai_evaluation_quality_blocking: true
+  durable_workflow_recovery_blocking: true
+  event_sse_integrity_blocking: true
+human_authority:
+  release_candidate_declaration_required: true
+  production_promotion_approval_preserved: true
+  automated_release_candidate_declaration: false
+  automated_production_promotion: false
+safety:
+  final_claim_decision_human_only: true
+  regulatory_authority_human_only: true
+  accounting_mutation_allowed: false
+  payment_authority_allowed: false
+  funds_collection_allowed: false
+  funds_movement_allowed: false

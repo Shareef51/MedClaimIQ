@@ -1,0 +1,21 @@
+{
+  "note": "Synthetic identity mappings only; no real patient identities or production credentials.",
+  "issuer": "https://identity.local.medclaimiq",
+  "mappings": [
+    {
+      "subject": "demo|payer-admin",
+      "user_id": "user-payer-admin",
+      "tenant_id": "tenant-payer-demo"
+    },
+    {
+      "subject": "demo|claims-reviewer",
+      "user_id": "user-claims-reviewer",
+      "tenant_id": "tenant-payer-demo"
+    },
+    {
+      "subject": "demo|hospital-admin",
+      "user_id": "user-hospital-admin",
+      "tenant_id": "tenant-hospital-demo"
+    }
+  ]
+}

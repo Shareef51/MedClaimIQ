@@ -1,0 +1,22 @@
+{
+  "scenario_id": "synthetic-claim-investigation-001",
+  "synthetic_only": true,
+  "claim_id": "claim-demo-001",
+  "evidence_pack": {
+    "sources": ["structured_claim_db", "FHIR/ExplanationOfBenefit", "policy_rag", "invoice_rag"],
+    "material_contradiction": "submitted amount differs from hospital EOB amount"
+  },
+  "expected_path": [
+    "hydrate_evidence",
+    "supervisor",
+    "intake",
+    "parallel_specialists",
+    "evidence_fusion",
+    "critic",
+    "decision_support",
+    "human_review_router",
+    "human_gate"
+  ],
+  "expected_outcome": "waiting_human",
+  "final_claim_decision": "not_performed_by_ai"
+}

@@ -1,0 +1,27 @@
+version: 1
+mode: recommendation_and_monitoring_only
+human_governance:
+  control_improvement_approval_required: true
+  policy_change_approval_required: true
+  procedure_change_approval_required: true
+  knowledge_promotion_approval_required: true
+  segregation_of_duties: true
+prohibited_actions:
+  - ai_approve_control_change
+  - ai_modify_policy_or_procedure
+  - ai_certify_control_effectiveness
+  - ai_close_regulatory_finding
+  - ai_accept_residual_risk
+  - worker_modify_accounting_records
+  - worker_authorize_payment
+  - worker_collect_or_move_money
+retrieval:
+  evidence_grounding_required: true
+  authoritative_source_preference: true
+  tenant_filter_required: true
+  preserve_regulator_context: true
+  distinguish_documented_position_from_enterprise_interpretation: true
+lessons:
+  immutable_versions: true
+  recurrence_window_years: 5
+  cross_entity_propagation_requires_human_review: true

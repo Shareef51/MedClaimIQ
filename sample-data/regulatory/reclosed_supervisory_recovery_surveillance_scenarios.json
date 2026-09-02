@@ -1,0 +1,44 @@
+{
+  "release": "94",
+  "scenarios": [
+    {
+      "id": "multi-cycle-supervisory-decay",
+      "recovery_program_id": "rp-supervisory-01",
+      "release93_supervisory_sustainability_reclosure_version_id": "sr93-01",
+      "release93_reclosure_control_health_score": 95,
+      "current_control_health_score": 67,
+      "control_retransformation_regressions": 2,
+      "prior_supervisory_recovery_failure_cycles": 3,
+      "sustainability_breach_count": 1,
+      "expected": "human investigation and enterprise escalation candidate"
+    },
+    {
+      "id": "cross-entity-regression",
+      "recovery_program_id": "rp-supervisory-02",
+      "entities": [
+        {
+          "entity_id": "US",
+          "status": "failed",
+          "severity": "critical",
+          "evidence_refs": [
+            "ev-us"
+          ]
+        },
+        {
+          "entity_id": "EU",
+          "post_reclosure_failure_count": 2,
+          "evidence_refs": [
+            "ev-eu"
+          ]
+        }
+      ],
+      "expected": "cross-entity recurrence propagation requiring human review"
+    },
+    {
+      "id": "human-only-reopening",
+      "recovery_program_id": "rp-supervisory-03",
+      "release93_supervisory_sustainability_reclosure_version_id": "sr93-03",
+      "expected": "AI and workers blocked from authoritative investigation/reopening; executive human decision required"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "agents.default": {
+    "configuration_type": "bundle",
+    "version": "1.0.0",
+    "payload": {
+      "model": "gpt-5.6-terra",
+      "fallback_model": "gpt-5.6-luna",
+      "prompt_version": "1.0.0",
+      "role_overrides": {}
+    }
+  },
+  "rag.hybrid-retrieval": {
+    "configuration_type": "retrieval",
+    "version": "1.0.0",
+    "payload": {
+      "index_version": "rag-v2-hybrid",
+      "rrf_k": 60,
+      "candidate_multiplier": 4,
+      "minimum_retrieval_confidence": 0.35,
+      "reranking_enabled": true
+    }
+  }
+}

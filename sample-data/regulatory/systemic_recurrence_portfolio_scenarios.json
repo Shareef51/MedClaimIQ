@@ -1,0 +1,8 @@
+{
+  "scenarios": [
+    {"id":"P73-A","name":"Shared root cause across examinations","expected":"systemic_pattern_candidate","occurrences":[{"commitment_id":"c1","root_cause_id":"r1","control_id":"ctrl-1","entity_id":"US","examination_id":"e1","regulator":"R1"},{"commitment_id":"c2","root_cause_id":"r1","control_id":"ctrl-1","entity_id":"EU","examination_id":"e2","regulator":"R2"},{"commitment_id":"c3","root_cause_id":"r1","control_id":"ctrl-2","entity_id":"APAC","examination_id":"e3","regulator":"R1"}]},
+    {"id":"P73-B","name":"Human intervention approval boundary","expected":"AI cannot approve intervention program"},
+    {"id":"P73-C","name":"Critical enterprise materiality","expected":"executive and internal audit review"},
+    {"id":"P73-D","name":"Cross-regulator follow-up correlation","expected":"overdue follow-up reflected in portfolio risk"}
+  ]
+}

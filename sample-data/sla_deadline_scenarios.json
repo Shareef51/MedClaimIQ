@@ -1,0 +1,35 @@
+{
+  "synthetic_only": true,
+  "scenarios": [
+    {
+      "name": "reviewer deadline warning",
+      "source_event": "claim.human_review.started",
+      "timer_type": "reviewer_action",
+      "expected": ["scheduled", "warning"]
+    },
+    {
+      "name": "hospital verification breach",
+      "source_event": "healthcare.verification.requested",
+      "timer_type": "hospital_verification",
+      "expected": ["breached", "human_review_queue", "mcp_approval_required"]
+    },
+    {
+      "name": "missing documents received",
+      "source_event": "claim.missing_evidence.received",
+      "timer_type": "missing_document",
+      "expected": ["completed"]
+    },
+    {
+      "name": "appeal deadline",
+      "source_event": "claim.appeal_ready",
+      "timer_type": "appeal_submission",
+      "clock_mode": "elapsed",
+      "expected": ["warning", "breached", "critical_escalation"]
+    },
+    {
+      "name": "weekend and holiday roll-forward",
+      "timer_type": "claim_review",
+      "expected": ["tenant_timezone", "business_calendar", "holiday_skip"]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"postgresql":{"rpo_seconds":60,"rto_seconds":300},"object_storage":{"rpo_seconds":300,"rto_seconds":900},"vector_store":{"rpo_seconds":300,"rto_seconds":900},"event_stream":{"rpo_seconds":60,"rto_seconds":300},"require_failover_failback":true,"require_integrity_verification":true}

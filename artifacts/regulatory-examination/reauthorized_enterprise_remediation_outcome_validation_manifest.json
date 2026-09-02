@@ -1,0 +1,21 @@
+{
+  "release": 101,
+  "capability": "reauthorized_enterprise_remediation_outcome_validation_systemic_recovery_recertification_sustainability_reclosure",
+  "migration": "0096_reg_exam_reauthorized_enterprise_remediation_outcome_validation",
+  "predecessor": "0095_reg_exam_reauthorized_enterprise_remediation_execution",
+  "authority": "human_only_for_residual_risk_recovery_recertification_commitment_closure_and_reclosure",
+  "traceability": "release99_reauthorization -> release100_remediation_execution -> independent_recovery_effectiveness_assurance -> release101_outcome_validation -> human_residual_risk -> executive_recertification -> human_reclosure",
+  "artifacts": [
+    "backend/app/domain/regulatory_examination_reauthorized_enterprise_remediation_outcome_validation.py",
+    "backend/app/evaluation/regulatory_examination_reauthorized_enterprise_remediation_outcome_validation.py",
+    "backend/app/schemas/regulatory_examination_reauthorized_enterprise_remediation_outcome_validation.py",
+    "backend/app/services/regulatory_examination_reauthorized_enterprise_remediation_outcome_validation.py",
+    "backend/app/api/v1/regulatory_examination_reauthorized_enterprise_remediation_outcome_validation.py",
+    "backend/app/workers/regulatory_examination_reauthorized_enterprise_remediation_outcome_validation.py",
+    "backend/tests/test_regulatory_examination_reauthorized_enterprise_remediation_outcome_validation.py",
+    "backend/alembic/versions/0096_reg_exam_reauthorized_enterprise_remediation_outcome_validation.py",
+    "config/policies/regulatory-examination-reauthorized-enterprise-remediation-outcome-validation.yaml",
+    "sample-data/regulatory/reauthorized_enterprise_remediation_outcome_validation_scenarios.json",
+    "docs/regulatory-examination-reauthorized-enterprise-remediation-outcome-validation.md"
+  ]
+}

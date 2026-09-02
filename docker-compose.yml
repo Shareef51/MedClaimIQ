@@ -1,0 +1,188 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: medclaimiq
+      POSTGRES_USER: medclaimiq
+      POSTGRES_PASSWORD: medclaimiq
+    ports:
+      - "5432:5432"
+    volumes:
+      - medclaimiq_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medclaimiq -d medclaimiq"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: medclaimiq
+      MINIO_ROOT_PASSWORD: change-me-local-only
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - medclaimiq_minio:/data
+
+  minio-init:
+    image: minio/mc:latest
+    depends_on:
+      - minio
+    volumes:
+      - ./config/minio-cors.xml:/tmp/minio-cors.xml:ro
+    entrypoint: ["/bin/sh", "-c"]
+    command: >-
+      until mc alias set local http://minio:9000 medclaimiq change-me-local-only; do sleep 2; done;
+      mc mb --ignore-existing local/medclaimiq;
+      mc version enable local/medclaimiq;
+      mc anonymous set none local/medclaimiq;
+      mc cors set local/medclaimiq /tmp/minio-cors.xml;
+      echo 'MedClaimIQ quarantine bucket initialized with versioning and browser CORS enabled.'
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - medclaimiq_qdrant:/qdrant/storage
+    restart: unless-stopped
+
+  clamav:
+    image: clamav/clamav:stable
+    ports:
+      - "3310:3310"
+    volumes:
+      - medclaimiq_clamav:/var/lib/clamav
+    restart: unless-stopped
+
+  redpanda:
+    image: docker.redpanda.com/redpandadata/redpanda:v26.2.1
+    command:
+      - redpanda
+      - start
+      - --kafka-addr
+      - internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr
+      - internal://redpanda:9092,external://localhost:19092
+      - --smp
+      - "1"
+      - --memory
+      - 1G
+      - --mode
+      - dev-container
+    ports:
+      - "19092:19092"
+      - "19644:9644"
+    volumes:
+      - medclaimiq_redpanda:/var/lib/redpanda/data
+    healthcheck:
+      test: ["CMD-SHELL", "rpk cluster health --brokers=localhost:9092 | grep -q 'Healthy: true'"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  redpanda-init:
+    image: docker.redpanda.com/redpandadata/redpanda:v26.2.1
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    entrypoint: ["/bin/bash", "-lc"]
+    command: >-
+      for base in medclaimiq.claim.events.v1 medclaimiq.evidence.events.v1 medclaimiq.healthcare.events.v1 medclaimiq.agent.events.v1 medclaimiq.mcp.events.v1 medclaimiq.sla.events.v1; do
+        rpk topic create $$base --brokers redpanda:9092 --partitions 12 --replicas 1 || true;
+        rpk topic create $$base.retry.2 --brokers redpanda:9092 --partitions 12 --replicas 1 || true;
+        rpk topic create $$base.retry.3 --brokers redpanda:9092 --partitions 12 --replicas 1 || true;
+        rpk topic create $$base.dlq --brokers redpanda:9092 --partitions 12 --replicas 1 || true;
+      done
+
+  redpanda-console:
+    image: docker.redpanda.com/redpandadata/console:v3.9.0
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    environment:
+      KAFKA_BROKERS: redpanda:9092
+    ports:
+      - "8080:8080"
+
+  api:
+    build:
+      context: ./backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      redpanda:
+        condition: service_healthy
+    environment:
+      APP_ENV: local
+      DATABASE_URL: postgresql+psycopg://medclaimiq:medclaimiq@postgres:5432/medclaimiq
+      REDIS_URL: redis://redis:6379/0
+      S3_ENDPOINT_URL: http://minio:9000
+      S3_PUBLIC_ENDPOINT_URL: ${S3_PUBLIC_ENDPOINT_URL:-http://localhost:9000}
+      S3_BUCKET: medclaimiq
+      S3_ACCESS_KEY: medclaimiq
+      S3_SECRET_KEY: change-me-local-only
+      CLAMAV_HOST: clamav
+      QDRANT_URL: http://qdrant:6333
+      KAFKA_BOOTSTRAP_SERVERS: redpanda:9092
+      FHIR_DEFAULT_BASE_URL: http://api:8000/mock-fhir
+      OIDC_ISSUER_URL: ${OIDC_ISSUER_URL:-https://identity.example.invalid/medclaimiq}
+      OIDC_AUDIENCE: ${OIDC_AUDIENCE:-medclaimiq-api}
+      OIDC_REQUIRED_SCOPES: ${OIDC_REQUIRED_SCOPES:-medclaimiq.api}
+      AUTH_SESSION_HMAC_SECRET: ${AUTH_SESSION_HMAC_SECRET:-local-only-change-this-session-hmac-secret-123456}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    command: ["/bin/sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - api
+    environment:
+      MEDCLAIMIQ_FRONTEND_ORIGIN: ${MEDCLAIMIQ_FRONTEND_ORIGIN:-http://localhost:3000}
+      MEDCLAIMIQ_BACKEND_URL: http://api:8000
+      MEDCLAIMIQ_DEFAULT_TENANT_ID: ${MEDCLAIMIQ_DEFAULT_TENANT_ID:-tenant-payer-demo}
+      MEDCLAIMIQ_OIDC_ISSUER: ${MEDCLAIMIQ_OIDC_ISSUER:-https://identity.example.invalid/medclaimiq}
+      MEDCLAIMIQ_OIDC_CLIENT_ID: ${MEDCLAIMIQ_OIDC_CLIENT_ID:-medclaimiq-reviewer-ui}
+      MEDCLAIMIQ_OIDC_CLIENT_SECRET: ${MEDCLAIMIQ_OIDC_CLIENT_SECRET:-}
+      MEDCLAIMIQ_OIDC_SCOPE: ${MEDCLAIMIQ_OIDC_SCOPE:-openid profile email offline_access medclaimiq.api}
+      MEDCLAIMIQ_FRONTEND_SESSION_SECRET: ${MEDCLAIMIQ_FRONTEND_SESSION_SECRET:-local-only-change-this-frontend-session-secret-123456}
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp
+    ports:
+      - "3000:3000"
+
+volumes:
+  medclaimiq_pg:
+  medclaimiq_minio:
+  medclaimiq_clamav:
+  medclaimiq_qdrant:
+  medclaimiq_redpanda:

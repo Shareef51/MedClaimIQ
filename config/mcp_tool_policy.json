@@ -1,0 +1,14 @@
+{
+  "policy_id": "medclaimiq.mcp.v1",
+  "deny_by_default": true,
+  "approval_ttl_minutes": 30,
+  "circuit_breaker": {"failure_threshold": 3, "recovery_seconds": 30},
+  "non_relaxable_scope": ["tenant_id", "claim_id", "rbac_abac", "agent_allowlist"],
+  "risk_tiers": {
+    "read_only": {"dry_run": false, "approval": false},
+    "controlled_write": {"dry_run": true, "approval": true},
+    "high_risk_external": {"dry_run": true, "approval": true}
+  },
+  "output_controls": ["secret_redaction", "prompt_injection_text_blocking", "schema_validation", "provenance_hashing"],
+  "audit": {"raw_secrets": false, "invocations_append_only": true, "health_events_append_only": true}
+}

@@ -1,0 +1,32 @@
+{
+  "version": "rag-grounding-guardrails-v1",
+  "retrieved_content_trust": "untrusted",
+  "prompt_injection": {
+    "external_deterministic_screening": true,
+    "suspicious_content_action": "exclude_and_escalate",
+    "blocked_content_action": "exclude_and_escalate",
+    "authorization_may_be_overridden_by_retrieved_content": false,
+    "suspicious_threshold": 0.35,
+    "block_threshold": 0.65
+  },
+  "evidence_quality": {
+    "minimum_item_confidence": 0.55,
+    "minimum_authority_rank": 60,
+    "minimum_pack_coverage": 0.5
+  },
+  "grounding": {
+    "citations_required_for_material_statements": true,
+    "verify_source_id_and_version_when_supplied": true,
+    "verify_numeric_literals": true,
+    "verify_medical_codes": true,
+    "open_material_contradictions_must_be_disclosed": true
+  },
+  "self_correction": {
+    "max_repair_attempts": 2,
+    "can_broaden_authorized_retrievers": true,
+    "can_increase_bounded_graph_depth": true,
+    "can_relax_tenant_claim_acl": false
+  },
+  "failure_behavior": "human_review",
+  "ai_final_claim_decision": false
+}

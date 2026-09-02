@@ -1,0 +1,12 @@
+{
+  "release": 44,
+  "capability": "recovery operations/provider dispute management/remediation outcome verification",
+  "authority": {
+    "ai": "analysis_and_recommendation_only",
+    "provider_dispute_resolution": "independent_human_only",
+    "automation_accounting_change": false,
+    "automation_payment_authorization": false,
+    "automation_collection_or_fund_movement": false
+  },
+  "evaluation_dataset": "data/evaluation/recovery_operations_cases.json"
+}

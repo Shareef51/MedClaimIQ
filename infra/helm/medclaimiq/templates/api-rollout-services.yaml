@@ -1,0 +1,15 @@
+{{- if ne .Values.release.strategy "rolling" }}
+apiVersion: v1
+kind: Service
+metadata: {name: medclaimiq-api-canary, labels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: api}}
+spec:
+  selector: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: api}
+  ports: [{name: http, port: 8000, targetPort: http}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: medclaimiq-api-preview, labels: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: api}}
+spec:
+  selector: {app.kubernetes.io/name: medclaimiq, app.kubernetes.io/component: api}
+  ports: [{name: http, port: 8000, targetPort: http}]
+{{- end }}

@@ -1,0 +1,19 @@
+global:
+  environment: production
+api:
+  replicas: 3
+frontend:
+  replicas: 2
+pdb:
+  enabled: true
+networkPolicy:
+  enabled: true
+migration:
+  enabled: true
+
+release:
+  auditEnabled: true
+  auditTenantId: tenant-production
+
+config:
+  AI_CONFIG_REGISTRY_REQUIRED: "true"

@@ -1,0 +1,31 @@
+{
+  "scenarios": [
+    {
+      "id": "release91-repeated-control-failure",
+      "recovery_program_id": "recovery-enterprise-001",
+      "release90_reopening_version_id": "release90-human-reopen-001",
+      "cycles": [
+        {"cycle_id": "cycle-1", "sequence": 1, "status": "failed", "evidence_refs": ["ev-1"], "reclosure_version_id": "reclose-1"},
+        {"cycle_id": "cycle-2", "sequence": 2, "status": "recurred", "evidence_refs": ["ev-2"], "reopening_version_id": "reopen-2"},
+        {"cycle_id": "cycle-3", "sequence": 3, "status": "decayed", "evidence_refs": ["ev-3"], "reopening_version_id": "release90-human-reopen-001"}
+      ],
+      "root_causes": {
+        "prior_root_cause_ids": ["root-access-governance"],
+        "historical_root_cause_ids": ["root-access-governance", "root-evidence-latency"],
+        "current_root_cause_ids": ["root-access-governance", "root-change-drift"],
+        "repeated_control_failure_count": 3,
+        "systemic_risk_rebound_confirmed": true,
+        "cross_entity_recurrence_confirmed": true
+      }
+    },
+    {
+      "id": "release91-human-reauthorization-gate",
+      "recovery_program_id": "recovery-enterprise-002",
+      "expected": {
+        "ai_authorization": "forbidden",
+        "independent_challenge": "required",
+        "human_executive_reauthorization": "required"
+      }
+    }
+  ]
+}

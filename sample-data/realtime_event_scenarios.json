@@ -1,0 +1,7 @@
+[
+  {"event_type":"claim.status_changed","topic":"medclaimiq.claim.events.v1","partition_key":"claim-synthetic-001"},
+  {"event_type":"evidence.processing.requested","topic":"medclaimiq.evidence.events.v1","partition_key":"claim-synthetic-001"},
+  {"event_type":"healthcare.fhir.resource.persisted","topic":"medclaimiq.healthcare.events.v1","partition_key":"claim-synthetic-001"},
+  {"event_type":"agent.execution.completed","topic":"medclaimiq.agent.events.v1","partition_key":"claim-synthetic-001"},
+  {"event_type":"mcp.tool.invoked","topic":"medclaimiq.mcp.events.v1","partition_key":"claim-synthetic-001"}
+]

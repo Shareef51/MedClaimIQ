@@ -1,0 +1,1 @@
+{"release":65,"checks":["request_evidence_traceability","citation_correctness","privilege_segregation","conflict_detection","deadline_risk","human_approval_boundary","immutable_package_manifest","tenant_isolation"]}

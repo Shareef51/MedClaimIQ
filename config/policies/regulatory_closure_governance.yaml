@@ -1,0 +1,14 @@
+regulatory_closure_governance:
+  recommendation_only: true
+  closure_readiness_required_score: 100
+  require_zero_unresolved_exceptions: true
+  require_independent_validation: true
+  require_retest_evidence: true
+  require_compensating_control_exit_validation: true
+  require_human_residual_risk_acceptance: true
+  require_segregation_of_duties: true
+  executive_human_certification_required: true
+  ai_can_certify: false
+  ai_can_accept_residual_risk: false
+  ai_can_close_findings: false
+  workers_can_move_money: false

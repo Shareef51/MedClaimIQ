@@ -1,0 +1,5 @@
+[
+  {"scenario":"cross_entity_control_transformation","program_id":"REP-80-001","entities":["US","EU","APAC"],"expected_controls":[{"control_id":"CTRL-KYC-01","design_version":"v4"}],"implemented_controls":[{"control_id":"CTRL-KYC-01","design_version":"v3"}],"expected_outcome":"implementation_drift_detected"},
+  {"scenario":"independent_recovery_failure","program_id":"REP-80-002","independent_recovery_testing_passed":false,"expected_outcome":"residual_risk_acceptance_blocked"},
+  {"scenario":"critical_dependency_delay","program_id":"REP-80-003","milestones":[{"status":"blocked","overdue":true}],"dependencies":[{"critical":true,"status":"open"}],"expected_outcome":"executive_escalation"}
+]

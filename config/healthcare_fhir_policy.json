@@ -1,0 +1,10 @@
+{
+  "policy_id": "medclaimiq.fhir.v1",
+  "fhir_release": "R4-4.0.1",
+  "supported_resources": ["Patient", "Encounter", "Coverage", "Claim", "ExplanationOfBenefit", "DocumentReference", "Organization", "Practitioner"],
+  "network": {"timeout_seconds": 10, "max_attempts": 3, "rate_limit_per_second": 10, "same_origin_pagination_only": true},
+  "auth": {"mode": "SMART-backend-services-ready", "private_key_source": "secret-manager", "default_scope": "system/*.read"},
+  "identity": {"automatic_match_threshold": 0.90, "human_review_threshold": 0.70, "below_threshold": "reject-candidate"},
+  "provenance": {"persist_raw_version": true, "persist_canonical_projection": true, "hash_algorithm": "SHA-256", "append_only": true},
+  "decision_boundary": "FHIR verification produces evidence findings only; final claim action remains human-controlled."
+}

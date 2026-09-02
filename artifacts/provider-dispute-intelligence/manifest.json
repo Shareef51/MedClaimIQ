@@ -1,0 +1,9 @@
+{
+  "artifact_version":"release45-v1",
+  "scope":"provider dispute evidence re-ingestion, contract/policy RAG and recommendation-only decision support",
+  "evidence_modalities":["document","image","audio","video","fhir"],
+  "retrieval_sources":["provider_evidence","provider_agreement","reimbursement_policy"],
+  "terminal_authority":"independent human finance approver in Release 44",
+  "ai_adjudication_authority":"none",
+  "fund_movement_authority":"none"
+}

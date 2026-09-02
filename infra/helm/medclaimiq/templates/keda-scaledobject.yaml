@@ -1,0 +1,18 @@
+{{- if .Values.keda.enabled }}
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata: {name: medclaimiq-outbox-relay-kafka}
+spec:
+  scaleTargetRef: {name: medclaimiq-outbox-relay}
+  minReplicaCount: 2
+  maxReplicaCount: 20
+  cooldownPeriod: 300
+  triggers:
+    - type: kafka
+      metadata:
+        bootstrapServers: {{ .Values.keda.kafkaBootstrapServers | quote }}
+        consumerGroup: {{ .Values.keda.consumerGroup | quote }}
+        topic: {{ .Values.keda.topic | quote }}
+        lagThreshold: {{ .Values.keda.lagThreshold | quote }}
+        offsetResetPolicy: latest
+{{- end }}

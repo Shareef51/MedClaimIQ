@@ -1,0 +1,94 @@
+{
+  "release": 106,
+  "name": "Reclosed Reauthorized Enterprise Remediation Re-Execution Surveillance and Enterprise Reopening Governance",
+  "scenarios": [
+    {
+      "name": "multi_cycle_reexecution_decay_with_cross_entity_recurrence",
+      "recovery_program_id": "ERP-REEXEC-RECOVERY-001",
+      "release105_reauthorized_enterprise_remediation_reexecution_sustainability_reclosure_version_id": "release105-reexec-reclosure-v1",
+      "release105_reclosure_control_health_score": 97,
+      "current_control_health_score": 63,
+      "release105_reclosure_systemic_risk_score": 18,
+      "current_systemic_risk_score": 41,
+      "peak_post_reclosure_systemic_risk_score": 46,
+      "systemic_control_retransformation_regressions": 2,
+      "prior_enterprise_recovery_failure_cycles": 4,
+      "reexecution_recovery_cycle_count": 5,
+      "sustainability_breach_count": 2,
+      "regulatory_commitment_breach_count": 1,
+      "stale_evidence_count": 2,
+      "adverse_control_test_count": 2,
+      "root_cause_treatments": [
+        {
+          "treatment_id": "RCT-PERSISTENT-REEXEC-001",
+          "root_cause_type": "persistent",
+          "release105_reclosure_status": "effective",
+          "current_status": "failed",
+          "post_reclosure_failure_count": 2,
+          "evidence_refs": ["ev-rct-001"]
+        },
+        {
+          "treatment_id": "RCT-EMERGENT-REEXEC-002",
+          "root_cause_type": "emergent",
+          "release105_reclosure_status": "effective",
+          "current_status": "degraded",
+          "evidence_refs": ["ev-rct-002"]
+        }
+      ],
+      "controls": [
+        {
+          "control_id": "CTRL-REEXEC-001",
+          "release105_reclosure_status": "effective",
+          "current_status": "failed",
+          "severity": "critical",
+          "post_reclosure_failure_count": 3,
+          "repeated_failure": true,
+          "evidence_refs": ["ev-ctrl-001"]
+        },
+        {
+          "control_id": "CTRL-REEXEC-002",
+          "release105_reclosure_status": "effective",
+          "current_status": "effective",
+          "evidence_refs": ["ev-ctrl-002"]
+        }
+      ],
+      "entities": [
+        {"entity_id": "US", "status": "failed", "severity": "critical", "post_reclosure_failure_count": 2, "evidence_refs": ["ev-us"]},
+        {"entity_id": "EU", "status": "recurred", "post_reclosure_failure_count": 2, "evidence_refs": ["ev-eu"]}
+      ],
+      "expected_entity_count": 4,
+      "followups": [
+        {"followup_id": "RF-106-001", "linked_to_enterprise_decay": true, "adverse": true, "status": "overdue"}
+      ],
+      "evidence_refs": ["ev-rct-001", "ev-rct-002", "ev-ctrl-001", "ev-ctrl-002", "ev-us", "ev-eu"]
+    },
+    {
+      "name": "stable_reexecution_post_reclosure_enterprise_recovery",
+      "recovery_program_id": "ERP-REEXEC-RECOVERY-002",
+      "release105_reauthorized_enterprise_remediation_reexecution_sustainability_reclosure_version_id": "release105-reexec-reclosure-v2",
+      "release105_reclosure_control_health_score": 96,
+      "current_control_health_score": 97,
+      "release105_reclosure_systemic_risk_score": 17,
+      "current_systemic_risk_score": 15,
+      "systemic_control_retransformation_regressions": 0,
+      "prior_enterprise_recovery_failure_cycles": 1,
+      "reexecution_recovery_cycle_count": 2,
+      "sustainability_breach_count": 0,
+      "regulatory_commitment_breach_count": 0,
+      "stale_evidence_count": 0,
+      "adverse_control_test_count": 0,
+      "root_cause_treatments": [
+        {"treatment_id": "RCT-STABLE-106", "root_cause_type": "persistent", "release105_reclosure_status": "effective", "current_status": "effective", "evidence_refs": ["ev-rct-stable"]}
+      ],
+      "controls": [
+        {"control_id": "CTRL-STABLE-106", "release105_reclosure_status": "effective", "current_status": "effective", "evidence_refs": ["ev-ctrl-stable"]}
+      ],
+      "entities": [
+        {"entity_id": "APAC", "status": "effective", "evidence_refs": ["ev-apac"]}
+      ],
+      "expected_entity_count": 1,
+      "followups": [],
+      "evidence_refs": ["ev-rct-stable", "ev-ctrl-stable", "ev-apac"]
+    }
+  ]
+}

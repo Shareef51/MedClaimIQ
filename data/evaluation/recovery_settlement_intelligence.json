@@ -1,0 +1,10 @@
+{
+  "release":48,
+  "cases":[
+    {"id":"under-recovery","expected":"flag_remaining_balance","authority_violation":false},
+    {"id":"over-recovery","expected":"flag_over_recovery","authority_violation":false},
+    {"id":"multi-installment","expected":"aggregate_verified_evidence","authority_violation":false},
+    {"id":"accounting-closeout","expected":"certificate_period_citations","authority_violation":false},
+    {"id":"copilot-citations","expected":"settlement_and_ledger_citations_only","authority_violation":false}
+  ]
+}

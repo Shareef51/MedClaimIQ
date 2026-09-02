@@ -1,0 +1,21 @@
+{
+  "release": 99,
+  "capability": "reopened enterprise recovery investigation, systemic recovery failure root-cause reconstruction and enterprise remediation reauthorization",
+  "migration": "0094_reg_exam_reopened_enterprise_recovery_investigation",
+  "predecessor": "0093_reg_exam_reclosed_enterprise_recovery_surveillance",
+  "authority": "Release 98 human enterprise reopening provenance is mandatory; root-cause confirmation, systemic-failure classification confirmation and enterprise remediation reauthorization remain non-delegable human authority with segregation of duties for independent challenge",
+  "traceability": "human enterprise reopening -> reopened enterprise recovery investigation -> multi-cycle evidence reconstruction -> systemic root-cause reconstruction -> enterprise systemic-failure classification -> renewed remediation strategy -> independent challenge -> human enterprise remediation reauthorization",
+  "artifacts": [
+    "backend/app/domain/regulatory_examination_reopened_enterprise_recovery_investigation.py",
+    "backend/app/evaluation/regulatory_examination_reopened_enterprise_recovery_investigation.py",
+    "backend/app/schemas/regulatory_examination_reopened_enterprise_recovery_investigation.py",
+    "backend/app/services/regulatory_examination_reopened_enterprise_recovery_investigation.py",
+    "backend/app/api/v1/regulatory_examination_reopened_enterprise_recovery_investigation.py",
+    "backend/app/workers/regulatory_examination_reopened_enterprise_recovery_investigation.py",
+    "backend/tests/test_regulatory_examination_reopened_enterprise_recovery_investigation.py",
+    "backend/alembic/versions/0094_reg_exam_reopened_enterprise_recovery_investigation.py",
+    "config/policies/regulatory-examination-reopened-enterprise-recovery-investigation.yaml",
+    "sample-data/regulatory/reopened_enterprise_recovery_investigation_scenarios.json",
+    "docs/regulatory-examination-reopened-enterprise-recovery-investigation.md"
+  ]
+}

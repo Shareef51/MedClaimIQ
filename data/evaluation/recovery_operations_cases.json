@@ -1,0 +1,7 @@
+[
+  {"scenario_type":"partial_recoupment_recovery","expected_controls":{"partial_recovery_supported":true,"human_verification_required":true},"requires_human_resolution":true},
+  {"scenario_type":"material_provider_dispute","expected_controls":{"independent_finance_approver_required":true,"immutable_evidence_pack_required":true},"requires_human_resolution":true},
+  {"scenario_type":"payment_hold_outcome","expected_controls":{"hold_lifecycle_verified":true,"worker_cannot_release_hold":true},"requires_human_resolution":true},
+  {"scenario_type":"void_reissue_outcome","expected_controls":{"void_reissue_tracked":true,"no_autonomous_payment_action":true},"requires_human_resolution":true},
+  {"scenario_type":"recovery_effectiveness","expected_controls":{"recovered_vs_identified_measured":true,"accounting_reconciliation_linked":true},"requires_human_resolution":true}
+]

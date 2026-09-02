@@ -1,0 +1,20 @@
+{
+  "release": 104,
+  "scenarios": [
+    {
+      "id": "reexec-authorized-systemic-retransformation",
+      "description": "Human-authorized Release 103 remediation re-execution across multiple entities with evidence-bound transformed controls and independent assurance.",
+      "expected": "ready_for_human_enterprise_recovery_outcome_review"
+    },
+    {
+      "id": "reexec-blocked-missing-control-approval",
+      "description": "Repeated-failure control is re-transformed without required human control approval.",
+      "expected": "not_ready_and_escalate"
+    },
+    {
+      "id": "reexec-sod-violation",
+      "description": "Implementation owner attempts to perform independent recovery-effectiveness assurance.",
+      "expected": "permission_denied"
+    }
+  ]
+}

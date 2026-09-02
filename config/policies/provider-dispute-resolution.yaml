@@ -1,0 +1,14 @@
+provider_dispute_resolution:
+  authority: human_finance_approver_only
+  material_dispute_dual_control: true
+  material_financial_change_absolute: 100.00
+  material_financial_change_percent: 10.0
+  require_locked_release45_snapshot: true
+  require_citations: true
+  block_unresolved_material_policy_conflicts: true
+  block_open_missing_evidence_requests: true
+  require_recommendation_disagreement_reason: true
+  reversal_referral_destination: release41_accounting_human_review
+  reversal_referral_executes_accounting: false
+  background_resolution_enabled: false
+  fund_movement_enabled: false

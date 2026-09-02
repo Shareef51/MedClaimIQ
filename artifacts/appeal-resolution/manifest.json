@@ -1,0 +1,15 @@
+{
+  "artifact": "governed-appeal-resolution",
+  "version": "release39-v1",
+  "invariants": [
+    "original decision immutable",
+    "locked reconsideration snapshot required",
+    "citation completeness required",
+    "material contradictions resolved before lock",
+    "overturn/material financial change requires independent second human review",
+    "controlling outcome human-only",
+    "notice release separately human-authorized",
+    "transport has no adjudication authority"
+  ],
+  "traceability": "original decision -> appeal snapshot -> citations/comparisons -> recommendation-only agent -> human packet -> optional second human -> final resolution -> supersession history -> human-released notice -> transport"
+}

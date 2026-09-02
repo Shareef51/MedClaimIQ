@@ -1,0 +1,145 @@
+{
+  "scenarios": [
+    {
+      "name": "multi_cycle_systemic_decay_with_cross_entity_recurrence",
+      "recovery_program_id": "ERP-RECOVERY-001",
+      "release101_reauthorized_enterprise_remediation_sustainability_reclosure_version_id": "release101-reclosure-v1",
+      "release101_reclosure_control_health_score": 96,
+      "current_control_health_score": 64,
+      "release101_reclosure_systemic_risk_score": 20,
+      "current_systemic_risk_score": 39,
+      "peak_post_reclosure_systemic_risk_score": 44,
+      "systemic_control_retransformation_regressions": 2,
+      "prior_enterprise_recovery_failure_cycles": 3,
+      "sustainability_breach_count": 1,
+      "regulatory_commitment_breach_count": 1,
+      "controls": [
+        {
+          "control_id": "CTRL-001",
+          "release101_reclosure_status": "effective",
+          "current_status": "failed",
+          "severity": "critical",
+          "post_reclosure_failure_count": 2,
+          "evidence_refs": [
+            "ev-001"
+          ]
+        },
+        {
+          "control_id": "CTRL-002",
+          "release101_reclosure_status": "effective",
+          "current_status": "effective",
+          "evidence_refs": [
+            "ev-002"
+          ]
+        }
+      ],
+      "entities": [
+        {
+          "entity_id": "US",
+          "status": "failed",
+          "severity": "critical",
+          "evidence_refs": [
+            "ev-us"
+          ]
+        },
+        {
+          "entity_id": "EU",
+          "post_reclosure_failure_count": 2,
+          "evidence_refs": [
+            "ev-eu"
+          ]
+        }
+      ],
+      "expected_entity_count": 4,
+      "followups": [
+        {
+          "followup_id": "RF-001",
+          "linked_to_enterprise_decay": true,
+          "adverse": true,
+          "status": "overdue"
+        }
+      ],
+      "evidence_refs": [
+        "ev-001",
+        "ev-002",
+        "ev-us",
+        "ev-eu",
+        "ev-rct-1",
+        "ev-rct-2"
+      ],
+      "root_cause_treatments": [
+        {
+          "treatment_id": "RCT-PERSISTENT-001",
+          "root_cause_type": "persistent",
+          "release101_reclosure_status": "effective",
+          "current_status": "failed",
+          "post_reclosure_failure_count": 2,
+          "evidence_refs": [
+            "ev-rct-1"
+          ]
+        },
+        {
+          "treatment_id": "RCT-EMERGENT-001",
+          "root_cause_type": "emergent",
+          "release101_reclosure_status": "effective",
+          "current_status": "degraded",
+          "evidence_refs": [
+            "ev-rct-2"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stable_post_reclosure_enterprise_recovery",
+      "recovery_program_id": "ERP-RECOVERY-002",
+      "release101_reauthorized_enterprise_remediation_sustainability_reclosure_version_id": "release101-reclosure-v2",
+      "release101_reclosure_control_health_score": 95,
+      "current_control_health_score": 96,
+      "release101_reclosure_systemic_risk_score": 18,
+      "current_systemic_risk_score": 16,
+      "systemic_control_retransformation_regressions": 0,
+      "prior_enterprise_recovery_failure_cycles": 0,
+      "sustainability_breach_count": 0,
+      "regulatory_commitment_breach_count": 0,
+      "controls": [
+        {
+          "control_id": "CTRL-003",
+          "release101_reclosure_status": "effective",
+          "current_status": "effective",
+          "evidence_refs": [
+            "ev-003"
+          ]
+        }
+      ],
+      "entities": [
+        {
+          "entity_id": "APAC",
+          "status": "effective",
+          "evidence_refs": [
+            "ev-apac"
+          ]
+        }
+      ],
+      "expected_entity_count": 1,
+      "followups": [],
+      "evidence_refs": [
+        "ev-003",
+        "ev-apac",
+        "ev-rct-stable"
+      ],
+      "root_cause_treatments": [
+        {
+          "treatment_id": "RCT-STABLE-001",
+          "root_cause_type": "persistent",
+          "release101_reclosure_status": "effective",
+          "current_status": "effective",
+          "evidence_refs": [
+            "ev-rct-stable"
+          ]
+        }
+      ]
+    }
+  ],
+  "release": 102,
+  "name": "Reclosed Reauthorized Enterprise Remediation Surveillance and Enterprise Reopening Governance"
+}

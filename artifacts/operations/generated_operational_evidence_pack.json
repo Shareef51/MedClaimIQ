@@ -1,0 +1,54 @@
+{
+  "evidence_pack": {
+    "candidate_version": "v109.0.0-rc1",
+    "dashboard_refs": [
+      "infra/observability/otel-collector.yaml"
+    ],
+    "drill_refs": [
+      "sample-data/operations/operational_readiness_scenarios.json"
+    ],
+    "evidence_pack_hash": "1cb03f6e24260f89452cf8a3ddcb220c5e627ced0cecf0f1afc52e6048f02456",
+    "evidence_refs": [
+      "chaos/chaos-mesh",
+      "infra/dr/backup-restore-matrix.json",
+      "infra/dr/dr-objectives.json",
+      "performance/k6/api_claims.js",
+      "performance/k6/rag_agents_mcp.js",
+      "performance/k6/sse_scale.js"
+    ],
+    "immutable": true,
+    "release107_release_candidate_decision_version_id": "HUMAN-RC-REQUIRED",
+    "release108_release_security_certification_version_id": "HUMAN-SECURITY-CERT-REQUIRED",
+    "readiness": {
+      "automated_certification": false,
+      "automated_production_promotion": false,
+      "blocking_gates": [],
+      "gate_count": 14,
+      "non_bypassable_operational_risks": [],
+      "operational_go_live_ready": true,
+      "provenance_complete": true,
+      "unresolved_operational_risks": []
+    },
+    "release_id": "medclaimiq-rc-109",
+    "runbook_refs": [
+      "docs/DISASTER_RECOVERY_RUNBOOK.md",
+      "docs/INCIDENT_RESPONSE_RUNBOOK.md",
+      "docs/OPERATIONAL_GO_LIVE_READINESS.md",
+      "docs/RELEASE_ROLLBACK_RUNBOOK.md",
+      "docs/RESILIENCE_CHAOS_RUNBOOK.md"
+    ]
+  },
+  "live_environment_drills_executed": false,
+  "note": "Deterministic contract evidence only; live production-scale load, chaos and DR drills require authorized target environments and human execution.",
+  "readiness": {
+    "automated_certification": false,
+    "automated_production_promotion": false,
+    "blocking_gates": [],
+    "gate_count": 14,
+    "non_bypassable_operational_risks": [],
+    "operational_go_live_ready": true,
+    "provenance_complete": true,
+    "unresolved_operational_risks": []
+  },
+  "simulation_only": true
+}

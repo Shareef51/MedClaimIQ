@@ -1,0 +1,7 @@
+{
+  "scenario": "returned payment with aged reconciliation and recoupment exposure",
+  "claim_id": "claim-1",
+  "signals": ["returned_payment", "reconciliation_aging_31_plus", "open_financial_reconciliation_exception", "provider_recoupment"],
+  "expected_outputs": ["reserve_snapshot", "anomaly_score", "provider_pattern", "close_readiness", "ledger_citations"],
+  "authority": {"ai": "recommendation_only", "fund_movement": "none"}
+}

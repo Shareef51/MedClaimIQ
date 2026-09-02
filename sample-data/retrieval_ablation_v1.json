@@ -1,0 +1,7 @@
+{
+  "dataset_version":"retrieval-ablation-2026.08-v1",
+  "queries":[
+    {"query_id":"prior-auth","expected":["ev-policy-1","ev-code-1"],"strategies":{"dense_only":["ev-policy-1","ev-other","ev-code-1"],"hybrid":["ev-policy-1","ev-code-1","ev-other"],"hybrid_reranked":["ev-code-1","ev-policy-1","ev-other"]}},
+    {"query_id":"exact-cpt","expected":["ev-code-1"],"strategies":{"dense_only":["ev-other","ev-code-1"],"hybrid":["ev-code-1","ev-other"],"hybrid_reranked":["ev-code-1","ev-other"]}}
+  ]
+}

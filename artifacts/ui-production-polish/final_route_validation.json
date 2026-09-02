@@ -1,0 +1,30 @@
+{
+  "artifact": "MedClaimIQ frontend route and persona validation",
+  "scope": "final recruiter and production UI polish",
+  "personas": {
+    "claims_reviewer": {"landing": "/review", "primary_surfaces": ["overview", "claims", "appeals", "communications"]},
+    "tenant_admin": {"landing": "/review", "primary_surfaces": ["all reviewer groups", "AI operations", "regulatory", "financial operations"]},
+    "auditor": {"landing": "/review", "primary_surfaces": ["regulatory", "control assurance", "AI operations"]},
+    "finance_analyst": {"landing": "/review", "primary_surfaces": ["financial operations", "recovery intelligence"]},
+    "provider": {"landing": "/portal", "primary_surfaces": ["claims", "provider disputes", "recovery settlement evidence", "balance statements"]},
+    "patient": {"landing": "/portal", "primary_surfaces": ["claims", "document requests", "decision notices", "appeals"]}
+  },
+  "static_routes": [
+    "/", "/login", "/portal", "/portal/claims/[claimId]", "/review", "/review/claims", "/review/claims/[claimId]",
+    "/review/appeals", "/review/communications", "/review/financial", "/review/accounting", "/review/financial-intelligence",
+    "/review/financial-investigations", "/review/provider-disputes", "/review/recovery-operations", "/review/recovery-settlements",
+    "/review/recovery-settlement-intelligence", "/review/recovery-control-assurance", "/review/regulatory-examination-readiness",
+    "/review/regulatory-examinations", "/review/regulatory-examination-commitments", "/review/regulatory-remediation",
+    "/review/regulatory-transport", "/review/regulatory-supervision", "/review/regulatory-portfolio-oversight", "/review/ai-ops"
+  ],
+  "route_contracts": {
+    "authenticated_reviewer_redirect": true,
+    "authenticated_portal_redirect": true,
+    "patient_provider_internal_reasoning_separation": true,
+    "provider_only_recovery_modules_hidden_from_patient": true,
+    "mobile_reviewer_navigation": true,
+    "global_loading_error_not_found_boundaries": true,
+    "reviewer_loading_error_boundaries": true,
+    "portal_loading_error_boundaries": true
+  }
+}

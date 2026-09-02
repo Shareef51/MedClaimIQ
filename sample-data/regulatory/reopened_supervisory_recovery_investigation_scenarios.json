@@ -1,0 +1,59 @@
+{
+  "release": 95,
+  "capability": "reopened supervisory recovery investigation, multi-cycle root-cause reconstruction and enterprise recovery reauthorization",
+  "scenarios": [
+    {
+      "scenario_id": "p95-repeated-systemic-failure",
+      "recovery_program_id": "srp-001",
+      "release94_enterprise_reopening_version_id": "reopen94-001",
+      "cycles": [
+        {
+          "cycle_id": "c1",
+          "sequence": 1,
+          "status": "failed",
+          "evidence_refs": [
+            "ev1"
+          ],
+          "reclosure_version_id": "r1"
+        },
+        {
+          "cycle_id": "c2",
+          "sequence": 2,
+          "status": "recurred",
+          "evidence_refs": [
+            "ev2"
+          ],
+          "reopening_version_id": "o2"
+        },
+        {
+          "cycle_id": "c3",
+          "sequence": 3,
+          "status": "failed",
+          "evidence_refs": [
+            "ev3"
+          ],
+          "reclosure_version_id": "r3"
+        }
+      ],
+      "root_causes": {
+        "prior_root_cause_ids": [
+          "rc-shared-access"
+        ],
+        "historical_root_cause_ids": [
+          "rc-shared-access"
+        ],
+        "current_root_cause_ids": [
+          "rc-shared-access",
+          "rc-ownership-drift"
+        ]
+      },
+      "expected_governance": "human investigation, human root-cause and systemic-failure confirmation, independent challenge, executive reauthorization"
+    },
+    {
+      "scenario_id": "p95-insufficient-provenance",
+      "recovery_program_id": "srp-002",
+      "release94_enterprise_reopening_version_id": "",
+      "expected_result": "reject authoritative investigation creation"
+    }
+  ]
+}

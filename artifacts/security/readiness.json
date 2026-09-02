@@ -1,0 +1,24 @@
+{
+  "candidate": "local",
+  "checks": {
+    "backend_nonroot": true,
+    "control_mapping": true,
+    "devsecops_workflow": true,
+    "frontend_nonroot": true,
+    "gitleaks_config": true,
+    "incident_runbook": true,
+    "security_policy": true,
+    "semgrep_config": true,
+    "threat_model": true,
+    "vendor_inventory": true
+  },
+  "control_pass_rate": 1.0,
+  "controls_version": "security-baseline-2026.08",
+  "critical_findings": 0,
+  "decision": "pass",
+  "high_findings": 0,
+  "report_sha256": "5c231e8a2106728649195dc397ab7b2d9aa3d628979fdc4a8bdba9e544925631",
+  "run_at": "2026-08-20T16:23:29.670337+00:00",
+  "scan_details": {},
+  "secret_findings": 0
+}

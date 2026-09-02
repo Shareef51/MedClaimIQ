@@ -1,0 +1,1 @@
+[{"scenario_id":"rrf-001","recovery_program_id":"rp-001","cycles":[{"cycle_id":"c1","status":"failed","evidence_refs":["ev1"]},{"cycle_id":"c2","status":"recurred","evidence_refs":["ev2"]}],"expected":"human remediation reauthorization required"}]

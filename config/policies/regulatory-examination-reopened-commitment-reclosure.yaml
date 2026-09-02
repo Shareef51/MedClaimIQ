@@ -1,0 +1,14 @@
+policy: regulatory_examination_reopened_commitment_reclosure
+version: 1
+mode: governed_human_authority
+controls:
+  ai_can_recertify_commitment: false
+  ai_can_reclose_commitment: false
+  worker_can_recertify_commitment: false
+  worker_can_reclose_commitment: false
+  independent_revalidation_required: true
+  human_recertification_required: true
+  second_recurrence_requires_executive_escalation: true
+  sustainability_reset_required_before_reclosure: true
+  accounting_mutation_allowed: false
+  payment_authority_allowed: false

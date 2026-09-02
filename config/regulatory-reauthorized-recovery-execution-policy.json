@@ -1,0 +1,22 @@
+{
+  "policy": "regulatory-reauthorized-recovery-execution",
+  "recommendation_only_ai": true,
+  "human_remediation_reauthorization_reference_required": true,
+  "human_control_rerehabilitation_approval_required": true,
+  "independent_recovery_assurance_required": true,
+  "repeated_failure_controls_require_replacement_or_documented_rerehabilitation": true,
+  "cross_entity_sequence_and_critical_path_review_required": true,
+  "implementation_drift_requires_human_review": true,
+  "forbidden_automations": [
+    "control_rerehabilitation_approval",
+    "residual_systemic_risk_acceptance",
+    "recovery_effectiveness_certification",
+    "regulatory_commitment_closure",
+    "program_reclosure",
+    "regulator_intent_representation",
+    "accounting_record_mutation",
+    "payment_authorization",
+    "funds_collection",
+    "funds_movement"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "api_base": "/api/v1/operational-go-live-readiness",
+  "complete_backend_regression": "796/796 passed",
+  "human_only_decisions": [
+    "operational_readiness_certification",
+    "production_promotion"
+  ],
+  "migration": "0104_operational_go_live_readiness_certification",
+  "migration_graph": {
+    "cycles": 0,
+    "duplicates": 0,
+    "head": "0104_operational_go_live_readiness_certification",
+    "missing_predecessors": 0,
+    "revisions": 105,
+    "root": "0001_enterprise_tenancy"
+  },
+  "monitoring_only_workers": true,
+  "release": 109,
+  "previous_migration": "0103_release_security_red_team_certification"
+}

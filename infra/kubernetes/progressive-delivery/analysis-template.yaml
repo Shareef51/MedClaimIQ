@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: medclaimiq-api-release-slo
+spec:
+  args:
+    - name: prometheus-address
+      value: http://prometheus-operated.monitoring.svc:9090
+  metrics:
+    - name: api-health
+      interval: 20s
+      count: 3
+      failureLimit: 1
+      successCondition: result.status == "ok"
+      provider:
+        web:
+          url: http://medclaimiq-api-canary:8000/api/v1/health
+          jsonPath: "{$}"
+    - name: http-5xx-ratio
+      interval: 60s
+      count: 5
+      failureLimit: 2
+      successCondition: len(result) == 0 || result[0] < 0.02
+      provider:
+        prometheus:
+          address: "{{args.prometheus-address}}"
+          query: |
+            sum(rate(http_server_request_duration_seconds_count{service_name="medclaimiq-api",http_response_status_code=~"5.."}[5m]))
+            /
+            clamp_min(sum(rate(http_server_request_duration_seconds_count{service_name="medclaimiq-api"}[5m])), 1)
+    - name: api-p95-seconds
+      interval: 60s
+      count: 5
+      failureLimit: 2
+      successCondition: len(result) == 0 || result[0] < 1.5
+      provider:
+        prometheus:
+          address: "{{args.prometheus-address}}"
+          query: |
+            histogram_quantile(0.95,
+              sum by (le) (rate(http_server_request_duration_seconds_bucket{service_name="medclaimiq-api"}[5m]))
+            )

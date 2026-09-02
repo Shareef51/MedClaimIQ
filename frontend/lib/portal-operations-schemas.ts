@@ -1,0 +1,14 @@
+import { z } from "zod";
+export const providerDisputeListItemSchema=z.object({recovery_case_id:z.string(),dispute_id:z.string(),external_reference:z.string(),disputed_amount:z.string(),currency:z.string(),reason_code:z.string(),status:z.string(),submitted_at:z.string(),missing_evidence_requests:z.array(z.object({request_id:z.string(),document_types:z.array(z.string()),rationale:z.string(),status:z.string()})).default([])}).passthrough();
+export const providerDisputeListSchema=z.array(providerDisputeListItemSchema);
+export const providerDisputeWorkbenchSchema=z.object({recovery_case_id:z.string(),dispute_id:z.string(),external_reference:z.string(),status:z.string(),disputed_amount:z.string(),currency:z.string(),reason_code:z.string(),missing_evidence_requests:z.array(z.object({request_id:z.string(),document_types:z.array(z.string()),rationale:z.string(),status:z.string(),created_at:z.string().optional(),satisfied_at:z.string().nullable().optional()})).default([]),responses:z.array(z.record(z.string(),z.unknown())).default([]),evidence_processing:z.array(z.record(z.string(),z.unknown())).default([]),notice:z.string()}).passthrough();
+export const settlementCaseSchema=z.object({settlement_case_id:z.string(),recovery_case_id:z.string(),claim_id:z.string(),provider_organization_id:z.string(),target_amount:z.string(),verified_amount:z.string(),remaining_amount:z.string(),currency:z.string(),status:z.string(),case_version:z.number()}).passthrough();
+export const settlementListSchema=z.array(settlementCaseSchema);
+export const settlementWorkbenchSchema=z.object({case:settlementCaseSchema,evidence:z.array(z.record(z.string(),z.unknown())).default([]),correspondence:z.array(z.record(z.string(),z.unknown())).default([]),notice:z.string()}).passthrough();
+export const balanceStatementSchema=z.object({statement_id:z.string(),statement_version:z.number(),as_of_date:z.string(),currency:z.string(),target_recovery:z.string(),verified_recovery:z.string(),remaining_balance:z.string(),payload_sha256:z.string()}).passthrough();
+export const balanceStatementListSchema=z.array(balanceStatementSchema);
+export type ProviderDisputeListItem=z.infer<typeof providerDisputeListItemSchema>;
+export type ProviderDisputeWorkbench=z.infer<typeof providerDisputeWorkbenchSchema>;
+export type SettlementCase=z.infer<typeof settlementCaseSchema>;
+export type SettlementWorkbench=z.infer<typeof settlementWorkbenchSchema>;
+export type BalanceStatement=z.infer<typeof balanceStatementSchema>;

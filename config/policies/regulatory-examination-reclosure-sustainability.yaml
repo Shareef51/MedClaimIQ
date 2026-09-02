@@ -1,0 +1,20 @@
+policy_name: regulatory-examination-reclosure-sustainability
+version: 1
+mode: supervisory-monitoring-and-human-governance
+controls:
+  ai_can_reopen_commitment: false
+  worker_can_reopen_commitment: false
+  worker_can_certify_effectiveness: false
+  mandatory_human_investigation: true
+  third_occurrence_requires_executive_review: true
+  third_occurrence_requires_internal_audit_review: true
+  immutable_escalation_versions: true
+  tenant_isolation_required: true
+  regulator_intent_inference_forbidden: true
+  accounting_mutation_allowed: false
+  payment_authority_allowed: false
+thresholds:
+  moderate_decay_score: 25
+  high_decay_score: 50
+  critical_decay_score: 75
+  systemic_cross_entity_count: 3

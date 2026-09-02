@@ -1,0 +1,11 @@
+{
+  "schema_version": "resilience-results-v1",
+  "experiments": [
+    {"name":"openai-timeout","dependency":"openai","failure_mode":"timeout","steady_state_before":true,"steady_state_after":true,"authorization_boundary_preserved":true,"data_integrity_preserved":true,"expected_fallback":"bounded-retry-then-human-review","observed_fallback":"bounded-retry-then-human-review","recovery_seconds":24.0},
+    {"name":"redis-network-loss","dependency":"redis","failure_mode":"network-loss","steady_state_before":true,"steady_state_after":true,"authorization_boundary_preserved":true,"data_integrity_preserved":true,"expected_fallback":"degraded-cacheless-operation-where-safe","observed_fallback":"degraded-cacheless-operation-where-safe","recovery_seconds":12.0},
+    {"name":"qdrant-unavailable","dependency":"qdrant","failure_mode":"service-unavailable","steady_state_before":true,"steady_state_after":true,"authorization_boundary_preserved":true,"data_integrity_preserved":true,"expected_fallback":"structured-authoritative-evidence-or-human-review","observed_fallback":"structured-authoritative-evidence-or-human-review","recovery_seconds":31.0},
+    {"name":"kafka-unavailable","dependency":"kafka","failure_mode":"broker-unavailable","steady_state_before":true,"steady_state_after":true,"authorization_boundary_preserved":true,"data_integrity_preserved":true,"expected_fallback":"transactional-outbox-retains-events","observed_fallback":"transactional-outbox-retains-events","recovery_seconds":38.0},
+    {"name":"postgres-connection-loss","dependency":"postgresql","failure_mode":"connection-loss","steady_state_before":true,"steady_state_after":true,"authorization_boundary_preserved":true,"data_integrity_preserved":true,"expected_fallback":"fail-request-no-unsafe-partial-write","observed_fallback":"fail-request-no-unsafe-partial-write","recovery_seconds":46.0},
+    {"name":"mcp-circuit-open","dependency":"external-mcp-tool","failure_mode":"repeated-transient-failure","steady_state_before":true,"steady_state_after":true,"authorization_boundary_preserved":true,"data_integrity_preserved":true,"expected_fallback":"circuit-open-fast-fail","observed_fallback":"circuit-open-fast-fail","recovery_seconds":30.0}
+  ]
+}

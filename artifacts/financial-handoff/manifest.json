@@ -1,0 +1,18 @@
+{
+  "capability": "controlling-decision-financial-handoff",
+  "version": "release40-v1",
+  "authority": {
+    "medical_adjudication": "authorized_human_claim_reviewer",
+    "financial_authorization": "distinct_human_finance_approver",
+    "llm": "none",
+    "langgraph": "none",
+    "rag": "none",
+    "mcp": "none",
+    "worker": "none",
+    "adapter": "none"
+  },
+  "artifacts": ["eob_json", "x12_835_style"],
+  "adapter": "sandbox-financial-ledger",
+  "settlement_ingestion": "hmac-sha256",
+  "fund_execution": "external_downstream_system_under_separate_payer_controls"
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "platform": {
+    "kubernetes_minor": "1.36",
+    "terraform_constraint": ">= 1.15.0, < 2.0.0",
+    "helm_version": "4.2.4"
+  },
+  "availability": {
+    "minimum_api_replicas": 3,
+    "minimum_frontend_replicas": 2,
+    "minimum_worker_replicas": 2,
+    "multi_az_required": true,
+    "pod_disruption_budget_required": true,
+    "topology_spread_required": true
+  },
+  "autoscaling": {
+    "hpa_required": true,
+    "api_min": 3,
+    "api_max": 12,
+    "frontend_min": 2,
+    "frontend_max": 8,
+    "worker_min": 2,
+    "worker_max": 20,
+    "keda_kafka_optional": true
+  },
+  "security": {
+    "private_worker_nodes": true,
+    "network_policies_required": true,
+    "pod_security_standard": "restricted",
+    "secrets_store_csi_required": true,
+    "workload_identity_required": true,
+    "public_database_forbidden": true
+  },
+  "data": {
+    "postgres_pitr_required": true,
+    "postgres_backup_retention_days": 35,
+    "object_versioning_required": true,
+    "object_replication_recommended": true,
+    "encryption_required": true
+  },
+  "dr_targets": {
+    "rto_minutes": 60,
+    "rpo_minutes": 5,
+    "restore_test_frequency": "quarterly",
+    "note": "Architecture targets only; production targets require business, legal, compliance and provider validation."
+  },
+  "deployment": {
+    "migration_strategy": "expand-contract",
+    "helm_atomic_required": true,
+    "rolling_update_max_unavailable": 0,
+    "canary_or_blue_green_supported": true
+  },
+  "managed_boundaries": [
+    "postgresql",
+    "redis",
+    "object_storage",
+    "qdrant",
+    "redpanda_kafka",
+    "oidc",
+    "kms_secret_manager"
+  ]
+}

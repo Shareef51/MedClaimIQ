@@ -1,0 +1,71 @@
+{
+  "graph": {
+    "framework": "LangGraph 1.x",
+    "nodes": [
+      "hydrate_evidence",
+      "supervisor",
+      "intake",
+      "specialist",
+      "evidence_fusion",
+      "critic",
+      "decision_support",
+      "human_review_router",
+      "human_gate"
+    ],
+    "parallel_specialists": [
+      "hospital_verification",
+      "invoice_verification",
+      "eligibility",
+      "policy",
+      "coding",
+      "duplicate_claim",
+      "fraud_waste",
+      "denial_risk"
+    ]
+  },
+  "evidence": {
+    "binding_is_immutable": true,
+    "rehydrate_from_authoritative_source": true,
+    "verify_content_sha256_before_agent_use": true,
+    "source_drift_action": "fail_closed_create_new_evidence_pack"
+  },
+  "reliability": {
+    "failure_isolation": "per_specialist_branch",
+    "retryable_failures": [
+      "timeout",
+      "connection",
+      "provider_transient_error"
+    ],
+    "contract_violations_retryable": false,
+    "max_attempts_env": "AGENT_WORKFLOW_DEFAULT_MAX_ATTEMPTS"
+  },
+  "human_review": {
+    "always_required_before_final_claim_decision": true,
+    "interrupt_resume": true,
+    "request_more_evidence_requires_new_immutable_pack": true,
+    "claim_finalization_by_agent": false
+  },
+  "streaming": {
+    "transport": "server_sent_events",
+    "source": "agent_workflow_events",
+    "resume_cursor": "sequence",
+    "cache_control": "no-store",
+    "raw_evidence_in_events": false
+  },
+  "multimodal_agent_orchestration": {
+    "enabled": true,
+    "profile_clamped": true,
+    "parallel_agents": [
+      "hospital_verification",
+      "invoice_verification",
+      "fraud_waste"
+    ],
+    "sequential_agents": [
+      "evidence_fusion",
+      "critic",
+      "decision_support"
+    ],
+    "deterministic_human_escalation": true,
+    "citation_preservation": true
+  }
+}

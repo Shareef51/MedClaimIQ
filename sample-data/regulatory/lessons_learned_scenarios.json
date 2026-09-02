@@ -1,0 +1,7 @@
+[
+  {"scenario":"successful_remediation_pattern","outcome_success_rate":1.0,"retest_pass_rate":1.0,"recurrence_free_rate":1.0,"sustainability_score":0.95,"expected":"benchmark_and_propose_cross_entity_lesson"},
+  {"scenario":"failed_vs_successful_comparison","recurrence_risk":0.9,"control_criticality":0.9,"cross_entity_exposure":0.8,"regulator_relevance":0.9,"expected":"high_priority_human_review"},
+  {"scenario":"regulator_feedback_theme","documented_position":"Evidence-backed supervisory feedback","enterprise_interpretation":"Potential enterprise control theme","ai_observation":"Recommendation only","expected":"keep_three_fields_separate"},
+  {"scenario":"ai_proposes_policy_change","expected":"proposal_only_human_approval_required"},
+  {"scenario":"knowledge_promotion_without_approval","expected":"blocked"}
+]

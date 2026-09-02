@@ -1,0 +1,33 @@
+name: regulatory-examination-reopened-reauthorized-recovery-investigation
+mode: recommendation-analysis-only
+scope:
+  tenant_isolation_required: true
+  release90_human_reopening_reference_required: true
+  immutable_investigation_versions: true
+  immutable_conclusion_versions: true
+  immutable_reauthorization_versions: true
+investigation:
+  multi_cycle_evidence_reconstruction: true
+  prior_recertification_assumption_reassessment: true
+  repeated_failure_root_cause_reconstruction: true
+  cross_entity_causality_requires_human_validation: true
+  failed_control_re_rehabilitation_analysis: true
+  regulator_followup_interpretation_requires_human: true
+reauthorization_governance:
+  human_root_cause_confirmation_required: true
+  renewed_recovery_strategy_required: true
+  independent_internal_audit_challenge_required: true
+  executive_review_required: true
+  human_only_recovery_reauthorization: true
+forbidden:
+  - ai_recovery_remediation_authorization
+  - ai_residual_systemic_risk_acceptance
+  - ai_recovery_effectiveness_certification
+  - ai_program_reclosure
+  - ai_regulatory_commitment_closure
+  - ai_regulator_intent_representation
+  - worker_recovery_remediation_authorization
+  - accounting_record_mutation
+  - payment_authorization
+  - funds_collection
+  - funds_movement

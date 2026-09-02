@@ -1,0 +1,1 @@
+{"baseline_rps":100,"load_rps":500,"stress_rps":1000,"soak_minutes":120,"p95_budget_ms":1500,"p99_budget_ms":3000,"error_rate_budget":0.01,"minimum_headroom_fraction":0.30}

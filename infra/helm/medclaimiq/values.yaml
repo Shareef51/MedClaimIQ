@@ -1,0 +1,196 @@
+global:
+  environment: production
+  cloudProvider: aws
+  imagePullPolicy: IfNotPresent
+  imagePullSecrets: []
+  podLabels: {}
+  podSecurityContext:
+    runAsNonRoot: true
+    seccompProfile: {type: RuntimeDefault}
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+    capabilities: {drop: ["ALL"]}
+
+images:
+  api: {repository: ghcr.io/example/medclaimiq-api, tag: latest, digest: ""}
+  frontend: {repository: ghcr.io/example/medclaimiq-frontend, tag: latest, digest: ""}
+
+release:
+  id: local-development
+  gitSha: unknown
+  alembicHead: unknown
+  manifestSha256: ""
+  sbomSha256: ""
+  provenanceSha256: ""
+  strategy: rolling
+  gateSummaryJson: "{}"
+  prometheusAddress: http://prometheus-operated.monitoring.svc:9090
+  rollbackThresholds:
+    http5xxRatio: 0.02
+    p95Seconds: 1.5
+  auditEnabled: false
+  auditTenantId: tenant-production
+
+api:
+  replicas: 3
+  port: 8000
+  resources:
+    requests: {cpu: 500m, memory: 768Mi}
+    limits: {cpu: "2", memory: 2Gi}
+  autoscaling: {enabled: true, minReplicas: 3, maxReplicas: 12, cpuUtilization: 65, memoryUtilization: 75}
+
+frontend:
+  replicas: 2
+  port: 3000
+  resources:
+    requests: {cpu: 250m, memory: 384Mi}
+    limits: {cpu: "1", memory: 1Gi}
+  autoscaling: {enabled: true, minReplicas: 2, maxReplicas: 8, cpuUtilization: 65, memoryUtilization: 75}
+
+workers:
+  outbox-relay: {enabled: true, replicas: 2, command: ["python","-m","app.workers.production_runtime","outbox-relay"]}
+  event-replay: {enabled: true, replicas: 2, command: ["python","-m","app.workers.production_runtime","event-replay"]}
+  sla-event-scheduler: {enabled: true, replicas: 2, command: ["python","-m","app.workers.production_runtime","sla-event-scheduler"]}
+  sla-timer: {enabled: true, replicas: 2, command: ["python","-m","app.workers.production_runtime","sla-timer"]}
+  knowledge-reindex: {enabled: true, replicas: 2, command: ["python","-m","app.workers.production_runtime","knowledge-reindex"]}
+  communication-delivery: {enabled: true, replicas: 2, command: ["python","-m","app.workers.production_runtime","communication-delivery"]}
+  financial-handoff: {enabled: true, replicas: 2, command: ["python","-m","app.workers.production_runtime","financial-handoff"]}
+  accounting-reconciliation: {enabled: true, replicas: 2, command: ["python","-m","app.workers.production_runtime","accounting-reconciliation"]}
+  financial-intelligence: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","financial-intelligence"]}
+  financial-investigation: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","financial-investigation"]}
+  recovery-operations: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","recovery-operations"]}
+  provider-dispute-intelligence: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","provider-dispute-intelligence"]}
+  recovery-settlement: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","recovery-settlement"]}
+  recovery-settlement-intelligence: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","recovery-settlement-intelligence"]}
+  recovery-control-assurance: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","recovery-control-assurance"]}
+  regulatory-submission-transport: {enabled: true, replicas: 2, command: ["python","-m","app.workers.production_runtime","regulatory-submission-transport"]}
+  regulatory-supervisory-control: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","regulatory-supervisory-control"]}
+  regulatory-examination: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","regulatory-examination"]}
+  regulatory-remediation: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","regulatory-remediation"]}
+  regulatory-portfolio-oversight: {enabled: true, replicas: 1, command: ["python","-m","app.workers.production_runtime","regulatory-portfolio-oversight"]}
+workerResources:
+  requests: {cpu: 250m, memory: 384Mi}
+  limits: {cpu: "1", memory: 1Gi}
+
+serviceAccount:
+  create: true
+  name: medclaimiq
+  annotations: {}
+
+config:
+  APP_ENV: production
+  LOG_LEVEL: INFO
+  SECURITY_RATE_LIMIT_BACKEND: redis
+  MALWARE_SCAN_REQUIRED: "true"
+  LANGGRAPH_STRICT_MSGPACK: "true"
+  AI_CONFIG_REGISTRY_ENABLED: "true"
+  AI_CONFIG_REGISTRY_REQUIRED: "false"
+  AI_CONFIG_BUNDLE_KEY: agents.default
+  KNOWLEDGE_REINDEX_POLL_SECONDS: "2.0"
+  KNOWLEDGE_STALE_SCAN_SECONDS: "900"
+  RAG_ADVANCED_MODEL_ASSISTED_REWRITING_ENABLED: "false"
+  RAG_ADVANCED_QUERY_MODEL: gpt-5.6-terra
+  FINANCIAL_INTELLIGENCE_COPILOT_MODEL_ENABLED: "false"
+  FINANCIAL_INTELLIGENCE_COPILOT_MODEL: gpt-5.6-terra
+  REGULATORY_REMEDIATION_RECOMMENDATION_MODEL_ENABLED: "false"
+  REGULATORY_REMEDIATION_RECOMMENDATION_MODEL: gpt-5.6-terra
+  RAG_ADVANCED_MAX_REWRITES: "5"
+  RAG_ADVANCED_MAX_ROUNDS: "2"
+  RAG_ADVANCED_GAP_CONFIDENCE: "0.55"
+  RAG_ADVANCED_MIN_CITATION_COVERAGE: "0.80"
+  RAG_MULTIMODAL_MAX_CANDIDATES: "60"
+  RAG_MULTIMODAL_MINIMUM_CONFIDENCE: "0.50"
+  RAG_MULTIMODAL_MINIMUM_CITATION_COVERAGE: "0.80"
+  MULTIMODAL_AGENT_ORCHESTRATION_ENABLED: "true"
+  MULTIMODAL_AGENT_MAX_PACK_ITEMS: "18"
+  COMMUNICATION_DESTINATION_KEY_VERSION: v1
+  COMMUNICATION_WORKER_LEASE_SECONDS: "60"
+  COMMUNICATION_WORKER_POLL_SECONDS: "1.0"
+  COMMUNICATION_MAX_DELIVERY_ATTEMPTS: "5"
+  COMMUNICATION_RETRY_BASE_SECONDS: "30"
+  COMMUNICATION_RETRY_MAX_SECONDS: "3600"
+  COMMUNICATION_RETENTION_DAYS: "2555"
+  COMMUNICATION_DELIVERY_SLO_PERCENT: "99.0"
+  FINANCIAL_HANDOFF_WORKER_POLL_SECONDS: "1.0"
+  REGULATORY_TRANSPORT_MAX_ATTEMPTS: "5"
+  REGULATORY_TRANSPORT_BASE_BACKOFF_SECONDS: "30"
+  REGULATORY_TRANSPORT_DELIVERY_SLA_HOURS: "24"
+  S3_USE_DEFAULT_CREDENTIAL_CHAIN: "true"
+  S3_ENDPOINT_URL: ""
+  S3_PUBLIC_ENDPOINT_URL: ""
+  S3_REGION: us-east-1
+  S3_SERVER_SIDE_ENCRYPTION: aws:kms
+  OIDC_ISSUER_URL: https://identity.example.invalid/medclaimiq
+  OIDC_AUDIENCE: medclaimiq-api
+
+frontendConfig:
+  MEDCLAIMIQ_BACKEND_URL: http://medclaimiq-api:8000
+  MEDCLAIMIQ_FRONTEND_ORIGIN: https://medclaimiq.example.com
+  MEDCLAIMIQ_DEFAULT_TENANT_ID: tenant-production
+  MEDCLAIMIQ_OIDC_ISSUER: https://identity.example.invalid/medclaimiq
+  MEDCLAIMIQ_OIDC_CLIENT_ID: medclaimiq-reviewer-ui
+  MEDCLAIMIQ_OIDC_SCOPE: openid profile email offline_access medclaimiq.api
+
+managedServices:
+  databaseUrlSecretKey: DATABASE_URL
+  redisUrlSecretKey: REDIS_URL
+  kafkaBootstrapSecretKey: KAFKA_BOOTSTRAP_SERVERS
+  qdrantUrlSecretKey: QDRANT_URL
+  qdrantApiKeySecretKey: QDRANT_API_KEY
+  objectBucketSecretKey: S3_BUCKET
+  kmsKeySecretKey: S3_SSE_KMS_KEY_ID
+  openaiApiKeySecretKey: OPENAI_API_KEY
+  communicationDestinationSecretKey: COMMUNICATION_DESTINATION_ENCRYPTION_SECRET
+  communicationWebhookSecretKey: COMMUNICATION_PROVIDER_WEBHOOK_SECRET
+  communicationWorkerTokenSecretKey: COMMUNICATION_WORKER_TOKEN
+  financialSettlementWebhookSecretKey: FINANCIAL_SETTLEMENT_WEBHOOK_SECRET
+  regulatoryTransportEncryptionKey: REGULATORY_TRANSPORT_ENCRYPTION_KEY
+  regulatoryTransportSigningSecret: REGULATORY_TRANSPORT_SIGNING_SECRET
+  regulatoryAckWebhookSecret: REGULATORY_ACK_WEBHOOK_SECRET
+
+secretsStore:
+  enabled: true
+  provider: aws
+  secretProviderClassName: medclaimiq-runtime-secrets
+  aws:
+    secretsManagerObjectName: medclaimiq/production/runtime
+  azure:
+    keyVaultName: ""
+    tenantId: ""
+    clientId: ""
+
+migration:
+  enabled: true
+  backoffLimit: 2
+
+pdb:
+  enabled: true
+  apiMinAvailable: 2
+  frontendMinAvailable: 1
+  workerMinAvailable: 1
+
+ingress:
+  enabled: true
+  className: nginx
+  host: medclaimiq.example.com
+  tlsSecretName: medclaimiq-tls
+  annotations: {}
+
+networkPolicy:
+  enabled: true
+  ingressControllerNamespace: ingress-nginx
+  ingressControllerPodLabels: {app.kubernetes.io/component: controller}
+  managedServiceCidrs: ["10.0.0.0/8"]
+  managedServicePorts: [443, 5432, 6379, 6333, 9092, 9000]
+
+keda:
+  enabled: false
+  kafkaBootstrapServers: ""
+  consumerGroup: medclaimiq-workers
+  topic: medclaimiq.claim.events.v1
+  lagThreshold: "100"
+
+rollout:
+  maxUnavailable: 0
+  maxSurge: 1

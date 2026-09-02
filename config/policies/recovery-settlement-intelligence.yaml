@@ -1,0 +1,23 @@
+source_of_truth: release47_governed_recovery_settlement
+read_only: true
+derived_records:
+  immutable: true
+  provider_balance_statements: true
+  analytics_snapshots: true
+  exception_investigations: true
+  closeout_report_manifests: true
+  copilot_provenance: true
+provider_statement_delivery:
+  channel: portal
+  human_release_roles: [finance_analyst, finance_approver, tenant_admin]
+rag:
+  strategy: settlement_ledger_hybrid_lexical_citation_retrieval_v1
+  citations_required: true
+authority:
+  ai_alter_balance: false
+  ai_post_journal: false
+  ai_authorize_payment: false
+  ai_modify_closeout_certificate: false
+  worker_create_bank_transaction: false
+  worker_collect_funds: false
+  automatic_fund_movement: false

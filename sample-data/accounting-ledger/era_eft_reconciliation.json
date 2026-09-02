@@ -1,0 +1,18 @@
+{
+  "scenario": "synthetic_multi_payment_reconciliation",
+  "claim_id": "claim-demo-41",
+  "payment_intent_id": "pay-demo-41",
+  "expected_amount": "1000.00",
+  "currency": "USD",
+  "era": [
+    {"era_reference":"ERA-DEMO-1","payment_reference":"BATCH-DEMO-41","paid_amount":"400.00"},
+    {"era_reference":"ERA-DEMO-2","payment_reference":"BATCH-DEMO-41","paid_amount":"600.00"}
+  ],
+  "eft": [
+    {"eft_reference":"EFT-DEMO-1","bank_reference":"BATCH-DEMO-41","amount":"250.00"},
+    {"eft_reference":"EFT-DEMO-2","bank_reference":"BATCH-DEMO-41","amount":"750.00"}
+  ],
+  "expected_reconciliation":"reconciled",
+  "expected_journal":{"debit":{"claims_payable":"1000.00"},"credit":{"cash_clearing":"1000.00"}},
+  "synthetic_only":true
+}

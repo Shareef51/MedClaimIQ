@@ -1,0 +1,6 @@
+[
+  {"scenario":"clean_sustained_closure","readiness":100,"recurrence":false,"expected":"sustained"},
+  {"scenario":"unresolved_exception","readiness":90,"expected":"blocked"},
+  {"scenario":"recurrence_after_certification","readiness":100,"recurrence":true,"expected":"reopen_candidate"},
+  {"scenario":"sod_violation","expected":"certification_blocked"}
+]

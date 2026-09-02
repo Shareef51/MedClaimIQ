@@ -1,0 +1,21 @@
+version: release43-v1
+case_creation:
+  automated_from_release42_anomalies: true
+  max_batch: 50
+  duplicate_overpayment_cluster_dimensions: [case_type, provider_organization_id, anomaly_code]
+leases:
+  default_minutes: 30
+  max_minutes: 120
+sla:
+  triage_hours: 4
+  investigation_hours: 24
+  remediation_review_hours: 12
+remediation:
+  material_amount: 100.00
+  dual_approval_types: [payment_hold, void_reissue_referral, adjustment_referral, recoupment_referral]
+authority:
+  ai_recommendation_only: true
+  human_root_cause_required: true
+  human_case_closure_required: true
+  background_worker_can_execute_remediation: false
+  background_worker_can_move_funds: false

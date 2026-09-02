@@ -1,0 +1,19 @@
+{
+  "synthetic_only": true,
+  "claim": "claim-syn-001",
+  "canonical_entities": [
+    {"type": "patient", "key": "patient-subject-syn-001"},
+    {"type": "claim", "key": "claim-syn-001"},
+    {"type": "claim_line", "key": "claim-line-syn-001"},
+    {"type": "encounter", "key": "encounter-syn-001"},
+    {"type": "policy", "key": "policy-syn-001"},
+    {"type": "eob", "key": "eob-001"}
+  ],
+  "expected_relationships": ["subject_of", "has_line", "occurred_during", "covered_by", "supports"],
+  "contradiction_example": {
+    "field": "amount",
+    "submitted_claim": "150.00",
+    "hospital_eob": "125.00",
+    "expected": "material contradiction; human review required"
+  }
+}

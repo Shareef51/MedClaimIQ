@@ -1,0 +1,26 @@
+{
+  "release": 108,
+  "targeted_release108_tests": "5/5 passed",
+  "security_cross_domain_regression": "99/99 passed",
+  "backend_tests_discovered": 792,
+  "monolithic_full_suite": {
+    "status": "partial",
+    "progress_percent": 36,
+    "observed_failures": 0,
+    "reason": "execution timeout; not counted as complete pass"
+  },
+  "release107_verifier": "pass",
+  "release108_verifier": "pass",
+  "offline_security_baseline": "pass",
+  "credential_pattern_findings": 0,
+  "migration_graph": {
+    "revision_count": 104,
+    "root": "0001_enterprise_tenancy",
+    "head": "0103_release_security_red_team_certification",
+    "missing_predecessors": 0,
+    "duplicates": 0,
+    "cycles": 0
+  },
+  "human_security_certification_required": true,
+  "automated_production_promotion": false
+}

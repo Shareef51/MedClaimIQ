@@ -1,0 +1,7 @@
+[
+  {"case_key":"material-reduction","outcome":"reduce_recovery","material":true,"resolved_policy_conflicts":true,"citations":true,"second_review":true,"expected":"closable","requires_human_resolution":true},
+  {"case_key":"unresolved-policy-conflict","outcome":"reduce_recovery","material":true,"resolved_policy_conflicts":false,"citations":true,"second_review":true,"expected":"blocked","requires_human_resolution":true},
+  {"case_key":"missing-citations","outcome":"uphold_recovery","material":false,"resolved_policy_conflicts":true,"citations":false,"second_review":false,"expected":"blocked","requires_human_resolution":true},
+  {"case_key":"material-withdrawal-no-second-review","outcome":"withdraw_recovery","material":true,"resolved_policy_conflicts":true,"citations":true,"second_review":false,"expected":"blocked","requires_human_resolution":true},
+  {"case_key":"reversal-referral","outcome":"withdraw_recovery","material":true,"resolved_policy_conflicts":true,"citations":true,"second_review":true,"expected":"pending_human_accounting_referral","requires_human_resolution":true}
+]

@@ -1,0 +1,81 @@
+{
+  "release": 107,
+  "cross_domain_coverage": [
+    {
+      "domain": "multimodal/document intelligence",
+      "tests": [
+        "test_document_intelligence.py"
+      ],
+      "release_gate": "cross_domain_golden_journeys"
+    },
+    {
+      "domain": "healthcare/FHIR",
+      "tests": [
+        "test_fhir_normalization_and_verification.py"
+      ],
+      "release_gate": "cross_domain_golden_journeys"
+    },
+    {
+      "domain": "Multi-RAG/grounding",
+      "tests": [
+        "test_multi_rag_chunking.py",
+        "test_rag_grounding_guardrails.py"
+      ],
+      "release_gate": "ai_evaluation_quality"
+    },
+    {
+      "domain": "LangGraph specialist orchestration",
+      "tests": [
+        "test_agent_orchestration.py"
+      ],
+      "release_gate": "durable_workflow_recovery"
+    },
+    {
+      "domain": "MCP tool boundary",
+      "tests": [
+        "test_mcp_control_plane.py"
+      ],
+      "release_gate": "failure_injection_resilience"
+    },
+    {
+      "domain": "human review/claim closure",
+      "tests": [
+        "test_review_workbench.py",
+        "test_governed_human_claim_closure.py"
+      ],
+      "release_gate": "cross_domain_golden_journeys"
+    },
+    {
+      "domain": "event/SSE backbone",
+      "tests": [
+        "test_realtime_event_backbone.py"
+      ],
+      "release_gate": "event_sse_integrity"
+    },
+    {
+      "domain": "regulatory governance",
+      "tests": [
+        "test_regulatory_examination_reclosed_reauthorized_enterprise_remediation_reexecution_surveillance.py"
+      ],
+      "release_gate": "cross_domain_golden_journeys"
+    },
+    {
+      "domain": "immutable GitOps release engineering",
+      "tests": [
+        "test_release_engineering.py"
+      ],
+      "release_gate": "release_engineering_controls"
+    },
+    {
+      "domain": "release-candidate hardening",
+      "tests": [
+        "test_production_end_to_end_system_integration.py"
+      ],
+      "release_gate": "all"
+    }
+  ],
+  "selected_cross_domain_regression": {
+    "passed": 99,
+    "failed": 0
+  }
+}

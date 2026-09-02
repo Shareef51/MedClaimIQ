@@ -1,0 +1,9 @@
+{
+  "scenario": "synthetic_regulator_rejection_then_effective_amendment",
+  "original_transmission": {"status": "rejected", "rejection_code": "RULE-51", "signature_verified": true},
+  "human_root_cause": {"classification": "schema_validation", "required": true},
+  "superseding_amendment": {"certified_by_release49": true, "released_by_human": true, "acknowledgment": "accepted", "signature_verified": true},
+  "supervisory_controls": ["certified_package", "human_release_bound", "transmission_completeness", "package_to_regulator_tieout", "cryptographic_acknowledgment", "accepted_or_effective_amendment"],
+  "independent_human_supervisory_certification_required": true,
+  "automation_authority": "monitoring_and_recommendation_only"
+}

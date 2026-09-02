@@ -1,0 +1,74 @@
+{
+  "cases": [
+    {
+      "case_id": "policy-hyde",
+      "metrics": {
+        "agent_domain_safety": 1.0,
+        "hyde_safety": 1.0,
+        "metadata_filter_safety": 1.0,
+        "rewrite_core_term_retention": 1.0,
+        "routing_accuracy": 1.0
+      },
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "case_id": "coding-exact",
+      "metrics": {
+        "agent_domain_safety": 1.0,
+        "hyde_safety": 1.0,
+        "metadata_filter_safety": 1.0,
+        "rewrite_core_term_retention": 1.0,
+        "routing_accuracy": 1.0
+      },
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "case_id": "fhir-temporal",
+      "metrics": {
+        "agent_domain_safety": 1.0,
+        "hyde_safety": 1.0,
+        "metadata_filter_safety": 1.0,
+        "rewrite_core_term_retention": 1.0,
+        "routing_accuracy": 1.0
+      },
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "case_id": "duplicate-history",
+      "metrics": {
+        "agent_domain_safety": 1.0,
+        "hyde_safety": 1.0,
+        "metadata_filter_safety": 1.0,
+        "rewrite_core_term_retention": 1.0,
+        "routing_accuracy": 1.0
+      },
+      "passed": true,
+      "reasons": []
+    },
+    {
+      "case_id": "authorization-scope",
+      "metrics": {
+        "agent_domain_safety": 1.0,
+        "hyde_safety": 1.0,
+        "metadata_filter_safety": 1.0,
+        "rewrite_core_term_retention": 1.0,
+        "routing_accuracy": 1.0
+      },
+      "passed": true,
+      "reasons": []
+    }
+  ],
+  "dataset_version": "advanced-rag-v1",
+  "decision": "pass",
+  "metrics": {
+    "agent_domain_safety": 1.0,
+    "hyde_safety": 1.0,
+    "metadata_filter_safety": 1.0,
+    "rewrite_core_term_retention": 1.0,
+    "routing_accuracy": 1.0
+  },
+  "reasons": []
+}

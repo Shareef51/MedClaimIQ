@@ -1,0 +1,8 @@
+{
+  "version": "continuous-assurance-v1",
+  "mode": "monitoring_and_recommendation_only",
+  "thresholds": {"moderate": 35, "high": 60, "critical": 80, "evidence_stale_days": 30},
+  "signal_types": ["control_health", "control_test_failure", "commitment_trajectory", "recurrence_signal", "evidence_freshness", "remediation_sustainability"],
+  "human_investigation_required": ["high", "critical"],
+  "prohibited_actions": ["approve_remediation", "accept_residual_risk", "certify_control", "close_finding", "change_regulatory_commitment", "execute_corrective_action", "alter_accounting_record", "authorize_payment", "move_money"]
+}

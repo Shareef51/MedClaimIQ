@@ -1,0 +1,6 @@
+{
+  "metric": "multimodal_agent_contract_accuracy",
+  "value": 1.0,
+  "passed": true,
+  "checks": 10
+}

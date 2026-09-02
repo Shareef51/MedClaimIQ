@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "response_model_enabled_by_default": false,
+  "response_model": "gpt-5.6-terra",
+  "response_approval": "independent_human_checker_required",
+  "cited_evidence_required": true,
+  "maker_checker_separation_required": true,
+  "open_document_requests_block_closure": true,
+  "open_material_findings_block_closure": true,
+  "open_remediation_commitments_block_closure": true,
+  "secure_delivery_channels": ["regulator_portal", "sftp_reference", "encrypted_email", "secure_api_reference"],
+  "automation_authority": "retrieval_drafting_monitoring_only",
+  "financial_accounting_mutation_authority": false,
+  "payment_authority": false,
+  "fund_movement_authority": false
+}

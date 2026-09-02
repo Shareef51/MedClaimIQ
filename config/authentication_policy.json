@@ -1,0 +1,33 @@
+{
+  "policy_id": "medclaimiq.authentication.v1",
+  "token_profile": {
+    "protocol": "OIDC/OAuth2 bearer JWT resource server",
+    "allowed_algorithms": ["RS256"],
+    "required_claims": ["iss", "sub", "aud", "iat", "exp"],
+    "required_api_scope": "medclaimiq.api",
+    "jwks_source": "configured issuer discovery only",
+    "token_header_urls_trusted": false
+  },
+  "identity_mapping": {
+    "external_key": ["issuer", "subject"],
+    "roles_from_token": false,
+    "tenant_from_token": false,
+    "authorization_source": "persisted tenant membership"
+  },
+  "tenant_context": {
+    "selector_header": "X-Tenant-Id",
+    "selector_is_authorization": false,
+    "membership_required": true,
+    "database_rls_context": "app.current_tenant_id"
+  },
+  "session_security": {
+    "persist_raw_access_tokens": false,
+    "persist_raw_refresh_tokens": false,
+    "persist_raw_oidc_session_ids": false,
+    "identifier_storage": "HMAC-SHA256",
+    "revocation_supported": true,
+    "absolute_max_age_seconds": 43200,
+    "requires_sid_or_jti": true,
+    "client_binding_default": false
+  }
+}

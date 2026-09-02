@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "targets": {"rto_minutes": 60, "rpo_minutes": 5},
+  "systems": {
+    "postgresql": {"authority": "authoritative", "backup": "managed PITR", "restore_required": true, "verification": ["migration head", "tenant isolation", "claim/evidence row counts"]},
+    "object_storage": {"authority": "authoritative evidence bytes", "backup": "versioning + geo/cross-region replication", "restore_required": true, "verification": ["version exists", "representative SHA-256 provenance matches"]},
+    "redis": {"authority": "non-authoritative cache/coordination", "backup": "managed snapshots where applicable", "restore_required": false, "verification": ["application repopulates safely"]},
+    "qdrant": {"authority": "rebuildable projection", "backup": "managed snapshot optional", "restore_required": false, "verification": ["rebuild from PostgreSQL RAG manifests", "retrieval smoke test"]},
+    "kafka_redpanda": {"authority": "event transport", "backup": "managed replication/backup", "restore_required": true, "verification": ["consumer groups healthy", "transactional outbox replay reconciled"]},
+    "kubernetes": {"authority": "declarative compute", "backup": "Terraform + Helm + signed images", "restore_required": true, "verification": ["health probes", "PDB/HPA/network policy present"]}
+  }
+}

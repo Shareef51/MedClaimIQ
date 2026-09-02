@@ -1,0 +1,14 @@
+{
+  "dense_only": {
+    "mean_recall_at_3": 1.0,
+    "mean_ndcg_at_3": 0.7753252713598225
+  },
+  "hybrid": {
+    "mean_recall_at_3": 1.0,
+    "mean_ndcg_at_3": 1.0
+  },
+  "hybrid_reranked": {
+    "mean_recall_at_3": 1.0,
+    "mean_ndcg_at_3": 1.0
+  }
+}

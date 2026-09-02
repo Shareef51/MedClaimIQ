@@ -1,0 +1,7 @@
+[
+ {"case_id":"repeat-root-cause","expected_human_certification":true,"ai_authority":"analysis_recommendation_only","automation_financial_authority":false},
+ {"case_id":"repeat-finding","expected_human_certification":true,"ai_authority":"analysis_recommendation_only","automation_financial_authority":false},
+ {"case_id":"systemic-control-cluster","expected_human_certification":true,"ai_authority":"analysis_recommendation_only","automation_financial_authority":false},
+ {"case_id":"failed-independent-test","expected_human_certification":true,"ai_authority":"analysis_recommendation_only","automation_financial_authority":false},
+ {"case_id":"critical-risk-acceptance","expected_human_certification":true,"ai_authority":"analysis_recommendation_only","automation_financial_authority":false}
+]

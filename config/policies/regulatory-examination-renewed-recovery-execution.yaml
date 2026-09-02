@@ -1,0 +1,21 @@
+policy_name: regulatory-examination-renewed-recovery-execution
+version: 1
+recommendation_only: true
+human_authority:
+  control_rehabilitation_approval: required
+  residual_systemic_risk_acceptance: required
+  recovery_effectiveness_certification: required
+  regulatory_commitment_closure: required
+  program_reclosure: required
+independent_revalidation:
+  required: true
+  roles: [internal_auditor, chief_audit_executive, independent_assurance]
+executive_review_roles: [chief_risk_officer, chief_compliance_officer, executive_risk_committee, executive_certifier]
+automation_prohibitions:
+  approve_control_rehabilitation: true
+  accept_residual_risk: true
+  certify_recovery: true
+  close_regulatory_commitments: true
+  reclose_program: true
+  alter_accounting_records: true
+  authorize_payments: true

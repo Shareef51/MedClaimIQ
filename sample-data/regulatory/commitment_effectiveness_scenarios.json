@@ -1,0 +1,6 @@
+[
+  {"scenario":"closure_ready","commitment_id":"C-69-001","milestones":["completed"],"evidence_types":["control_test"],"independent_result":"effective","follow_up":"acknowledged","entity_implementation":true},
+  {"scenario":"dependency_block","commitment_id":"C-69-002","dependency_status":"blocked","expected":"closure_blocked"},
+  {"scenario":"sustainability_recurrence","commitment_id":"C-69-003","days_since_closure":18,"control_effective":false,"expected":"human_reopen_review"},
+  {"scenario":"cross_entity_gap","commitment_id":"C-69-004","entity_checks":[{"entity":"US","implemented":true},{"entity":"EU","implemented":false}],"expected":"closure_blocked"}
+]

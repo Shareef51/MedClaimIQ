@@ -1,0 +1,6 @@
+[
+  {"scenario":"control effectiveness drift","signal_type":"control_health","expected_value":92,"observed_value":61,"evidence_age_days":12,"expected":"material drift surfaced for human review"},
+  {"scenario":"failed retest","signal_type":"control_test_failure","expected_value":95,"observed_value":20,"evidence_age_days":2,"expected":"critical early warning; no automated remediation"},
+  {"scenario":"stale evidence","signal_type":"evidence_freshness","expected_value":90,"observed_value":82,"evidence_age_days":75,"expected":"freshness-driven assurance warning"},
+  {"scenario":"commitment trajectory deterioration","signal_type":"commitment_trajectory","expected_value":88,"observed_value":49,"evidence_age_days":7,"expected":"supervisory early warning and human investigation"}
+]

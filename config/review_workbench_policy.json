@@ -1,0 +1,10 @@
+{
+  "queue": {
+    "priority_score_max": 100,
+    "inputs": ["claim_status", "overdue_sla", "critical_sla", "guardrail_escalation", "human_checkpoint", "material_contradiction", "claim_amount"],
+    "bands": {"critical": 80, "high": 55, "normal": 25}
+  },
+  "locking": {"default_lease_seconds": 300, "minimum": 60, "maximum": 1800, "token_storage": "sha256", "optimistic_claim_status_version": true},
+  "decision": {"human_only": true, "reason_codes_required": true, "override_reason_required_when_ai_disagrees": true, "evidence_snapshot_required": true},
+  "audit": {"notes_immutable": true, "review_events_immutable": true, "decision_metadata_immutable": true, "realtime_events": true}
+}

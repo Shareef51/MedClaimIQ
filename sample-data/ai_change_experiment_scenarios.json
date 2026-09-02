@@ -1,0 +1,30 @@
+{
+  "dataset": "synthetic-ai-change-management-v1",
+  "scenarios": [
+    {
+      "name": "shadow-prompt-challenger",
+      "mode": "shadow",
+      "config_key": "agents.policy",
+      "champion_version": "1.0.0",
+      "challenger_version": "1.1.0",
+      "challenger_basis_points": 5000,
+      "expected": "challenger evaluated but user-visible claim support remains champion"
+    },
+    {
+      "name": "production-model-promotion",
+      "mode": "champion_challenger",
+      "config_key": "agents.default-model",
+      "expected": "passing evaluation plus independent tenant-admin approval required"
+    },
+    {
+      "name": "retrieval-rollback",
+      "config_key": "rag.hybrid-retrieval",
+      "expected": "environment assignment switches to previous immutable snapshot without editing snapshot payload"
+    },
+    {
+      "name": "configuration-drift",
+      "config_key": "rag.hybrid-retrieval",
+      "expected": "observed payload SHA mismatch produces immutable drift event"
+    }
+  ]
+}

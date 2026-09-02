@@ -1,0 +1,25 @@
+{
+  "policy": "regulatory-supervisory-reauthorized-recovery-execution",
+  "recommendation_only_ai": true,
+  "release91_supervisory_recovery_reauthorization_reference_required": true,
+  "release91_reopened_recovery_investigation_reference_required": true,
+  "human_control_retransformation_approval_required": true,
+  "independent_recovery_assurance_required": true,
+  "cross_entity_sequence_and_critical_path_review_required": true,
+  "evidence_bound_execution_checkpoints_required": true,
+  "implementation_drift_requires_human_review": true,
+  "recovery_kpi_baselines_required": true,
+  "executive_progress_governance_required": true,
+  "forbidden_automations": [
+    "control_retransformation_approval",
+    "residual_systemic_risk_acceptance",
+    "recovery_effectiveness_certification",
+    "regulatory_commitment_closure",
+    "program_reclosure",
+    "regulator_intent_representation",
+    "accounting_record_mutation",
+    "payment_authorization",
+    "funds_collection",
+    "funds_movement"
+  ]
+}

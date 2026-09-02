@@ -1,0 +1,12 @@
+{
+  "artifact": "regulatory-supervision-evaluation",
+  "authority": "monitoring_and_recommendation_only",
+  "human_supervisory_certification_required": true,
+  "cases": 5,
+  "evaluation_result": {
+    "cases": 5,
+    "passed": 5,
+    "pass_rate": 1.0,
+    "authority_violations": 0
+  }
+}

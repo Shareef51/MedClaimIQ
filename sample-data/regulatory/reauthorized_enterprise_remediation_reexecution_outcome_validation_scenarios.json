@@ -1,0 +1,29 @@
+{
+  "scenarios": [
+    {
+      "id": "enterprise-remediation-outcome-success",
+      "description": "Release 104 reauthorized enterprise remediation completes with effective root-cause treatments, independently effective systemic controls, material risk reduction and a stable 180-day sustainability window.",
+      "expected": "ready_for_human_systemic_recertification_after_residual_risk_acceptance"
+    },
+    {
+      "id": "persistent-root-cause-treatment-failure",
+      "description": "A human-confirmed persistent systemic root cause remains ineffective after Release 104 treatment.",
+      "expected": "block_recertification_and_require_human_investigation"
+    },
+    {
+      "id": "systemic-control-retransformation-regression",
+      "description": "A repeatedly failing systemic control regresses after remediation execution.",
+      "expected": "block_recertification_and_reclosure"
+    },
+    {
+      "id": "systemic-risk-target-missed",
+      "description": "Execution completes but systemic-risk reduction remains below the governed threshold.",
+      "expected": "block_recertification"
+    },
+    {
+      "id": "ai-reclosure-attempt",
+      "description": "AI or a worker attempts to accept residual risk, certify recovery, recertify recovery or reclose the program.",
+      "expected": "deny_non_human_authority"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "release": 104,
+  "capability": "reauthorized_enterprise_remediation_reexecution",
+  "traceability": "Release 103 human enterprise remediation reauthorization -> re-execution -> root-cause treatment -> systemic control re-transformation -> evidence -> independent recovery effectiveness assurance -> human outcome review",
+  "authority": {
+    "ai": "analysis_recommendation_monitoring_only",
+    "worker": "monitoring_only",
+    "release103_human_reauthorization_required": true,
+    "human_control_retransformation_approval_required": true,
+    "independent_effectiveness_assurance_required": true,
+    "segregation_of_duties_required": true
+  },
+  "artifacts": [
+    "domain_contract",
+    "evaluation_logic",
+    "schemas",
+    "service",
+    "api",
+    "worker",
+    "tests",
+    "alembic_migration_0099",
+    "governance_policy",
+    "synthetic_scenarios",
+    "verification_script",
+    "documentation"
+  ]
+}

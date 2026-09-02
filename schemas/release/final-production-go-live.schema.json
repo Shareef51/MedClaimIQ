@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MedClaimIQ Final Production Go-Live Evidence",
+  "type": "object",
+  "required": [
+    "release_id",
+    "candidate_version",
+    "release107_release_candidate_decision_version_id",
+    "release108_release_security_certification_version_id",
+    "release109_operational_readiness_certification_version_id",
+    "gates",
+    "evidence_refs"
+  ],
+  "properties": {
+    "release_id": {
+      "type": "string"
+    },
+    "candidate_version": {
+      "type": "string"
+    },
+    "gates": {
+      "type": "object"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "release": 97,
+  "capability": "enterprise_recovery_outcome_validation_systemic_recovery_recertification_sustainability_reclosure",
+  "migration": "0092_reg_exam_enterprise_recovery_outcome_validation",
+  "predecessor": "0091_reg_exam_enterprise_reauthorized_recovery_execution",
+  "authority": "human_only_for_residual_risk_recertification_commitment_closure_and_reclosure",
+  "traceability": "release95_reauthorization -> release96_execution -> independent_assurance -> release97_outcome_validation -> human_residual_risk -> executive_recertification -> human_reclosure",
+  "artifacts": [
+    "backend/app/domain/regulatory_examination_enterprise_recovery_outcome_validation.py",
+    "backend/app/evaluation/regulatory_examination_enterprise_recovery_outcome_validation.py",
+    "backend/app/schemas/regulatory_examination_enterprise_recovery_outcome_validation.py",
+    "backend/app/services/regulatory_examination_enterprise_recovery_outcome_validation.py",
+    "backend/app/api/v1/regulatory_examination_enterprise_recovery_outcome_validation.py",
+    "backend/app/workers/regulatory_examination_enterprise_recovery_outcome_validation.py",
+    "backend/tests/test_regulatory_examination_enterprise_recovery_outcome_validation.py",
+    "backend/alembic/versions/0092_reg_exam_enterprise_recovery_outcome_validation.py",
+    "config/policies/regulatory-examination-enterprise-recovery-outcome-validation.yaml",
+    "sample-data/regulatory/enterprise_recovery_outcome_validation_scenarios.json",
+    "docs/regulatory-examination-enterprise-recovery-outcome-validation.md"
+  ]
+}

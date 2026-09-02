@@ -1,0 +1,60 @@
+{
+  "version": "security-baseline-2026.08-release108",
+  "classification_levels": [
+    "public",
+    "internal",
+    "confidential",
+    "phi_restricted",
+    "secret"
+  ],
+  "phi_rules": {
+    "raw_phi_in_logs": false,
+    "raw_phi_in_metrics": false,
+    "external_observability_requires_redaction": true,
+    "minimum_necessary_access": true
+  },
+  "encryption": {
+    "at_rest": "KMS-backed envelope encryption in production",
+    "in_transit": "TLS 1.2+; prefer TLS 1.3",
+    "key_rotation_days": 365,
+    "plaintext_data_keys_persisted": false
+  },
+  "rate_limits": {
+    "read_per_minute": 120,
+    "mutation_per_minute": 40
+  },
+  "retention": {
+    "destructive_execution_requires_human_approval": true,
+    "default_phi_days": 2555,
+    "audit_export_ttl_days": 7
+  },
+  "security_gate": {
+    "critical_findings_allowed": 0,
+    "high_findings_allowed": 0,
+    "secret_findings_allowed": 0,
+    "required_control_pass_rate": 1.0
+  },
+  "supply_chain": {
+    "sbom_format": "CycloneDX JSON",
+    "provenance": "SLSA-compatible build provenance",
+    "image_signing": "Sigstore Cosign keyless OIDC"
+  },
+  "release_security_certification": {
+    "release107_human_candidate_required": true,
+    "critical_findings_allowed": 0,
+    "high_findings_allowed": 0,
+    "secret_findings_allowed": 0,
+    "non_waivable": [
+      "cross_tenant_escape",
+      "authorization_bypass",
+      "secret_leak",
+      "phi_exfiltration",
+      "pii_exfiltration",
+      "audit_integrity_bypass",
+      "production_tool_privilege_escalation"
+    ],
+    "medium_low_waiver_max_days": 30,
+    "human_security_certification_required": true,
+    "production_promotion_separate": true
+  }
+}

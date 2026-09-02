@@ -1,0 +1,10 @@
+images:
+  api:
+    repository: ghcr.io/example/medclaimiq-api
+    digest: sha256:REPLACE_WITH_SIGNED_API_DIGEST
+  frontend:
+    repository: ghcr.io/example/medclaimiq-frontend
+    digest: sha256:REPLACE_WITH_SIGNED_FRONTEND_DIGEST
+release:
+  id: release-not-promoted
+  gitSha: REPLACE_GIT_SHA

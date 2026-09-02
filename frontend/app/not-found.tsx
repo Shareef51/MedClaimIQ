@@ -1,0 +1,3 @@
+import Link from "next/link";
+import { FileQuestion } from "lucide-react";
+export default function NotFound(){return <main className="min-h-screen grid place-items-center p-6"><section className="card max-w-lg p-7 text-center"><FileQuestion className="mx-auto h-10 w-10 text-sky-300" aria-hidden="true"/><h1 className="mt-4 text-2xl font-bold">Page not found</h1><p className="mt-2 text-sm text-slate-400">The requested MedClaimIQ route does not exist or is no longer available for this release.</p><div className="mt-5 flex justify-center gap-2"><Link href="/" className="btn btn-primary">Open my workspace</Link><Link href="/login" className="btn">Sign in</Link></div></section></main>}
